@@ -1,0 +1,19 @@
+{
+  "$id": "schemas/property/operation/type-installation",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Type de VMC double flux",
+  "type": "string",
+  "enum": ["INDIVIDUEL", "COLLECTIF"],
+  "attrs": {
+    "choices": [
+      {
+        "label": "Installation individuelle",
+        "value": "INDIVIDUEL"
+      },
+      {
+        "label": "Installation collective",
+        "value": "COLLECTIF"
+      }
+    ]
+  }
+}

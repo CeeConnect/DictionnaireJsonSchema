@@ -1,0 +1,21 @@
+{
+  "$id": "schemas/property/common/adresse",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/json-schema-draft/main/meta-schema",
+  "title": "Adresse",
+  "type": "object",
+  "properties": {
+    "ban_id": {
+      "title": "Identifiant de l'adresse dans la Base Adresse Nationale",
+      "type": "string"
+    },
+    "nom": {
+      "title": "Numéro éventuel et nom de voie ou lieu dit",
+      "type": "string"
+    },
+    "codeCommune": {
+      "title": "Code INSEE de la commune",
+      "type": "string"
+    }
+  },
+  "required": ["nom", "codeCommune"]
+}

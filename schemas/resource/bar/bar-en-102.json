@@ -1,0 +1,25 @@
+{
+  "$id": "schemas/resource/bar/bar-en-102",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BAR-EN-102",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "age":  {
+          "$ref": "schemas/property/batiment/age.json"
+        },
+        "type":  {
+          "$ref": "schemas/property/batiment/type.json"
+        }
+      },
+      "required": ["age", "type"]
+    },
+    "quantite": {
+      "$ref": "schemas/property/operation/surface-isolant.json"
+    }
+  },
+  "required": ["batiment", "quantite"]
+}

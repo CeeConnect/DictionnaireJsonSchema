@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/property/batiment/type-installation-chauffage",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Type d'installation de chauffage",
+  "type": "string",
+  "enum": ["INDIVIDUEL", "COLLECTIF"]
+}

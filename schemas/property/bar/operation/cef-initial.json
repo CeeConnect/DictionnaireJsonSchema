@@ -1,0 +1,10 @@
+{
+  "$id": "schemas/property/operation/cef-initial",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Consommation conventionnelle initiale",
+  "type": "number",
+  "minimum": 0,
+  "attrs": {
+    "unite": "kWh/m².an"
+  }
+}

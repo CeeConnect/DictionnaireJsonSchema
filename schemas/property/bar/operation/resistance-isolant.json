@@ -1,0 +1,10 @@
+{
+  "$id": "schemas/property/operation/resistance-isolant",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Résistance thermmique de l'isolant",
+  "type": "number",
+  "minimum": 0,
+  "attrs": {
+    "unit": "m2.K/W"
+  }
+}

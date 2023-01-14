@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/property/operation/scop",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Coefficient de performance saisonnier",
+  "type": "number",
+  "minimum": 0
+}

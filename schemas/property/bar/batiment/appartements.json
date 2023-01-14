@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/property/batiment/appartements",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nombre d'appartements",
+  "type": "integer",
+  "minimum": 0
+}

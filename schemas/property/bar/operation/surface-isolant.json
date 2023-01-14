@@ -1,0 +1,10 @@
+{
+  "$id": "schemas/property/operation/surface-isolant",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Surface d'isolant",
+  "type": "number",
+  "minimum": 0,
+  "attrs": {
+    "unit": "m²"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "$id": "schemas/resource/bar-th-137",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BAR-TH-137",
+  "version": "27.3",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "../../property/batiment/type.json",
+          "enum": ["MAISON", "IMMEUBLE"],
+          "options": [
+            {
+              "text": "Maison individuelle",
+              "value": "MAISON"
+            },
+            {
+              "text": "Immeuble collectif",
+              "value": "IMMEUBLE"
+            }
+          ]
+        },
+        "age": {
+          "$ref": "../../property/batiment/age.json"
+        }
+      },
+      "allOf": [{
+          "if": {
+            "properties": {
+              "type": {
+                "const": "MAISON"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "shab": {
+                "$ref": "../../property/batiment/shab.json"
+              }
+            },
+            "required": ["shab"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "IMMEUBLE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "logements": {
+                "$ref": "../../property/batiment/logements.json"
+              }
+            },
+            "required": ["logements"]
+          }
+        }
+      ],
+      "required": ["age", "type"]
+    }
+  },
+  "required": ["batiment"]
+}

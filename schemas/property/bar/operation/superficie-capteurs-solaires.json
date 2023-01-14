@@ -1,0 +1,10 @@
+{
+  "$id": "schemas/property/operation/superficie-capteurs-solaires",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Surface des capteurs solaires",
+  "type": "number",
+  "minimum": 0,
+  "attrs": {
+    "unit": "m²"
+  }
+}

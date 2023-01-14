@@ -1,0 +1,19 @@
+{
+  "$id": "schemas/property/operation/type-cesc",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Type de chauffe-eau solaire collectif",
+  "type": "string",
+  "enum": ["CESC", "CESCI"],
+  "attrs": {
+    "choices": [
+      {
+        "label": "Chauffe-eau solaire collectif à appoint centralisé (CESC)",
+        "value": "CESC"
+      },
+      {
+        "label": "Chauffe-eau solaire collectif à appoint individualisé (CESCI)",
+        "value": "CESCI"
+      }
+    ]
+  }
+}

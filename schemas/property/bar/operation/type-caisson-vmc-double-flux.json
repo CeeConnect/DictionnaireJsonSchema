@@ -1,0 +1,23 @@
+{
+  "$id": "schemas/property/operation/type-caisson-vmc-double-flux",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Type de caisson pour ventilation mécanique simple flux hygroréglable",
+  "type": "string",
+  "enum": ["BASSE_CONSOMMATION", "STANDARD", "BASSE_PRESSION"],
+  "attrs": {
+    "choices": [
+      {
+        "label": "Caisson basse consommation",
+        "value": "BASSE_CONSOMMATION"
+      },
+      {
+        "label": "Caisson standard",
+        "value": "STANDARD"
+      },
+      {
+        "label": "Caisson basse pression",
+        "value": "BASSE_PRESSION"
+      }
+    ]
+  }
+}

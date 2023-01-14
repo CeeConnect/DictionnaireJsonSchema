@@ -1,0 +1,10 @@
+{
+  "$id": "schemas/property/operation/production-solaire-utile",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Production solaire utile",
+  "type": "number",
+  "minimum": 0,
+  "attrs": {
+    "unit": "kWh/an"
+  }
+}
