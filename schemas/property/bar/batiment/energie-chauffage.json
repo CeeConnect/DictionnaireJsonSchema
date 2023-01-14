@@ -1,39 +1,37 @@
 {
   "$id": "schemas/property/batiment/energie-chauffage",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Energie de chauffage",
   "type": "string",
   "enum": ["ELECTRICITE", "GAZ_NATUREL", "FIOUL", "PAC", "BOIS", "GPL", "CHARBON"],
-  "attrs": {
-    "enum": [
-      {
-        "text": "Electricité",
-        "value": "ELECTRICITE"
-      },
-      {
-        "text": "Gaz naturel",
-        "value": "GAZ_NATUREL"
-      },
-      {
-        "text": "Fioul",
-        "value": "FIOUL"
-      },
-      {
-        "text": "Pompe à chaleur",
-        "value": "PAC"
-      },
-      {
-        "text": "Bois",
-        "value": "BOIS"
-      },
-      {
-        "text": "Gaz de pétrole liquéfié (GPL)",
-        "value": "GPL"
-      },
-      {
-        "text": "Charbon",
-        "value": "CHARBON"
-      }
-    ]
-  }
+  "options": [
+    {
+      "text": "Electricité",
+      "value": "ELECTRICITE"
+    },
+    {
+      "text": "Gaz naturel",
+      "value": "GAZ_NATUREL"
+    },
+    {
+      "text": "Fioul",
+      "value": "FIOUL"
+    },
+    {
+      "text": "Pompe à chaleur",
+      "value": "PAC"
+    },
+    {
+      "text": "Bois",
+      "value": "BOIS"
+    },
+    {
+      "text": "Gaz de pétrole liquéfié (GPL)",
+      "value": "GPL"
+    },
+    {
+      "text": "Charbon",
+      "value": "CHARBON"
+    }
+  ]
 }

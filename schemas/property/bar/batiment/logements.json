@@ -1,6 +1,6 @@
 {
   "$id": "schemas/property/batiment/logements",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Nombre de logements",
   "type": "integer",
   "minimum": 0

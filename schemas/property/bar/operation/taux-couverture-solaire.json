@@ -1,12 +1,10 @@
 {
   "$id": "schemas/property/operation/taux-couverture-solaire",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Taux de couverture solaire",
   "type": "number",
   "minimum": 0,
   "maximum": 1,
-  "attrs": {
-    "unite": "%",
-    "description": "Taux de couverture par l’énergie solaire de l’installation et issu de l’étude de dimensionnement."
-  }
+  "unite": "%",
+  "description": "Taux de couverture par l’énergie solaire de l’installation et issu de l’étude de dimensionnement."
 }

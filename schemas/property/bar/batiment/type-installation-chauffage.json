@@ -1,7 +1,17 @@
 {
   "$id": "schemas/property/batiment/type-installation-chauffage",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Type d'installation de chauffage",
   "type": "string",
-  "enum": ["INDIVIDUEL", "COLLECTIF"]
+  "enum": ["INDIVIDUEL", "COLLECTIF"],
+  "options": [
+    {
+      "text": "Installation individuelle",
+      "value": "INDIVIDUEL"
+    },
+    {
+      "text": "Installation collective",
+      "value": "COLLECTIF"
+    }
+  ]
 }

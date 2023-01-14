@@ -1,19 +1,17 @@
 {
   "$id": "schemas/property/operation/type-installation",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Type de VMC double flux",
   "type": "string",
   "enum": ["INDIVIDUEL", "COLLECTIF"],
-  "attrs": {
-    "choices": [
-      {
-        "label": "Installation individuelle",
-        "value": "INDIVIDUEL"
-      },
-      {
-        "label": "Installation collective",
-        "value": "COLLECTIF"
-      }
-    ]
-  }
+  "options": [
+    {
+      "label": "Installation individuelle",
+      "value": "INDIVIDUEL"
+    },
+    {
+      "label": "Installation collective",
+      "value": "COLLECTIF"
+    }
+  ]
 }

@@ -1,10 +1,8 @@
 {
   "$id": "schemas/property/operation/resistance-isolant",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Indice de de protection aux chocs",
   "type": "integer",
   "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  "attrs": {
-    "unit": "IK"
-  }
+  "unit": "IK"
 }

@@ -1,19 +1,17 @@
 {
   "$id": "schemas/property/operation/type-vmc-simple-flux",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Type de VMC simple flux",
   "type": "string",
   "enum": ["TYPE_A", "TYPE_B"],
-  "attrs": {
-    "choices": [
-      {
-        "label": "VMC hygroréglable type A",
-        "value": "TYPE_A"
-      },
-      {
-        "label": "VMC hygroréglable type B",
-        "value": "TYPE_B"
-      }
-    ]
-  }
+  "options": [
+    {
+      "label": "VMC hygroréglable type A",
+      "value": "TYPE_A"
+    },
+    {
+      "label": "VMC hygroréglable type B",
+      "value": "TYPE_B"
+    }
+  ]
 }

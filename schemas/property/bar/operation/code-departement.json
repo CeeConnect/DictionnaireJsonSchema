@@ -1,6 +1,6 @@
 {
   "$id": "schemas/property/operation/code-departement",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Code département du projet",
   "type": "string",
   "enum": [

@@ -1,6 +1,6 @@
 {
   "$id": "schemas/resource/bar-th-129",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "BAR-TH-129",
   "version": "27.3",
   "type": "object",
@@ -10,16 +10,16 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "schemas/property/batiment/type.json"
+          "$ref": "schemas/property/bar/batiment/type.json"
         },
         "age": {
-          "$ref": "schemas/property/batiment/age.json"
+          "$ref": "schemas/property/bar/batiment/age.json"
         }
       },
       "required": ["age", "type"]
     },
     "scop": {
-      "$ref": "schemas/property/operation/surface-isolant.json"
+      "$ref": "schemas/property/bar/operation/surface-isolant.json"
     }
   },
   "required": ["batiment", "scop"]

@@ -1,15 +1,21 @@
 {
   "$id": "schemas/property/batiment/type",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Type de logement",
   "type": "string",
   "enum": ["MAISON", "APPARTEMENT", "IMMEUBLE"],
-  "attrs": {
-    "enum": [
-      {
-        "text": "Maison individuelle",
-        "value": "MAISON"
-      }
-    ]
-  }
+  "options": [
+    {
+      "text": "Maison individuelle",
+      "value": "MAISON"
+    },
+    {
+      "text": "Appartement individuel",
+      "value": "APPARTEMENT"
+    },
+    {
+      "text": "Immeuble collectif",
+      "value": "IMMEUBLE"
+    }
+  ]
 }

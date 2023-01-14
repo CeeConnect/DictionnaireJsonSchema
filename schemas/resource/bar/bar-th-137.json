@@ -1,6 +1,6 @@
 {
   "$id": "schemas/resource/bar-th-137",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "BAR-TH-137",
   "version": "27.3",
   "type": "object",
@@ -10,7 +10,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "../../property/batiment/type.json",
+          "$ref": "schemas/property/bar/batiment/type.json",
           "enum": ["MAISON", "IMMEUBLE"],
           "options": [
             {
@@ -24,7 +24,7 @@
           ]
         },
         "age": {
-          "$ref": "../../property/batiment/age.json"
+          "$ref": "schema/property/bar/batiment/age.json"
         }
       },
       "allOf": [{
@@ -38,7 +38,7 @@
           "then": {
             "properties": {
               "shab": {
-                "$ref": "../../property/batiment/shab.json"
+                "$ref": "schema/property/bar/batiment/shab.json"
               }
             },
             "required": ["shab"]
@@ -55,7 +55,7 @@
           "then": {
             "properties": {
               "logements": {
-                "$ref": "../../property/batiment/logements.json"
+                "$ref": "schema/property/bar/batiment/logements.json"
               }
             },
             "required": ["logements"]

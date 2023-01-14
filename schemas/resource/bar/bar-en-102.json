@@ -1,6 +1,6 @@
 {
   "$id": "schemas/resource/bar/bar-en-102",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "BAR-EN-102",
   "type": "object",
   "properties": {
@@ -9,16 +9,16 @@
       "type": "object",
       "properties": {
         "age":  {
-          "$ref": "schemas/property/batiment/age.json"
+          "$ref": "schemas/property/bar/batiment/age.json"
         },
         "type":  {
-          "$ref": "schemas/property/batiment/type.json"
+          "$ref": "schemas/property/bar/batiment/type.json"
         }
       },
       "required": ["age", "type"]
     },
     "quantite": {
-      "$ref": "schemas/property/operation/surface-isolant.json"
+      "$ref": "schemas/property/bar/operation/surface-isolant.json"
     }
   },
   "required": ["batiment", "quantite"]

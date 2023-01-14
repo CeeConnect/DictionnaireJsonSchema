@@ -1,6 +1,6 @@
 {
   "$id": "schemas/property/operation/option-suivi-confort",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Option suivi de confort",
   "type": "boolean"
 }
