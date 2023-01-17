@@ -1,0 +1,8 @@
+{
+  "$id": "schemas/bar/batiment/surface-chauffee",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Surface chaufée par l'équipement",
+  "type": "number",
+  "unit": "m²",
+  "minimum": 0
+}
