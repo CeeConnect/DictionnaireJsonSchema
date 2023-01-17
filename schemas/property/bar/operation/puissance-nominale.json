@@ -1,8 +1,0 @@
-{
-  "$id": "schemas/property/operation/puissance-nominale",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
-  "title": "Puissance nominale",
-  "type": "number",
-  "minimum": 0,
-  "unit": "kW"
-}

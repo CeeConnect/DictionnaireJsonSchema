@@ -1,9 +1,0 @@
-{
-  "$id": "schemas/property/operation/etas",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
-  "title": "Efficacité énergétique saisonnière",
-  "type": "number",
-  "minimum": 0,
-  "maximum": 2,
-  "unite": "ηs%"
-}

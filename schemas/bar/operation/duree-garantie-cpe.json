@@ -1,0 +1,9 @@
+{
+  "$id": "schemas/bar/operation/duree-garantie-cpe",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Durée de garantie",
+  "description": "Durée de garantie du contrat de performance énergétique",
+  "type": "integer",
+  "minimum": 2,
+  "maximun": 10
+}

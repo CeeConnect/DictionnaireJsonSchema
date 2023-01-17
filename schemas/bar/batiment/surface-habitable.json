@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/bar/batiment/surface-habitable",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Surface habitable du bâtiment",
+  "type": "number",
+  "minimum": 0
+}

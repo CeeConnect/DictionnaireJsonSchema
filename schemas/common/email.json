@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/common/email",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Adresse email",
+  "type": "string",
+  "format": "email"
+}

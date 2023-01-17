@@ -1,0 +1,8 @@
+{
+  "$id": "schemas/bar/operation/q-chaleur-nette",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Chaleur nette unile produite",
+  "type": "number",
+  "minimum": 0,
+  "unit": "kWh/m².an"
+}

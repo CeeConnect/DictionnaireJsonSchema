@@ -1,0 +1,16 @@
+{
+  "$id": "schemas/bar/operation/type-chauffe-bain",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Type de chauffe bain",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "HAUT_RENDEMENT",
+      "title": "Chauffe bain à haut rendement"
+    },
+    {
+      "const": "CONDENSATION",
+      "title": "Chauffe bain à condensation"
+    }
+  ]
+}

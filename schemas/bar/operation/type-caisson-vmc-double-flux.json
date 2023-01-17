@@ -1,0 +1,21 @@
+{
+  "$id": "schemas/bar/operation/type-caisson-vmc-double-flux",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Type de caisson",
+  "description": "Type de caisson pour ventilation mécanique simple flux hygroréglable",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "BASSE_CONSOMMATION",
+      "title": "Caisson basse consommation"
+    },
+    {
+      "const": "STANDARD",
+      "title": "Caisson standard"
+    },
+    {
+      "const": "BASSE_PRESSION",
+      "title": "Caisson basse pression"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/common/fonction",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Fonction",
+  "type": "string",
+  "maxLength": 240
+}

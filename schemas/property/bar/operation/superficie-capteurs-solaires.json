@@ -1,8 +1,0 @@
-{
-  "$id": "schemas/property/operation/superficie-capteurs-solaires",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
-  "title": "Surface des capteurs solaires",
-  "type": "number",
-  "minimum": 0,
-  "unit": "m²"
-}

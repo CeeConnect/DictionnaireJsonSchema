@@ -1,8 +1,0 @@
-{
-  "$id": "schemas/property/batiment/age",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
-  "title": "Ancienneté du bâtiment",
-  "label": "Ancienneté",
-  "type": "integer",
-  "minimum": 0
-}

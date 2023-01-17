@@ -1,8 +1,0 @@
-{
-  "$id": "schemas/property/operation/cef-initial",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
-  "title": "Consommation conventionnelle initiale",
-  "type": "number",
-  "minimum": 0,
-  "unite": "kWh/m².an"
-}

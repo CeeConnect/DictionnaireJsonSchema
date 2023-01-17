@@ -1,8 +1,0 @@
-{
-  "$id": "schemas/property/operation/cef-projet",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
-  "title": "Consommation conventionnelle après travaux",
-  "type": "number",
-  "minimum": 0,
-  "unite": "kWh/m².an"
-}

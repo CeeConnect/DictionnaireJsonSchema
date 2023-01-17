@@ -1,0 +1,6 @@
+{
+  "$id": "schemas/bar/beneficiaire/menage-modeste",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Ménage modeste",
+  "type": "boolean"
+}

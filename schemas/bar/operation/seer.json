@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/bar/operation/seer",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Coefficient d'éfficacité énergétique saisonnier",
+  "type": "number",
+  "minimun": 5.1
+}

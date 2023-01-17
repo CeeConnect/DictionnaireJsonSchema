@@ -15,12 +15,14 @@
     ],
     "properties": {
         "label": {
+            "deprecated": true,
             "type": "string"
         },
         "unit": {
             "type": "string"
         },
         "options": {
+            "deprecated": true,
             "type": "array",
             "items": {
                 "type": "object",

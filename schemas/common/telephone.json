@@ -1,0 +1,8 @@
+{
+  "$id": "schemas/common/telephone",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Téléphone",
+  "type": "string",
+  "label": "Numéro de téléphone",
+  "pattern": "^(01|02|03|04|05|06|07|09)+[0-9]{8,8}$"
+}

@@ -1,0 +1,20 @@
+{
+  "$id": "schemas/bar/operation/zone-climatique",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Zone climatique",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "H1",
+      "title": "Zone climatique H1"
+    },
+    {
+      "const": "H2",
+      "title": "Zone climatique H2"
+    },
+    {
+      "const": "H3",
+      "title": "Zone climatique H3"
+    }
+  ]
+}

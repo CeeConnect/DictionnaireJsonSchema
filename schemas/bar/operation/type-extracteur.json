@@ -1,0 +1,16 @@
+{
+  "$id": "schemas/bar/operation/type-extracteur",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Type d'extracteur",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "STANDARD",
+      "title": "Extracteur standard"
+    },
+    {
+      "const": "BASSE_CONSOMMATION",
+      "title": "Extracteur basse consommation"
+    }
+  ]
+}

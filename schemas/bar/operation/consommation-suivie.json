@@ -1,0 +1,25 @@
+{
+  "$id": "schemas/bar/operation/consommation-suivie",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Nature des consommations suivies",
+  "type": "string",
+  "enum": [
+    "CHAUFFAGE_ELECTRIQUE",
+    "CHAUFFAGE_GAZ",
+    "ELECTRICITE_SPECIFIQUE"
+  ],
+  "oneOf": [
+    {
+      "const": "CHAUFFAGE_ELECTRIQUE",
+      "title": "Chauffage électrique"
+    },
+    {
+      "const": "CHAUFFAGE_GAZ",
+      "title": "Chauffage gaz"
+    },
+    {
+      "const": "ELECTRICITE_SPECIFIQUE",
+      "title": "Électricité spécifique"
+    }
+  ]
+}

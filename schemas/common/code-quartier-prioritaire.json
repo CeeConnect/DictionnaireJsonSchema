@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/common/code-quartier-prioritaire",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Code quartier prioritaire",
+  "type": "string",
+  "pattern": "^QP[0-9]*$"
+}

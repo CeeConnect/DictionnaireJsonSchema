@@ -1,0 +1,8 @@
+{
+  "$id": "schemas/bar/operation/puissance-totale-bar-th-150",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Puissance totale des pompes à chaleur collectives à absorption de type air/eau ou eau/eau installées",
+  "type": "number",
+  "minimum": 0,
+  "unit": "kW"
+}

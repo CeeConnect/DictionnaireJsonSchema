@@ -1,0 +1,16 @@
+{
+  "$id": "schemas/bar/operation/type-usage",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Type d'usage",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "CHAUFFAGE_ECS",
+      "title": "Chauffage et eau chaude sanitaire"
+    },
+    {
+      "const": "ECS",
+      "title": "Eau chaude sanitaire"
+    }
+  ]
+}

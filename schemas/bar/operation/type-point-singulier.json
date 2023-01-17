@@ -1,0 +1,16 @@
+{
+  "$id": "schemas/bar/operation/type-point-singulier",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Type de points singuliers",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "ECHANGEUR",
+      "title": "Echangeur à plaques"
+    },
+    {
+      "const": "HORS_ECHANGEUR",
+      "title": "Autres"
+    }
+  ]
+}

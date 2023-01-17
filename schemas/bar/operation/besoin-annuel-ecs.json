@@ -1,0 +1,8 @@
+{
+  "$id": "schemas/bar/operation/besoin-annuel-ecs",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Besoin annuel d'eau chaude sanitaire à produire par l’énergie solaire",
+  "type": "number",
+  "minimum": 0,
+  "unite": "kWh"
+}

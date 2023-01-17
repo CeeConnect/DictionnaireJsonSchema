@@ -1,0 +1,8 @@
+{
+  "$id": "schemas/bar/operation/t-fluide",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Température du fluide caloporteur",
+  "type": "number",
+  "minimun": 0,
+  "unit": "°C"
+}

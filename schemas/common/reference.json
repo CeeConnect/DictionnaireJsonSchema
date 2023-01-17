@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/common/reference",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Référence du produit",
+  "type": "string",
+  "maxLength": 240
+}

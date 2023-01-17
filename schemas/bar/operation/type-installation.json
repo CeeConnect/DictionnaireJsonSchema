@@ -1,0 +1,16 @@
+{
+  "$id": "schemas/bar/operation/type-installation",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Type d'installation",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "INDIVIDUEL",
+      "title": "Installation individuelle"
+    },
+    {
+      "const": "COLLECTIF",
+      "title": "Installation collective"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$id": "schemas/bar/operation/cef-initial",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Consommation conventionnelle avant travaux",
+  "type": "number",
+  "minimum": 0,
+  "unite": "kWh/m².an"
+}

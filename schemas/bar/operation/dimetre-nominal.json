@@ -1,0 +1,8 @@
+{
+  "$id": "schemas/bar/operation/dimetre-nominal",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Diamètre nominal",
+  "type": "number",
+  "minimun": 20,
+  "unit": "mm"
+}
