@@ -14,28 +14,8 @@
         {"$ref": "https://json-schema.org/draft/2020-12/schema"}
     ],
     "properties": {
-        "label": {
-            "deprecated": true,
-            "type": "string"
-        },
         "unit": {
             "type": "string"
-        },
-        "options": {
-            "deprecated": true,
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "text": {
-                        "type": "string"
-                    },
-                    "value": {
-                        "type": ["number", "string"]
-                    }
-                },
-                "required": ["text", "value"]
-            }
         }
     }
 }
