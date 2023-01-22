@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/consommation-suivie",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/consommation-suivie",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Nature des consommations suivies",
   "type": "string",

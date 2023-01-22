@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/batiment/surface-chauffee",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/surface-chauffee",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Surface chaufée par l'équipement",
   "type": "number",

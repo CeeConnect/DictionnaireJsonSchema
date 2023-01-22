@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/puissance-totale-bar-th-166",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/puissance-totale-bar-th-166",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Puissance totale des pompes à chaleur collectives de type air/eau ou eau/eau installées",
   "type": "number",

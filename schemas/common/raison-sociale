@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/common/raison-sociale",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/common/raison-sociale",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Raison sociale",
   "type": "string",

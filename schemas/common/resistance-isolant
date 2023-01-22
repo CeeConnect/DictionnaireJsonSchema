@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/common/resistance-isolant",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/common/resistance-isolant",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Résistance thermmique de l'isolant",
   "type": "number",

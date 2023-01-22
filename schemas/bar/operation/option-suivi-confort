@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/option-suivi-confort",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/option-suivi-confort",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Option suivi de confort",
   "type": "boolean"

@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/puissance-nominale",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/puissance-nominale",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Puissance nominale",
   "type": "number",

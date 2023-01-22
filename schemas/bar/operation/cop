@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/cop",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/cop",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Coefficient de performance énergétique",
   "type": "number",

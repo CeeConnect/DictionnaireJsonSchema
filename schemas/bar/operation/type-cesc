@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/type-cesc",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/type-cesc",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Type de chauffe-eau solaire collectif",
   "type": "string",

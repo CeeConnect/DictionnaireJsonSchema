@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/common/prenom",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/common/prenom",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Prénom",
   "type": "string",

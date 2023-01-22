@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/type-usage",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/type-usage",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Type d'usage",
   "type": "string",

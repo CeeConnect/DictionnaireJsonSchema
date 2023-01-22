@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/batiment/appartements",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/batiment/appartements",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Nombre d'appartements",
   "type": "integer",

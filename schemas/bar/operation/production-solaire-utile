@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/production-solaire-utile",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/production-solaire-utile",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Production solaire utile",
   "type": "number",

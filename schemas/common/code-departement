@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/common/code-departement",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/common/code-departement",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Département",
   "type": "string",

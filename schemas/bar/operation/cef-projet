@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/cef-projet",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/cef-projet",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Consommation conventionnelle après travaux",
   "type": "number",

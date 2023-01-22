@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/common/telephone",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/common/telephone",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Téléphone",
   "type": "string",

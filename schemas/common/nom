@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/common/nom",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/common/nom",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Nom de famille",
   "type": "string",

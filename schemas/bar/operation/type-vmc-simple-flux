@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/type-vmc-simple-flux",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/type-vmc-simple-flux",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Type de VMC simple flux",
   "type": "string",

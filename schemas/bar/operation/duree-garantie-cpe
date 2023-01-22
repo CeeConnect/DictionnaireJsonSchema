@@ -1,5 +1,5 @@
 {
-  "$id": "schemas/bar/operation/duree-garantie-cpe",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/duree-garantie-cpe",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Durée de garantie",
   "description": "Durée de garantie du contrat de performance énergétique",

@@ -1,7 +1,7 @@
 {
-  "$id": "schemas/bar/beneficiaire/menages",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/beneficiaire/menages",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Nombre de ménages",
-  "label": "Nombre total de ménages bénéficiaire de l'opération",
+  "description": "Nombre total de ménages bénéficiaire de l'opération",
   "type": "integer"
 }
