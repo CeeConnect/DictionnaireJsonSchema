@@ -3,5 +3,6 @@
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
   "title": "Surface habitable du bâtiment",
   "type": "number",
+  "unit": "m²",
   "minimum": 0
 }

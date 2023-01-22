@@ -31,6 +31,10 @@
     {
       "const": "CHARBON",
       "title": "Charbon"
+    },
+    {
+      "const": "ENR",
+      "title": "Énergies renouvelables"
     }
   ]
 }

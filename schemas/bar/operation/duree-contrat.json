@@ -1,0 +1,7 @@
+{
+  "$id": "schemas/property/operation/duree-contrat",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Durée du contrat",
+  "type": "integer",
+  "minimun": 1
+}
