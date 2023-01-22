@@ -1,0 +1,8 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/cef-bat",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Consommation d’énergie",
+  "description": "Consommation conventionnelle d’énergie du bâtiment exprimée en énergie final",
+  "type": "number",
+  "unite": "kWh/m².an"
+}

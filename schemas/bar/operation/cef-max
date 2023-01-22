@@ -1,0 +1,8 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/bar/operation/cef-max",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "title": "Consommation d'énergie maximale",
+  "description": "Consommation conventionnelle d’énergie maximale exprimée en énergie final",
+  "type": "number",
+  "unite": "kWh/m².an"
+}
