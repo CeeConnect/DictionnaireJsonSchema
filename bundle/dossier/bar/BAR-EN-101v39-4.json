@@ -11,6 +11,12 @@
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/bar/_common.json"
     },
     {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/bar/_marque-reference.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/bar/_installateur.json"
+    },
+    {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-101v39-4.json"
     }
   ],

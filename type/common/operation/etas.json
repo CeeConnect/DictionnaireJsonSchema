@@ -1,7 +1,6 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/operation/etas",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/etas",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "deprecated": true,
   "title": "Efficacité énergétique saisonnière",
   "type": "number",
   "minimum": 0,
