@@ -1,6 +1,6 @@
 {
   "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/prenom",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Prénom",
   "type": "string",
   "maxLength": 240
