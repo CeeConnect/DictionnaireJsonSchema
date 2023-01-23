@@ -2,14 +2,28 @@
   "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/bar/common",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "type": "object",
-  "unevaluatedProperties": false,
+  "description": "Partie A de l'attestation sur l'honneur",
   "properties": {
     "operation": {
       "properties": {
         "dateEngagement": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/date-engagement.json"
+        },
+        "dateRealisation": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/date-realisation.json"
+        },
+        "referenceFacture": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/reference-facture.json"
         }
-      }
+      },
+      "allOf": [
+        {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/adresse.json"
+        }
+      ],
+      "required": [
+        "dateEngagement"
+      ]
     },
     "nom": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/nom.json",

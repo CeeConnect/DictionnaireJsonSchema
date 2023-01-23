@@ -1,5 +1,7 @@
 # @CeeConnect - Dictionnaire JSON Schema
 
+⚠️ Développement en cours
+
 ## Spécification
 
 ### Utilisation

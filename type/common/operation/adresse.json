@@ -1,0 +1,26 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/adresse",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Adresse des travaux",
+  "type": "object",
+  "properties": {
+    "nom": {
+      "title": "Adresse",
+      "type": "string",
+      "maxLength": 240
+    },
+    "complement": {
+      "title": "Complément d'adresse",
+      "type": "string"
+    },
+    "codePostal": {
+      "title": "Code postal de la commune",
+      "type": "string"
+    },
+    "commune": {
+      "title": "Nom de la commune",
+      "type": "string"
+    }
+  },
+  "required": ["nom", "codePostal", "commune"]
+}
