@@ -1,6 +1,6 @@
 {
   "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/operation/quantite-isolant",
-  "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/quantite",
+  "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/quantite.json",
   "title": "Surface d'isolant",
   "unit": "m²"
 }
