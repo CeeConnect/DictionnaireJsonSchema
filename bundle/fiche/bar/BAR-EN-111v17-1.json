@@ -1,0 +1,54 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/resource/bar/BAR-TH-111",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-111",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/anciennete.json"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json",
+          "oneOf": [
+            {
+              "title": "Maison individuelle",
+              "const": "MAISON"
+            }
+          ]
+        },
+        "energieChauffage": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/energie-chauffage.json"
+        },
+        "surfaceHabitable": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/surface-habitable.json"
+        }
+      },
+      "required": [
+        "anciennete",
+        "type",
+        "energieChauffage",
+        "surfaceHabitable"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
+        }
+      },
+      "required": [
+        "codeDepartement"
+      ]
+    }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
+}

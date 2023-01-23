@@ -1,0 +1,84 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/resource/bar/BAR-TH-161",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-161",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json",
+          "oneOf": [
+            {
+              "const": "MAISON",
+              "title": "Maison individuelle"
+            },
+            {
+              "const": "IMMEUBLE",
+              "title": "Immeuble collectif"
+            }
+          ]
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/anciennete.json"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "typePointSingulier": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-point-singulier.json"
+        },
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
+        },
+        "quantite": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/quantite.json"
+        },
+        "temperatureFluide": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/temperature-fluide.json",
+          "minimun": 50
+        }
+      },
+      "required": [
+        "typePointSingulier",
+        "codeDepartement",
+        "quantite",
+        "temperatureFluide"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "typePointSingulier": {
+                "const": "HORS_ECHANGEUR"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "diametreNominal": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/diametre-nominal.json"
+              }
+            },
+            "required": [
+              "diametreNominal"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
+}

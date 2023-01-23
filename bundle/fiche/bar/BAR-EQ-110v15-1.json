@@ -1,0 +1,54 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/resource/bar/BAR-EQ-110",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EQ-110",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/anciennete.json"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json",
+          "oneOf": [
+            {
+              "title": "Maison individuelle",
+              "const": "MAISON"
+            },
+            {
+              "title": "Immeuble",
+              "const": "IMMEUBLE"
+            }
+          ]
+        }
+      },
+      "required": [
+        "anciennete",
+        "type"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "indiceProtectionChocs": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/indice-protection-chocs.json"
+        },
+        "quantite": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/quantite.json"
+        }
+      },
+      "required": [
+        "quantite",
+        "indiceProtectionChocs"
+      ]
+    }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
+}

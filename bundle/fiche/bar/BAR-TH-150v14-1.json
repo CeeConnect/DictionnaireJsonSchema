@@ -1,0 +1,105 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/resource/bar/BAR-TH-150",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-150",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json",
+          "const": "IMMEUBLE"
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/anciennete.json"
+        },
+        "logements": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/logements.json"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete",
+        "logements"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
+        },
+        "typeUsage": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-usage.json",
+          "oneOf": [
+            {
+              "const": "CHAUFFAGE",
+              "title": "Chauffage"
+            },
+            {
+              "const": "CHAUFFAGE_ECS",
+              "title": "Chauffage et eau chaude sanitaire"
+            }
+          ]
+        },
+        "puissanceNominale": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/puissance-nominale.json"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "puissanceNominale": {
+                "maximun": 400
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "etas": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/etas.json",
+                "minimun": 102
+              }
+            },
+            "required": [
+              "etas"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "puissanceNominale": {
+                "minimumExclusive": 400
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "cop": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/cop.json",
+                "minimun": 1.3
+              }
+            },
+            "required": [
+              "cop"
+            ]
+          }
+        }
+      ],
+      "required": [
+        "codeDepartement",
+        "typeUsage",
+        "puissanceNominale"
+      ]
+    }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
+}

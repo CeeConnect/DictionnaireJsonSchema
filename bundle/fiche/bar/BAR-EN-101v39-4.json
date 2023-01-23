@@ -1,0 +1,43 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/fiche/bar/BAR-EN-101v39-4",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-101",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "properties": {
+    "batiment": {
+      "title": "Bâtiment",
+      "type": "object",
+      "properties": {
+        "age": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/age.json"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json"
+        }
+      },
+      "required": [
+        "age",
+        "type"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "quantite": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/quantite.json",
+          "title": "Surface d'isolant",
+          "unit": "m²"
+        }
+      },
+      "required": [
+        "quantite"
+      ]
+    }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
+}

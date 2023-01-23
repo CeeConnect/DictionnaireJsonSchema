@@ -1,0 +1,83 @@
+{
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-137",
+  "version": "27.3",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "additionalProperties": false,
+  "properties": {
+    "batiment": {
+      "title": "Bâtiment",
+      "type": "object",
+      "properties": {
+        "age": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/age.json"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json",
+          "oneOf": [
+            {
+              "const": "MAISON",
+              "title": "Maison individuelle"
+            },
+            {
+              "const": "IMMEUBLE",
+              "title": "Immeuble collectif"
+            }
+          ]
+        }
+      },
+      "dependencies": {
+        "type": {
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "MAISON"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "surfaceHabitable": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/surface-habitable.json"
+                  }
+                },
+                "required": [
+                  "surfaceHabitable"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "IMMEUBLE"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "logements": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/logements.json"
+                  }
+                },
+                "required": [
+                  "logements"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "age",
+        "type"
+      ]
+    }
+  },
+  "required": [
+    "batiment"
+  ]
+}

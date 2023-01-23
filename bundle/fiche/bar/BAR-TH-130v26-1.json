@@ -1,0 +1,31 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/fiche/bar/BAR-TH-130",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-130",
+  "type": "object",
+  "properties": {
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "surfaceThermique": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/surface-thermique.json"
+        },
+        "cefBat": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/cef-bat.json"
+        },
+        "cefMax": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/cef-max.json"
+        }
+      },
+      "required": [
+        "surfaceThermique",
+        "cefBat",
+        "cefMax"
+      ]
+    }
+  },
+  "required": [
+    "operation"
+  ]
+}
