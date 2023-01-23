@@ -1,7 +1,7 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/date-achevement",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/date-realisation",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Date d'achèvement",
+  "title": "Date de réalisation",
   "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
   "type": "string",
   "format": "date"

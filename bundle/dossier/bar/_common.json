@@ -7,7 +7,7 @@
     "operation": {
       "properties": {
         "dateEngagement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/date-engagement.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/date-engagement.json"
         }
       }
     },
