@@ -1,0 +1,7 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/date-visite-prealable",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Date de début des travaux",
+  "type": "string",
+  "format": "date"
+}

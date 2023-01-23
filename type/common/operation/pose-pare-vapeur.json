@@ -1,7 +1,6 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/pare-vapeur",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/pose-pare-vapeur",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "deprecated": true,
   "title": "Mise en place d'un pare-vapeur",
   "type": "boolean",
   "minimum": 0

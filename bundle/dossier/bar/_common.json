@@ -1,0 +1,35 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/bar/common",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "type": "object",
+  "unevaluatedProperties": false,
+  "properties": {
+    "operation": {
+      "properties": {
+        "dateEngagement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/date-engagement.json"
+        }
+      }
+    },
+    "nom": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/nom.json",
+      "title": "Nom du signataire"
+    },
+    "prenom": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/prenom.json",
+      "title": "Prénom du signataire"
+    },
+    "raisonSociale": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/raison-sociale.json"
+    },
+    "siret": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siret.json"
+    }
+  },
+  "required": [
+    "nom",
+    "prenom",
+    "raisonSociale",
+    "siret"
+  ]
+}
