@@ -3,15 +3,13 @@
   "title": "BAR-TH-137",
   "version": "27.3",
   "type": "object",
-  "unevaluatedProperties": false,
-  "additionalProperties": false,
   "properties": {
     "batiment": {
       "title": "Bâtiment",
       "type": "object",
       "properties": {
-        "age": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/age.json"
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/anciennete.json"
         },
         "type": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json",
@@ -72,7 +70,7 @@
         }
       },
       "required": [
-        "age",
+        "anciennete",
         "type"
       ]
     }
