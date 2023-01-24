@@ -42,17 +42,17 @@
         },
         "surfacehauffee": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/surface-chauffee.json"
-        },
-        "required": [
-          "codeDepartement",
-          "etas",
-          "surfacehauffee"
-        ]
+        }
       },
       "required": [
-        "batiment",
-        "operation"
+        "codeDepartement",
+        "etas",
+        "surfacehauffee"
       ]
     }
-  }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
 }

@@ -36,11 +36,11 @@
       "properties": {
         "codeDepartement": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
-        },
-        "required": [
-          "codeDepartement"
-        ]
-      }
+        }
+      },
+      "required": [
+        "codeDepartement"
+      ]
     }
   },
   "required": [

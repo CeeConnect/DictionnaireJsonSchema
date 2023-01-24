@@ -42,17 +42,17 @@
         },
         "dureeContrat": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/duree-contrat.json"
-        },
-        "required": [
-          "codeDepartement",
-          "puissanceNominale",
-          "dureeContrat"
-        ]
+        }
       },
       "required": [
-        "batiment",
-        "operation"
+        "codeDepartement",
+        "puissanceNominale",
+        "dureeContrat"
       ]
     }
-  }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
 }

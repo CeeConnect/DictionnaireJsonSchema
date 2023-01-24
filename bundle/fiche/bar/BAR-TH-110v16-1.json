@@ -60,12 +60,12 @@
         },
         "quantite": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/quantite.json"
-        },
-        "required": [
-          "codeDepartement",
-          "quantite"
-        ]
-      }
+        }
+      },
+      "required": [
+        "codeDepartement",
+        "quantite"
+      ]
     }
   },
   "required": [
