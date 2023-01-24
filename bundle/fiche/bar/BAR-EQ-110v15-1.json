@@ -34,6 +34,9 @@
       "title": "Opération",
       "type": "object",
       "properties": {
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-metropole.json"
+        },
         "indiceProtectionChocs": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/indice-protection-chocs.json"
         },
@@ -42,6 +45,7 @@
         }
       },
       "required": [
+        "codeDepartement",
         "quantite",
         "indiceProtectionChocs"
       ]

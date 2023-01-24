@@ -31,7 +31,7 @@
       "type": "object",
       "properties": {
         "codeDepartement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-metropole.json"
         }
       },
       "required": [

@@ -24,6 +24,9 @@
       "title": "Opération",
       "type": "object",
       "properties": {
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-outre-mer.json"
+        },
         "quantite": {
           "title": "Surface de toiture protégée",
           "unit": "m²",
@@ -31,6 +34,7 @@
         }
       },
       "required": [
+        "codeDepartement",
         "quantite"
       ]
     }
