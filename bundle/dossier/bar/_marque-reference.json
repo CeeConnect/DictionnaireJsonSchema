@@ -5,38 +5,39 @@
   "properties": {
     "mentionMarqueReference": {
       "title": "Les marque et référence de l’équipement ou de l'isolant sont mentionnées sur la preuve de réalisation de l’opération",
-      "type": "boolean"
+      "type": "boolean",
+      "default": true
     }
   },
-  "dependencies": {
-    "mentionMarqueReference": {
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "mentionMarqueReference": {
-                "const": false
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "marque": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/marque.json"
-              },
-              "reference": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/reference.json"
-              }
-            },
-            "required": [
-              "marque",
-              "reference"
-            ]
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mentionMarqueReference": {
+            "const": false
           }
         }
-      ]
+      },
+      "then": {
+        "properties": {
+          "marque": {
+            "title": "Marque du produit",
+            "type": "string",
+            "maxLength": 240
+          },
+          "reference": {
+            "title": "Référence du produit",
+            "type": "string",
+            "maxLength": 240
+          }
+        },
+        "required": [
+          "marque",
+          "reference"
+        ]
+      }
     }
-  },
+  ],
   "required": [
     "mentionMarqueReference"
   ]

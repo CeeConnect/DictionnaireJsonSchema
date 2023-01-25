@@ -1,8 +1,0 @@
-{
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/operation/production-solaire-utile",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Production solaire utile",
-  "type": "number",
-  "minimum": 0,
-  "unit": "kWh/an"
-}

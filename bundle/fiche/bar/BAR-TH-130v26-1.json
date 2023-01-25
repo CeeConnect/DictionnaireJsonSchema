@@ -12,13 +12,23 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-metropole.json"
         },
         "surfaceThermique": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/surface-thermique.json"
+          "title": "Surface thermique",
+          "description": "Surface thermique du bâtiment au sens de la règlementation thermique",
+          "type": "number",
+          "unit": "m²",
+          "minimum": 0
         },
         "cefBat": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/cef-bat.json"
+          "title": "Consommation d’énergie",
+          "description": "Consommation conventionnelle d’énergie du bâtiment exprimée en énergie final",
+          "type": "number",
+          "unite": "kWh/m².an"
         },
         "cefMax": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/cef-max.json"
+          "title": "Consommation d'énergie maximale",
+          "description": "Consommation conventionnelle d’énergie maximale exprimée en énergie final",
+          "type": "number",
+          "unite": "kWh/m².an"
         }
       },
       "required": [

@@ -28,8 +28,11 @@
         "codeDepartement": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
         },
-        "superficieCapteursSolaires": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/superficie-capteurs-solaires.json"
+        "surfaceCapteursSolaires": {
+          "title": "Surface des capteurs solaires",
+          "type": "number",
+          "minimum": 0,
+          "unit": "m²"
         },
         "typeUsage": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-usage.json",

@@ -41,10 +41,12 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
         },
         "quantite": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/quantite.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/quantite.json"
         },
         "temperatureFluide": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/temperature-fluide.json",
+          "title": "Température du fluide caloporteur",
+          "type": "number",
+          "unit": "°C",
           "minimun": 50
         }
       },
@@ -66,7 +68,10 @@
           "then": {
             "properties": {
               "diametreNominal": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/diametre-nominal.json"
+                "title": "Diamètre nominal",
+                "type": "number",
+                "minimun": 20,
+                "unit": "mm"
               }
             },
             "required": [

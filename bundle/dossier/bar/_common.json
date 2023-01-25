@@ -7,10 +7,16 @@
     "operation": {
       "properties": {
         "dateEngagement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/date-engagement.json"
+          "title": "Date d'engagement",
+          "description": "Date de signature du devis ou du contrat",
+          "type": "string",
+          "format": "date"
         },
         "dateRealisation": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/date-realisation.json"
+          "title": "Date de réalisation",
+          "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
+          "type": "string",
+          "format": "date"
         },
         "referenceFacture": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/reference-facture.json"

@@ -40,12 +40,38 @@
         "indiceProtectionChocs": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/indice-protection-chocs.json"
         },
+        "luminaireDetecteurLumiere": {
+          "title": "Présence d'un détecteur de lumière",
+          "type": "boolean"
+        },
+        "luminaireDetecteurPresence": {
+          "title": "Présence d'un détecteur de présence",
+          "type": "boolean"
+        },
         "quantite": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/quantite.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/quantite.json"
         }
       },
+      "oneOf": [
+        {
+          "properties": {
+            "luminaireDetecteurLumiere": {
+              "const": true
+            }
+          }
+        },
+        {
+          "properties": {
+            "luminaireDetecteurPresence": {
+              "const": true
+            }
+          }
+        }
+      ],
       "required": [
         "codeDepartement",
+        "luminaireDetecteurLumiere",
+        "luminaireDetecteurPresence",
         "quantite",
         "indiceProtectionChocs"
       ]

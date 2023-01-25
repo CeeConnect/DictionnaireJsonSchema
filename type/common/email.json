@@ -1,7 +1,0 @@
-{
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/email",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Adresse email",
-  "type": "string",
-  "format": "email"
-}

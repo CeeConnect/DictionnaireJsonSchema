@@ -38,7 +38,11 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
         },
         "dureeGarantieCpe": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/duree-garantie-cpe.json"
+          "title": "Durée de garantie",
+          "description": "Durée de garantie du contrat de performance énergétique",
+          "type": "integer",
+          "minimum": 2,
+          "maximun": 10
         }
       },
       "required": [

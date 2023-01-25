@@ -4,5 +4,6 @@
   "title": "Chaleur nette unile produite",
   "type": "number",
   "minimum": 0,
-  "unit": "kWh/m².an"
+  "unit": "kWh/m².an",
+  "deprecated": true
 }

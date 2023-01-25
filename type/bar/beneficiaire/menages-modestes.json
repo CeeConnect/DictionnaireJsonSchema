@@ -3,5 +3,6 @@
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Nombre de ménages modestes",
   "description": "Nombre total de ménages modestes bénéficiaire de l'opération",
-  "type": "integer"
+  "type": "integer",
+  "deprecated": true
 }

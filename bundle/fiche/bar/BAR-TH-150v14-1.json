@@ -46,7 +46,7 @@
           ]
         },
         "puissanceNominale": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/puissance-nominale.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/puissance-nominale.json"
         }
       },
       "allOf": [
@@ -61,7 +61,7 @@
           "then": {
             "properties": {
               "etas": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/etas.json",
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/etas.json",
                 "minimun": 102
               }
             },
@@ -81,7 +81,8 @@
           "then": {
             "properties": {
               "cop": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/cop.json",
+                "title": "Coefficient de performance énergétique",
+                "type": "number",
                 "minimun": 1.3
               }
             },

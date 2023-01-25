@@ -3,11 +3,6 @@
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Nature des consommations suivies",
   "type": "string",
-  "enum": [
-    "CHAUFFAGE_ELECTRIQUE",
-    "CHAUFFAGE_GAZ",
-    "ELECTRICITE_SPECIFIQUE"
-  ],
   "oneOf": [
     {
       "const": "CHAUFFAGE_ELECTRIQUE",

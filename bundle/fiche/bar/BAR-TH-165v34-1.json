@@ -10,7 +10,12 @@
       "properties": {
         "type": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json",
-          "const": "IMMEUBLE"
+          "oneOf": [
+            {
+              "const": "IMMEUBLE",
+              "title": "Immeuble collectif"
+            }
+          ]
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
@@ -28,13 +33,13 @@
         "codeDepartement": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
         },
-        "qChaleurNette": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/q-chaleur-nette.json"
+        "puissanceNominale": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/puissance-nominale.json"
         }
       },
       "required": [
         "codeDepartement",
-        "qChaleurNette"
+        "puissanceNominale"
       ]
     }
   },

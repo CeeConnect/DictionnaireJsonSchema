@@ -1,7 +1,0 @@
-{
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/seer",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Coefficient d'éfficacité énergétique saisonnier",
-  "type": "number",
-  "minimun": 0
-}

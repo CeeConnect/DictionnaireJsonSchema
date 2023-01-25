@@ -33,7 +33,8 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
         },
         "cop": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/cop.json",
+          "title": "Coefficient de performance énergétique",
+          "type": "number",
           "minimum": 2.8
         }
       },

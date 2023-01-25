@@ -4,5 +4,6 @@
   "title": "Puissance totale des chaudières collectives à haute performance énergétique installées",
   "type": "number",
   "minimum": 0,
-  "unit": "kW"
+  "unit": "kW",
+  "deprecated": true
 }

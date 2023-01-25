@@ -133,7 +133,7 @@
           "operation": {
             "properties": {
               "surfaceChauffee": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/surface-chauffee.json"
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/surface-chauffee.json"
               }
             },
             "required": [

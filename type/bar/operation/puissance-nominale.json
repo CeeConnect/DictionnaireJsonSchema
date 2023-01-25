@@ -1,9 +1,0 @@
-{
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/operation/puissance-nominale",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "deprecated": true,
-  "title": "Puissance nominale",
-  "type": "number",
-  "minimum": 0,
-  "unit": "kW"
-}

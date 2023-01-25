@@ -13,7 +13,17 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
         },
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json",
+          "oneOf": [
+            {
+              "const": "MAISON",
+              "title": "Maison individuelle"
+            },
+            {
+              "const": "APPARTEMENT",
+              "title": "Appartement individuel"
+            }
+          ]
         }
       },
       "required": [
@@ -25,14 +35,25 @@
       "title": "Opération",
       "type": "object",
       "properties": {
-        "quantite": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/quantite.json",
-          "title": "Surface d'isolant",
-          "unit": "m²"
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
+        },
+        "scop": {
+          "title": "Coefficient de performance saisonnier",
+          "type": "number",
+          "minimum": 3.9
+        },
+        "surfaceChauffee": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/surface-chauffee.json",
+          "title": "Surface chauffée",
+          "description": "Surface exclusivement chauffée par la pompe à chaleur installée",
+          "minimum": 0
         }
       },
       "required": [
-        "quantite"
+        "codeDepartement",
+        "scop",
+        "surfaceChauffee"
       ]
     }
   },

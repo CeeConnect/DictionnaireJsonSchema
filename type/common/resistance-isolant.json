@@ -1,9 +1,0 @@
-{
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/resistance-isolant",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "deprecated": true,
-  "title": "Résistance thermmique de l'isolant",
-  "type": "number",
-  "minimum": 0,
-  "unit": "m2.K/W"
-}

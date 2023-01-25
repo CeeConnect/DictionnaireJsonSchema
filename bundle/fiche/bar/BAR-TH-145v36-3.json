@@ -10,7 +10,12 @@
       "properties": {
         "type": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json",
-          "const": "IMMEUBLE"
+          "oneOf": [
+            {
+              "const": "IMMEUBLE",
+              "title": "Immeuble collectif"
+            }
+          ]
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
@@ -33,10 +38,16 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-metropole.json"
         },
         "cefInitial": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/cef-initial.json"
+          "title": "Consommation conventionnelle avant travaux",
+          "type": "number",
+          "minimum": 0,
+          "unite": "kWh/m².an"
         },
         "cefProjet": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/cef-projet.json"
+          "title": "Consommation conventionnelle après travaux",
+          "type": "number",
+          "minimum": 0,
+          "unite": "kWh/m².an"
         }
       },
       "required": [

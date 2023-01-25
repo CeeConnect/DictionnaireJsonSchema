@@ -1,8 +1,0 @@
-{
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/date-engagement",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Date d'engagement",
-  "description": "Date de signature du devis ou du contrat",
-  "type": "string",
-  "format": "date"
-}

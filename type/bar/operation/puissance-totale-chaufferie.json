@@ -4,5 +4,6 @@
   "title": "Puissance totale de la chaufferie après travaux",
   "type": "number",
   "minimum": 0,
-  "unit": "kW"
+  "unit": "kW",
+  "deprecated": true
 }

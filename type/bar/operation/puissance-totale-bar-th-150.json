@@ -4,5 +4,6 @@
   "title": "Puissance totale des pompes à chaleur collectives à absorption de type air/eau ou eau/eau installées",
   "type": "number",
   "minimum": 0,
-  "unit": "kW"
+  "unit": "kW",
+  "deprecated": true
 }

@@ -1,9 +1,0 @@
-{
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/operation/puissance-frigorifique",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Puissance frigorifique",
-  "type": "number",
-  "minimun": 0,
-  "maximum": 2.64,
-  "unit": "BTU/h"
-}
