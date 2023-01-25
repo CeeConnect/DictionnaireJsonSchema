@@ -28,7 +28,10 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-outre-mer.json"
         },
         "resistanceIsolant": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/resistance-isolant.json"
+          "title": "Résistance thermmique de l'isolant",
+          "type": "number",
+          "minimum": 0.5,
+          "unit": "m2.K/W"
         },
         "quantite": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/quantite-isolant.json"
