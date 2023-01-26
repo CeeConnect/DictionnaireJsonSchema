@@ -135,7 +135,7 @@
   ],
   "$defs": {
     "type": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/personnalite-juridique.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/beneficiaire/type.json"
     }
   },
   "required": [
