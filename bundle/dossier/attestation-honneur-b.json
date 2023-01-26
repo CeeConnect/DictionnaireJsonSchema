@@ -40,7 +40,9 @@
     {
       "if": {
         "properties": {
-          "const": "PERSONNE_PHYSIQUE"
+          "nature": {
+            "const": "PERSONNE_PHYSIQUE"
+          }
         }
       },
       "then": {
@@ -79,7 +81,9 @@
     {
       "if": {
         "properties": {
-          "const": "PERSONNE_MORALE"
+          "nature": {
+            "const": "PERSONNE_MORALE"
+          }
         }
       },
       "then": {
