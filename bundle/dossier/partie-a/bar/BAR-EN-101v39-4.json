@@ -4,6 +4,9 @@
   "title": "BAR-EN-101",
   "type": "object",
   "properties": {
+    "batiment": {
+      "$ref": "#/$defs/fiche/properties/batiment"
+    },
     "operation": {
       "properties": {
         "dateVisitePrealable": {
@@ -17,37 +20,16 @@
           "type": "string",
           "format": "date"
         },
-        "installateur": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
+        "typePoseIsolant": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-pose-isolant.json"
         }
       },
       "allOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_marque-reference.json"
+          "$ref": "#/$defs/fiche/properties/operation"
         },
         {
-          "if": {
-            "typePoseIsolant": {
-              "const": "COMBLES_PERDUS"
-            }
-          },
-          "then": {
-            "resistanceIsolant": {
-              "minimum": 7
-            }
-          }
-        },
-        {
-          "if": {
-            "typePoseIsolant": {
-              "const": "RAMPANT_TOITURES"
-            }
-          },
-          "then": {
-            "resistanceIsolant": {
-              "minimum": 6
-            }
-          }
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
         }
       ],
       "required": [
@@ -56,13 +38,10 @@
       ]
     }
   },
-  "allOf": [
-    {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
-    },
-    {
+  "$defs": {
+    "fiche": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-101v39-4.json"
     }
-  ],
+  },
   "required": []
 }

@@ -2,43 +2,30 @@
   "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/partie-a/bar/common",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "type": "object",
-  "description": "Partie A de l'attestation sur l'honneur",
   "properties": {
-    "operation": {
-      "properties": {
-        "dateEngagement": {
-          "title": "Date d'engagement",
-          "description": "Date de signature du devis ou du contrat",
-          "type": "string",
-          "format": "date"
-        },
-        "dateRealisation": {
-          "title": "Date de réalisation",
-          "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
-          "type": "string",
-          "format": "date"
-        },
-        "referenceFacture": {
-          "title": "Référence de la facture",
-          "type": "string",
-          "maxLength": 240
-        },
-        "typePoseIsolant": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-pose-isolant.json"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/adresse.json"
-        }
-      ],
-      "required": [
-        "dateEngagement",
-        "typePoseIsolant"
-      ]
+    "dateEngagement": {
+      "title": "Date d'engagement",
+      "description": "Date de signature du devis ou du contrat",
+      "type": "string",
+      "format": "date"
+    },
+    "dateRealisation": {
+      "title": "Date de réalisation",
+      "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
+      "type": "string",
+      "format": "date"
+    },
+    "referenceFacture": {
+      "title": "Référence de la facture",
+      "type": "string",
+      "maxLength": 240
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/adresse.json"
     }
   },
   "required": [
-    "operation"
+    "dateEngagement",
+    "adresse"
   ]
 }

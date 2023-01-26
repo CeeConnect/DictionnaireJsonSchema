@@ -8,6 +8,9 @@
     "nature": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/personnalite-juridique.json"
     },
+    "type": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/beneficiaire/type.json"
+    },
     "nom": {
       "title": "Nom",
       "description": "Nom de famille du signataire de l'attestation sur l'honneur",
@@ -48,7 +51,6 @@
       "then": {
         "properties": {
           "type": {
-            "$ref": "#/$defs/type",
             "oneOf": [
               {
                 "const": "PROPRIETAIRE_UNIQUE",
@@ -89,7 +91,6 @@
       "then": {
         "properties": {
           "type": {
-            "$ref": "#/$defs/type",
             "oneOf": [
               {
                 "const": "PROPRIETAIRE_UNIQUE",
@@ -133,11 +134,6 @@
       }
     }
   ],
-  "$defs": {
-    "type": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/beneficiaire/type.json"
-    }
-  },
   "required": [
     "nature",
     "nom",
