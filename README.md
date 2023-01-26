@@ -17,12 +17,18 @@
 
 ### Arborescence
 
-- type
-    - common: Propriétés communes
-    - \[secteur]: Propriétés propres au secteur d'application de la fiche
-- bundle
-    - common: Propriétés communes
-    - \[secteur]: Propriétés propres au secteur d'application de la fiche
+- **type**: Schémas incrustables
+    - **common**: Propriétés communes
+    - **\[secteur]**: Subdivision par secteur d'application des fiches d'opération standardisée
+        - **\[scope]**: Subdivision par périmètre de la donnée
+- **bundle**: Schémas composés
+    - **controle**: Schémas applicables aux contrôles des opérations standardisées
+        - **\[secteur]**: Subdivision par secteur d'application des fiches d'opération standardisée
+    - **dossier**: Schémas applicables aux attestations sur l'honneur et pièces justificatives
+        - **partie-a**: Schémas applicables aux parties A des attestations sur l'honneur
+            - **\[secteur]**: Subdivision par secteur d'application des fiches d'opération standardisée
+    - **fiche**: Schémas applicables aux calcules des volumes de CEE délivrables par opération standardisée
+        - **\[secteur]**: Subdivision par secteur d'application des fiches d'opération standardisée
 
 ### Référence
 

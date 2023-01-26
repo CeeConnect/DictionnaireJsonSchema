@@ -16,8 +16,40 @@
           "title": "Date de début des travaux",
           "type": "string",
           "format": "date"
+        },
+        "installateur": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/bar/_installateur.json"
         }
       },
+      "allOf": [
+        {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/bar/_marque-reference.json"
+        },
+        {
+          "if": {
+            "typePoseIsolant": {
+              "const": "COMBLES_PERDUS"
+            }
+          },
+          "then": {
+            "resistanceIsolant": {
+              "minimum": 7
+            }
+          }
+        },
+        {
+          "if": {
+            "typePoseIsolant": {
+              "const": "RAMPANT_TOITURES"
+            }
+          },
+          "then": {
+            "resistanceIsolant": {
+              "minimum": 6
+            }
+          }
+        }
+      ],
       "required": [
         "dateVisitePrealable",
         "dateDebut"
@@ -27,12 +59,6 @@
   "allOf": [
     {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/bar/_common.json"
-    },
-    {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/bar/_marque-reference.json"
-    },
-    {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/bar/_installateur.json"
     },
     {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-101v39-4.json"

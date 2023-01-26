@@ -35,11 +35,19 @@
         },
         "puissanceNominale": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/puissance-nominale.json"
+        },
+        "quantiteChaleurNette": {
+          "title": "Chaleur produite par la chaudière",
+          "description": "Chaleur nette utile produite par la chaudière issue de l'étude de dimensionnement préalable à la réalisation des travaux",
+          "type": "number",
+          "minimum": 0,
+          "unit": "kWh/an"
         }
       },
       "required": [
         "codeDepartement",
-        "puissanceNominale"
+        "puissanceNominale",
+        "quantiteChaleurNette"
       ]
     }
   },

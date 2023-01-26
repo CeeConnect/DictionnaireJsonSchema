@@ -19,7 +19,12 @@
           "format": "date"
         },
         "referenceFacture": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/reference-facture.json"
+          "title": "Référence de la facture",
+          "type": "string",
+          "maxLength": 240
+        },
+        "typePoseIsolant": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-pose-isolant.json"
         }
       },
       "allOf": [
@@ -30,20 +35,6 @@
       "required": [
         "dateEngagement"
       ]
-    },
-    "nom": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/nom.json",
-      "title": "Nom du signataire"
-    },
-    "prenom": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/prenom.json",
-      "title": "Prénom du signataire"
-    },
-    "raisonSociale": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/raison-sociale.json"
-    },
-    "siret": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siret.json"
     }
   },
   "required": [
