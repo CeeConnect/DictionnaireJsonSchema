@@ -1,0 +1,36 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/operation/type-usage",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Type d'usage",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "PROPRIETAIRE_UNIQUE",
+      "title": "Propriétaire unique"
+    },
+    {
+      "const": "COPROPRIETAIRE",
+      "title": "Copropriétaire des équipements"
+    },
+    {
+      "const": "MAITRE_OUVRAGE",
+      "title": "Maître d'ouvrage"
+    },
+    {
+      "const": "OCCUPANT_FINANCEUR",
+      "title": "Occupant financeur"
+    },
+    {
+      "const": "INDIVISAIRE",
+      "title": "Indivisaire"
+    },
+    {
+      "const": "SYNDIC_COPROPRIETE",
+      "title": "Syndic de copropriété"
+    },
+    {
+      "const": "COLLECTIVITE_AFFECTATAIRE",
+      "title": "Collectivité affectataire"
+    }
+  ]
+}
