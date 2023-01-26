@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/partie-b/bar/BAR-EN-101v39-4",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/partie-a/bar/BAR-EN-101v39-4",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-EN-101",
   "type": "object",
@@ -18,12 +18,12 @@
           "format": "date"
         },
         "installateur": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-b/bar/_installateur.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
         }
       },
       "allOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-b/bar/_marque-reference.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_marque-reference.json"
         },
         {
           "if": {
@@ -58,7 +58,7 @@
   },
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-b/bar/_common.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
     },
     {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-101v39-4.json"
