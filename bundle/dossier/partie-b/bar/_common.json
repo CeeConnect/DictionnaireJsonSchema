@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/bar/common",
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/partie-b/bar/common",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "type": "object",
   "description": "Partie A de l'attestation sur l'honneur",
@@ -33,14 +33,12 @@
         }
       ],
       "required": [
-        "dateEngagement"
+        "dateEngagement",
+        "typePoseIsolant"
       ]
     }
   },
   "required": [
-    "nom",
-    "prenom",
-    "raisonSociale",
-    "siret"
+    "operation"
   ]
 }
