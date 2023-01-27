@@ -1,47 +1,56 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/partie-a/bar/BAR-EN-101v39-4",
+  "$id": "https://ceeconnect.com/schemas/bundle/dossier/partie-a/bar/BAR-EN-101",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-EN-101",
   "type": "object",
   "properties": {
-    "batiment": {
-      "$ref": "#/$defs/fiche/properties/batiment"
-    },
-    "operation": {
-      "properties": {
-        "dateVisitePrealable": {
-          "title": "Date de visite préalable",
-          "description": "Date de la visite préalable du bâtiment où ont eu lieu les travaux",
-          "type": "string",
-          "format": "date"
-        },
-        "dateDebut": {
-          "title": "Date de début des travaux",
-          "type": "string",
-          "format": "date"
-        },
-        "typePoseIsolant": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-pose-isolant.json"
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/$defs/fiche/properties/operation"
-        },
-        {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
-        }
-      ],
-      "required": [
-        "dateVisitePrealable",
-        "dateDebut"
-      ]
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
     }
   },
   "$defs": {
-    "fiche": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-101v39-4.json"
+    "main": {
+      "properties": {
+        "operation": {
+          "properties": {
+            "dateVisitePrealable": {
+              "title": "Date de visite préalable",
+              "description": "Date de la visite préalable du bâtiment où ont eu lieu les travaux",
+              "type": "string",
+              "format": "date"
+            },
+            "dateDebut": {
+              "title": "Date de début des travaux",
+              "type": "string",
+              "format": "date"
+            },
+            "typePoseIsolant": {
+              "$id": "https://ceeconnect.com/schemas/bundle/dossier/partie-a/bar/BAR-EN-101/operation/type-pose-isolant",
+              "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-pose-isolant.json"
+            }
+          },
+          "required": [
+            "dateVisitePrealable",
+            "dateDebut",
+            "typePoseIsolant"
+          ]
+        }
+      }
     }
   },
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-101v39-4.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_isolation.json"
+    },
+    {
+      "$ref": "#/$defs/main"
+    }
+  ],
   "required": []
 }

@@ -2,75 +2,79 @@
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "type": "object",
   "properties": {
-    "epaisseurIsolant": {
-      "title": "Epaisseur de l'isolant",
-      "type": "number",
-      "minimum": 0,
-      "unit": "mm"
-    },
-    "resistanceIsolant": {
-      "title": "Résistance thermmique de l'isolant",
-      "type": "number",
-      "minimum": 0,
-      "unit": "m2.K/W"
-    },
-    "posePareVapeur": {
-      "title": "Mise en place d'un pare-vapeur",
-      "description": "L’isolation thermique réalisée a nécessité la mise en place d’un pare-vapeur ou tout autre dispositif permettant d'atteindre un résultat équivalent",
-      "type": "boolean"
-    },
-    "mentionMarqueReference": {
-      "title": "Les marque et référence de l'isolant sont mentionnées sur la preuve de réalisation de l’opération",
-      "type": "boolean",
-      "default": true
-    }
-  },
-  "allOf": [
-    {
-      "if": {
-        "properties": {
-          "mentionMarqueReference": {
-            "const": false
-          }
+    "operation": {
+      "properties": {
+        "epaisseurIsolant": {
+          "title": "Epaisseur de l'isolant",
+          "type": "number",
+          "minimum": 0,
+          "unit": "mm"
+        },
+        "resistanceIsolant": {
+          "title": "Résistance thermmique de l'isolant",
+          "type": "number",
+          "minimum": 0,
+          "unit": "m2.K/W"
+        },
+        "posePareVapeur": {
+          "title": "Mise en place d'un pare-vapeur",
+          "description": "L’isolation thermique réalisée a nécessité la mise en place d’un pare-vapeur ou tout autre dispositif permettant d'atteindre un résultat équivalent",
+          "type": "boolean"
+        },
+        "mentionMarqueReference": {
+          "title": "Les marque et référence de l'isolant sont mentionnées sur la preuve de réalisation de l’opération",
+          "type": "boolean",
+          "default": true
         }
       },
-      "then": {
-        "properties": {
-          "liste": {
-            "title": "",
-            "description": "Dans le cas d’une pose superposée de plusieurs isolants, indiquer les marques et références de chacun des isolants posés",
-            "type": "array",
-            "items": {
-              "type": "object",
-              "minContains": 1,
-              "properties": {
-                "marque": {
-                  "title": "Marque du produit",
-                  "type": "string",
-                  "maxLength": 240
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mentionMarqueReference": {
+                "const": false
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "liste": {
+                "title": "",
+                "description": "Dans le cas d’une pose superposée de plusieurs isolants, indiquer les marques et références de chacun des isolants posés",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "minContains": 1,
+                  "properties": {
+                    "marque": {
+                      "title": "Marque du produit",
+                      "type": "string",
+                      "maxLength": 240
+                    },
+                    "reference": {
+                      "title": "Référence du produit",
+                      "type": "string",
+                      "maxLength": 240
+                    }
+                  },
+                  "required": [
+                    "marque",
+                    "reference"
+                  ]
                 },
-                "reference": {
-                  "title": "Référence du produit",
-                  "type": "string",
-                  "maxLength": 240
-                }
-              },
-              "required": [
-                "marque",
-                "reference"
-              ]
-            },
-            "required": [
-              "liste"
-            ]
+                "required": [
+                  "liste"
+                ]
+              }
+            }
           }
         }
-      }
+      ],
+      "required": [
+        "epaisseurIsolant",
+        "resistanceIsolant",
+        "posePareVapeur"
+      ]
     }
-  ],
-  "required": [
-    "epaisseurIsolant",
-    "resistanceIsolant",
-    "posePareVapeur"
-  ]
+  }
 }
