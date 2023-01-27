@@ -8,9 +8,6 @@
       "title": "Logement",
       "type": "object",
       "properties": {
-        "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/type.json"
-        },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
         }
@@ -25,7 +22,7 @@
       "type": "object",
       "properties": {
         "codeDepartement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-metropole.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
         },
         "typeInstallation": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-installation.json"
@@ -37,6 +34,48 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-caisson-vmc.json"
         }
       },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "typeInstallation": {
+                "const": "INDIVIDUEL"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "typeCaissonVmc": {
+                "oneOf": [
+                  {
+                    "const": "BASSE_CONSOMMATION",
+                    "title": "Caisson basse consommation"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "typeInstallation": {
+                "const": "COLLECTIF"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "logements": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/logements.json"
+              }
+            },
+            "required": [
+              "logements"
+            ]
+          }
+        }
+      ],
       "required": [
         "codeDepartement",
         "typeInstallation",
@@ -68,45 +107,6 @@
             },
             "required": [
               "surfaceHabitable"
-            ]
-          },
-          "operation": {
-            "properties": {
-              "typeCaissonVmc": {
-                "oneOf": [
-                  {
-                    "const": "BASSE_CONSOMMATION",
-                    "title": "Caisson basse consommation"
-                  }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    {
-      "if": {
-        "properties": {
-          "operation": {
-            "properties": {
-              "typeInstallation": {
-                "const": "COLLECTIF"
-              }
-            }
-          }
-        }
-      },
-      "then": {
-        "properties": {
-          "batiment": {
-            "properties": {
-              "logements": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/logements.json"
-              }
-            },
-            "required": [
-              "logements"
             ]
           }
         }
