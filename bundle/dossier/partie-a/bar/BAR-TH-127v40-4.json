@@ -4,69 +4,24 @@
   "title": "BAR-TH-127",
   "type": "object",
   "properties": {
-    "installateur": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
-    }
-  },
-  "$defs": {
-    "main": {
+    "operation": {
       "properties": {
-        "operation": {
-          "properties": {
-            "referenceAvisTechnique": {
-              "title": "Référence de l'avis technique",
-              "type": "string"
-            },
-            "dureeValiditéAvisTechnique": {
-              "title": "Durée de validité de l'avis technique",
-              "type": "integer"
-            }
-          },
-          "required": [
-            "referenceAvisTechnique",
-            "dureeValiditéAvisTechnique"
-          ]
+        "referenceAvisTechnique": {
+          "title": "Référence de l'avis technique",
+          "type": "string"
+        },
+        "dureeValiditéAvisTechnique": {
+          "title": "Durée de validité de l'avis technique",
+          "type": "integer"
         }
       },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "operation": {
-                "properties": {
-                  "typeInstallation": {
-                    "const": "INDIVIDUEL"
-                  }
-                }
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "operation": {
-                "properties": {
-                  "classeEnergetique": {
-                    "type": "string",
-                    "oneOf": [
-                      {
-                        "const": "A+",
-                        "title": "A+"
-                      },
-                      {
-                        "const": "A",
-                        "title": "A"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "classeEnergetique"
-                ]
-              }
-            }
-          }
-        }
+      "required": [
+        "referenceAvisTechnique",
+        "dureeValiditéAvisTechnique"
       ]
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
     }
   },
   "allOf": [
@@ -77,7 +32,42 @@
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
     },
     {
-      "$ref": "#/$defs/main"
+      "if": {
+        "properties": {
+          "operation": {
+            "properties": {
+              "typeInstallation": {
+                "const": "INDIVIDUEL"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "operation": {
+            "properties": {
+              "classeEnergetique": {
+                "title": "Classe énergie",
+                "type": "string",
+                "oneOf": [
+                  {
+                    "const": "A+",
+                    "title": "A+"
+                  },
+                  {
+                    "const": "A",
+                    "title": "A"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "classeEnergetique"
+            ]
+          }
+        }
+      }
     }
   ],
   "required": []
