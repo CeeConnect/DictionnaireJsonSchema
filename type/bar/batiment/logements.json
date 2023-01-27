@@ -3,5 +3,6 @@
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Nombre de logements",
   "type": "integer",
-  "minimum": 0
+  "minimum": 0,
+  "deprecated": true
 }
