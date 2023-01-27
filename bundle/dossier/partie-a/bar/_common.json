@@ -3,29 +3,37 @@
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "type": "object",
   "properties": {
-    "dateEngagement": {
-      "title": "Date d'engagement",
-      "description": "Date de signature du devis ou du contrat",
-      "type": "string",
-      "format": "date"
-    },
-    "dateRealisation": {
-      "title": "Date de réalisation",
-      "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
-      "type": "string",
-      "format": "date"
-    },
-    "referenceFacture": {
-      "title": "Référence de la facture",
-      "type": "string",
-      "maxLength": 240
-    },
     "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/adresse.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/adresse.json"
+    },
+    "operation": {
+      "type": "object",
+      "properties": {
+        "dateEngagement": {
+          "title": "Date d'engagement",
+          "description": "Date de signature du devis ou du contrat",
+          "type": "string",
+          "format": "date"
+        },
+        "dateRealisation": {
+          "title": "Date de réalisation",
+          "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
+          "type": "string",
+          "format": "date"
+        },
+        "referenceFacture": {
+          "title": "Référence de la facture",
+          "type": "string",
+          "maxLength": 240
+        }
+      },
+      "required": [
+        "dateEngagement"
+      ]
     }
   },
   "required": [
-    "dateEngagement",
-    "adresse"
+    "adresse",
+    "operation"
   ]
 }

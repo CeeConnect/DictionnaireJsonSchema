@@ -8,6 +8,40 @@
   "allOf": [
     {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-TH-127v40-4.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "type": "object",
+          "properties": {
+            "dateEngagement": {
+              "title": "Date d'engagement",
+              "description": "Date de signature du devis ou du contrat",
+              "type": "string",
+              "format": "date"
+            },
+            "dateRealisation": {
+              "title": "Date de réalisation",
+              "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
+              "type": "string",
+              "format": "date"
+            },
+            "referenceFacture": {
+              "title": "Référence de la facture",
+              "type": "string",
+              "maxLength": 240
+            },
+            "adresse": {
+              "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/adresse.json"
+            }
+          }
+        }
+      },
+      "required": [
+        "dateEngagement",
+        "adresse"
+      ]
     }
   ],
   "required": []
