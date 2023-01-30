@@ -30,6 +30,61 @@
       "required": [
         "facteurSolaire",
         "typeToiture"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "propeties": {
+              "codeDepartement": {
+                "oneOf": [
+                  {
+                    "const": "971",
+                    "title": "Guadeloupe"
+                  },
+                  {
+                    "const": "972",
+                    "title": "Martinique"
+                  },
+                  {
+                    "const": "973",
+                    "title": "Guyane"
+                  },
+                  {
+                    "const": "974",
+                    "title": "La Réunion"
+                  }
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "facteurSolaire": {
+                "title": "Facteur solaire Sw",
+                "type": "number",
+                "maximum": 0.3
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "codeDepartement": {
+                "const": "976"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "facteurSolaire": {
+                "title": "Facteur solaire Sw",
+                "type": "number",
+                "maximum": 0.2
+              }
+            }
+          }
+        }
       ]
     },
     "installateur": {
@@ -38,90 +93,7 @@
   },
   "allOf": [
     {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-109v24-1.json",
-      "allOf": [
-        {
-          "if": {
-            "propeties": {
-              "operation": {
-                "properties": {
-                  "codeDepartementOutreMer": {
-                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/code-departement-outre-mer",
-                    "title": "Département",
-                    "type": "string",
-                    "oneOf": [
-                      {
-                        "const": "971",
-                        "title": "Guadeloupe"
-                      },
-                      {
-                        "const": "972",
-                        "title": "Martinique"
-                      },
-                      {
-                        "const": "973",
-                        "title": "Guyane"
-                      },
-                      {
-                        "const": "974",
-                        "title": "La Réunion"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "codeDepartementOutreMer"
-                ]
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "operation": {
-                "properties": {
-                  "facteurSolaire": {
-                    "title": "Facteur solaire Sw",
-                    "type": "number",
-                    "maximum": 0.3
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "propeties": {
-              "operation": {
-                "properties": {
-                  "codeDepartementOutreMer": {
-                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/code-departement-outre-mer",
-                    "title": "Département",
-                    "type": "string",
-                    "const": "976"
-                  }
-                },
-                "required": [
-                  "codeDepartementOutreMer"
-                ]
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "operation": {
-                "properties": {
-                  "facteurSolaire": {
-                    "title": "Facteur solaire Sw",
-                    "type": "number",
-                    "maximum": 0.2
-                  }
-                }
-              }
-            }
-          }
-        }
-      ]
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-109v24-1.json"
     },
     {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"

@@ -11,6 +11,11 @@
       "maxLength": 240
     },
     "siren": {
+      "$ref": "#/$defs/siren"
+    }
+  },
+  "$defs": {
+    "siren": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siren.json"
     }
   },

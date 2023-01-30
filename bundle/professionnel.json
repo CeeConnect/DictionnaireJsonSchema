@@ -11,16 +11,16 @@
       "maxLength": 240
     },
     "siret": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siret.json"
+      "$ref": "#/$defs/siret"
     },
     "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/adresse.json"
+      "$ref": "#/$defs/adresse"
     },
     "telephone": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/telephone.json"
+      "$ref": "#/$defs/telephone"
     },
     "email": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/email.json"
+      "$ref": "#/$defs/email"
     },
     "prestation": {
       "title": "Prestation",
@@ -35,6 +35,20 @@
           "title": "Maîtrise d'oeuvre"
         }
       ]
+    }
+  },
+  "$defs": {
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/adresse.json"
+    },
+    "telephone": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/telephone.json"
+    },
+    "email": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/email.json"
+    },
+    "siret": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siret.json"
     }
   },
   "required": [

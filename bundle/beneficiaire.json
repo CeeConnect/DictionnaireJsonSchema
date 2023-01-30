@@ -6,6 +6,23 @@
   "type": "object",
   "properties": {
     "nature": {
+      "$ref": "#/$defs/nature"
+    },
+    "type": {
+      "$ref": "#/$defs/type"
+    },
+    "adresse": {
+      "$ref": "#/$defs/adresse"
+    },
+    "telephone": {
+      "$ref": "#/$defs/telephone"
+    },
+    "email": {
+      "$ref": "#/$defs/email"
+    }
+  },
+  "$defs": {
+    "nature": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/personnalite-juridique.json"
     },
     "type": {
@@ -19,9 +36,10 @@
     },
     "email": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/email.json"
-    }
-  },
-  "$defs": {
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siren.json"
+    },
     "nom": {
       "title": "Nom",
       "type": "string",
@@ -36,9 +54,6 @@
       "title": "Raison sociale",
       "type": "string",
       "maxLength": 240
-    },
-    "siren": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siren.json"
     }
   },
   "allOf": [

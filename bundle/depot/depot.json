@@ -66,7 +66,7 @@
             "type": "object",
             "allOf": [
               {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/adresse.json"
+                "$ref": "#/$defs/adresse"
               }
             ]
           },
@@ -146,7 +146,7 @@
                       "$ref": "#/$defs/beneficiaire/$defs/siren"
                     },
                     "adresse": {
-                      "$ref": "#/$defs/beneficiaire/adresse"
+                      "$ref": "#/$defs/beneficiaire/properties/adresse"
                     }
                   },
                   "required": [
@@ -163,10 +163,10 @@
             "type": "object",
             "properties": {
               "raisonSociale": {
-                "$ref": "#/$defs/controleur/$defs/raisonSociale"
+                "$ref": "#/$defs/controleur/properties/raisonSociale"
               },
               "siren": {
-                "$ref": "#/$defs/controleur/$defs/siren"
+                "$ref": "#/$defs/controleur/properties/siren"
               }
             },
             "required": [
@@ -179,10 +179,10 @@
             "type": "object",
             "properties": {
               "raisonSociale": {
-                "$ref": "#/$defs/professionnel/$defs/raisonSociale"
+                "$ref": "#/$defs/professionnel/properties/raisonSociale"
               },
               "siren": {
-                "$ref": "#/$defs/professionnel/$defs/siren"
+                "$ref": "#/$defs/siren"
               }
             },
             "required": [
@@ -266,6 +266,12 @@
     },
     "controleur": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/controleur.json"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/adresse.json"
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siren.json"
     }
   },
   "required": [
