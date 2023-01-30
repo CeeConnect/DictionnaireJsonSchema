@@ -1,0 +1,134 @@
+{
+  "$id": "https://ceeconnect.com/schemas/bundle/dossier/partie-a/bar/BAR-EN-109v24-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-109",
+  "type": "object",
+  "properties": {
+    "operation": {
+      "properties": {
+        "typeToiture": {
+          "title": "Type de toiture",
+          "description": "type de toiture",
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "SYSTEME_TOITURE",
+              "title": "Toiture contituée d'un système de toiture assurant à lui seul le facteur solaire requis"
+            },
+            {
+              "const": "ENSEMBLE",
+              "title": "Toiture constituée d'un ensemble d’éléments dont la composition permet d’obtenir le facteur solaire requis"
+            }
+          ]
+        },
+        "facteurSolaire": {
+          "title": "Facteur solaire Sw",
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "facteurSolaire",
+        "typeToiture"
+      ]
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-109v24-1.json",
+      "allOf": [
+        {
+          "if": {
+            "propeties": {
+              "operation": {
+                "properties": {
+                  "codeDepartementOutreMer": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/code-departement-outre-mer",
+                    "title": "Département",
+                    "type": "string",
+                    "oneOf": [
+                      {
+                        "const": "971",
+                        "title": "Guadeloupe"
+                      },
+                      {
+                        "const": "972",
+                        "title": "Martinique"
+                      },
+                      {
+                        "const": "973",
+                        "title": "Guyane"
+                      },
+                      {
+                        "const": "974",
+                        "title": "La Réunion"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "codeDepartementOutreMer"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "operation": {
+                "properties": {
+                  "facteurSolaire": {
+                    "title": "Facteur solaire Sw",
+                    "type": "number",
+                    "maximum": 0.3
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "propeties": {
+              "operation": {
+                "properties": {
+                  "codeDepartementOutreMer": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/code-departement-outre-mer",
+                    "title": "Département",
+                    "type": "string",
+                    "const": "976"
+                  }
+                },
+                "required": [
+                  "codeDepartementOutreMer"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "operation": {
+                "properties": {
+                  "facteurSolaire": {
+                    "title": "Facteur solaire Sw",
+                    "type": "number",
+                    "maximum": 0.2
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_marque-reference.json"
+    }
+  ],
+  "required": []
+}

@@ -1,9 +1,161 @@
 {
-  "$id": "",
+  "$id": "https://schemas.ceeconnect.fr/bundle/dossier/cadre-contribution",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "",
-  "description": "",
-  "type": "",
-  "properties": {},
+  "title": "Cadre de contribution",
+  "type": "object",
+  "properties": {
+    "demandeur": {
+      "title": "Demandeur",
+      "type": "object",
+      "properties": {
+        "raisonSociale": {
+          "title": "Raison sociale",
+          "type": "string",
+          "maxLength": 240
+        },
+        "siren": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siren.json"
+        }
+      },
+      "required": [
+        "raisonSociale",
+        "siren"
+      ]
+    },
+    "offre": {
+      "title": "Offre",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/offre/nature.json"
+        },
+        "montant": {
+          "title": "Montant",
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "nature": {
+                "const": "PRET"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "teg": {
+                "title": "Taux effectif global",
+                "type": "number",
+                "unit": "%"
+              },
+              "bonification": {
+                "title": "Montant de la bonification",
+                "type": "number",
+                "minimum": 0
+              },
+              "distributeur": {
+                "title": "Distributeur",
+                "type": "object",
+                "properties": {
+                  "raisonSociale": {
+                    "title": "Raison sociale",
+                    "type": "string",
+                    "maxLength": 240
+                  },
+                  "siren": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siren.json"
+                  }
+                },
+                "required": [
+                  "raisonSociale",
+                  "siren"
+                ]
+              }
+            },
+            "required": [
+              "teg",
+              "bonification",
+              "distributeur"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "nature": {
+                "const": "PSO"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "description": {
+                "title": "Description",
+                "type": "string",
+                "maxLength": 240
+              }
+            },
+            "required": [
+              "description"
+            ]
+          }
+        }
+      ]
+    },
+    "fiches": {
+      "title": "Opérations standardisées",
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string",
+            "pattern": "/^(AGRI|BAR|BAT|IND|RES|TRA)+-+(BA|CH|EC|EN|EQ|SE|TH|UT)+-+[0-9]*(-+SE)?$/"
+          },
+          "nom": {
+            "title": "Nom",
+            "type": "string",
+            "maxLength": 240
+          },
+          "url": {
+            "title": "Lien",
+            "type": "string",
+            "format": "url"
+          }
+        },
+        "required": [
+          "code",
+          "nom",
+          "url"
+        ]
+      }
+    },
+    "beneficiaire": {
+      "title": "Bénéficiaire",
+      "type": "object",
+      "properties": {
+        "nom": {
+          "title": "Nom",
+          "type": "string",
+          "maxLength": 240
+        },
+        "prenom": {
+          "title": "Prénom",
+          "type": "string",
+          "maxLength": 240
+        },
+        "nom": {
+          "title": "Nom",
+          "type": "string",
+          "maxLength": 240
+        }
+      }
+    }
+  },
   "required": []
 }

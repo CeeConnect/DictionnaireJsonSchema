@@ -1,0 +1,33 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundle/demandeur",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Demandeur",
+  "description": "Obligé au titre du dispositif des certificats d'économies d'énergie",
+  "type": "object",
+  "properties": {
+    "raisonSociale": {
+      "title": "Raison sociale",
+      "type": "string",
+      "maxLength": 240
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siren.json"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/adresse.json"
+    },
+    "telephone": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/telephone.json"
+    },
+    "email": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/email.json"
+    }
+  },
+  "required": [
+    "raisonSociale",
+    "siren",
+    "adresse",
+    "telephone",
+    "email"
+  ]
+}

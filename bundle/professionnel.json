@@ -1,0 +1,48 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundle/professionnel",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Professionnel",
+  "description": "Professionnel ayant mis en œuvre l'opération d'économies d'énergie ou assuré sa maîtrise d'œuvre",
+  "type": "object",
+  "properties": {
+    "raisonSociale": {
+      "title": "Raison sociale",
+      "type": "string",
+      "maxLength": 240
+    },
+    "siret": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siret.json"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/adresse.json"
+    },
+    "telephone": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/telephone.json"
+    },
+    "email": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/email.json"
+    },
+    "prestation": {
+      "title": "Prestation",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "MISE_EN_OEUVRE",
+          "title": "Mise en oeuvre"
+        },
+        {
+          "const": "MAITRISE_OEUVRE",
+          "title": "Maîtrise d'oeuvre"
+        }
+      ]
+    }
+  },
+  "required": [
+    "raisonSociale",
+    "siren",
+    "adresse",
+    "telephone",
+    "email",
+    "prestation"
+  ]
+}

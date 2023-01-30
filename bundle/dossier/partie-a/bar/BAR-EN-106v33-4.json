@@ -1,0 +1,56 @@
+{
+  "$id": "https://ceeconnect.com/schemas/bundle/dossier/partie-a/bar/BAR-EN-106v33-4",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-106",
+  "type": "object",
+  "properties": {
+    "operation": {
+      "properties": {
+        "dateVisitePrealable": {
+          "title": "Date de visite préalable",
+          "description": "Date de la visite préalable du bâtiment où ont eu lieu les travaux",
+          "type": "string",
+          "format": "date"
+        },
+        "dateDebut": {
+          "title": "Date de début des travaux",
+          "type": "string",
+          "format": "date"
+        },
+        "epaisseurIsolant": {
+          "title": "Epaisseur de l'isolant",
+          "type": "number",
+          "minimum": 0,
+          "unit": "mm"
+        },
+        "resistanceIsolant": {
+          "title": "Résistance thermmique de l'isolant",
+          "type": "number",
+          "minimum": 1.5,
+          "unit": "m2.K/W"
+        }
+      },
+      "required": [
+        "dateVisitePrealable",
+        "dateDebut",
+        "resistanceIsolant",
+        "epaisseurIsolant"
+      ]
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-106v33-4.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_marque-reference.json"
+    }
+  ],
+  "required": []
+}

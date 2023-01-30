@@ -1,0 +1,42 @@
+{
+  "$id": "https://ceeconnect.com/schemas/bundle/dossier/partie-a/bar/BAR-EN-108v37-2",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-108",
+  "type": "object",
+  "properties": {
+    "operation": {
+      "properties": {
+        "ageEquipement": {
+          "title": "La fenêtre ou porte-fenêtre sur laquelle est installée la fermeture isolante est âgée de plus de 2 ans",
+          "type": "boolean",
+          "default": true
+        },
+        "resistanceIsolant": {
+          "title": "Résistance thermmique aditionnelle",
+          "type": "number",
+          "minimum": 0.22,
+          "unit": "m2.K/W"
+        }
+      },
+      "required": [
+        "resistanceIsolant",
+        "ageEquipement"
+      ]
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-108v37-2.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_marque-reference.json"
+    }
+  ],
+  "required": []
+}

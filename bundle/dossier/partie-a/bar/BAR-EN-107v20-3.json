@@ -1,0 +1,43 @@
+{
+  "$id": "https://ceeconnect.com/schemas/bundle/dossier/partie-a/bar/BAR-EN-107v20-3",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-107",
+  "type": "object",
+  "properties": {
+    "operation": {
+      "properties": {
+        "epaisseurIsolant": {
+          "title": "Epaisseur de l'isolant",
+          "type": "number",
+          "minimum": 0,
+          "unit": "mm"
+        },
+        "resistanceIsolant": {
+          "title": "Résistance thermmique de l'isolant",
+          "type": "number",
+          "minimum": 0.5,
+          "unit": "m2.K/W"
+        }
+      },
+      "required": [
+        "resistanceIsolant",
+        "epaisseurIsolant"
+      ]
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/fiche/bar/BAR-EN-107v20-3.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_common.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_marque-reference.json"
+    }
+  ],
+  "required": []
+}
