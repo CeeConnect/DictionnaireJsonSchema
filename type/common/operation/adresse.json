@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/adresse",
+  "$id": "https://schemas.ceeconnect.fr/type/common/operation/adresse",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Adresse des travaux",
   "type": "object",

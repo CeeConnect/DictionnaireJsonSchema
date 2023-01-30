@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/code-pays",
+  "$id": "https://schemas.ceeconnect.fr/type/common/code-pays",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Code pays ISO 3166-1 alpha-2",
   "type": "string",

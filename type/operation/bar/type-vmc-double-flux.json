@@ -1,0 +1,16 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/type/operation/bar/type-vmc-double-flux",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Type de VMC double flux",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "AUTOREGLABLE",
+      "title": "Autoréglable"
+    },
+    {
+      "const": "MODULE",
+      "title": "Modulée"
+    }
+  ]
+}

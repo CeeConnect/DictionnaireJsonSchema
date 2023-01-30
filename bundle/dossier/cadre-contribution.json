@@ -9,12 +9,10 @@
       "type": "object",
       "properties": {
         "raisonSociale": {
-          "title": "Raison sociale",
-          "type": "string",
-          "maxLength": 240
+          "$ref": "#/$defs/demandeur/properties/raisonSociale"
         },
         "siren": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siren.json"
+          "$ref": "#/$defs/demandeur/properties/siren"
         }
       },
       "required": [
@@ -138,24 +136,28 @@
     "beneficiaire": {
       "title": "Bénéficiaire",
       "type": "object",
-      "properties": {
-        "nom": {
-          "title": "Nom",
-          "type": "string",
-          "maxLength": 240
+      "oneOf": [
+        {
+          "$ref": "#/$defs/beneficiaire/$defs/personnePhysique"
         },
-        "prenom": {
-          "title": "Prénom",
-          "type": "string",
-          "maxLength": 240
-        },
-        "nom": {
-          "title": "Nom",
-          "type": "string",
-          "maxLength": 240
+        {
+          "$ref": "#/$defs/beneficiaire/$defs/personneMorale",
+          "properties": {
+            "type": {
+              "const": "SYNDIC_COPROPRIETE"
+            }
+          }
         }
-      }
+      ]
     }
   },
-  "required": []
+  "required": [],
+  "$defs": {
+    "demandeur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/demandeur.json"
+    },
+    "beneficiaire": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/demandeur.json"
+    }
+  }
 }

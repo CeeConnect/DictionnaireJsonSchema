@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/quantite-isolant",
+  "$id": "https://schemas.ceeconnect.fr/type/common/operation/quantite-isolant",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Surface d'isolant",
   "type": "number",

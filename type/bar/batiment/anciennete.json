@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/batiment/anciennete",
+  "$id": "https://schemas.ceeconnect.fr/type/bar/batiment/anciennete",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Ancienneté du bâtiment",
   "type": "string",

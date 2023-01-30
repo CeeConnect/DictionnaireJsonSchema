@@ -1,0 +1,16 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/type/personnalite-juridique",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Personnalité juridique",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "PERSONNE_PHYSIQUE",
+      "title": "Personne physique"
+    },
+    {
+      "const": "PERSONNE_MORALE",
+      "title": "Personne morale"
+    }
+  ]
+}

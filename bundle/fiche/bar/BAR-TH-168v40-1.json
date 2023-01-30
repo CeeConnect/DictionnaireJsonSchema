@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/schemas/resource/bar/BAR-TH-168",
+  "$id": "https://schemas.ceeconnect.fr/schemas/resource/bar/BAR-TH-168",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-168",
   "type": "object",

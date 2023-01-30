@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/operation/etas",
+  "$id": "https://schemas.ceeconnect.fr/type/common/operation/etas",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Efficacité énergétique saisonnière",
   "type": "number",

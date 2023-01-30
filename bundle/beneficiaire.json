@@ -7,20 +7,11 @@
   "properties": {
     "nature": {
       "$ref": "#/$defs/nature"
-    },
-    "type": {
-      "$ref": "#/$defs/type"
-    },
-    "adresse": {
-      "$ref": "#/$defs/adresse"
-    },
-    "telephone": {
-      "$ref": "#/$defs/telephone"
-    },
-    "email": {
-      "$ref": "#/$defs/email"
     }
   },
+  "required": [
+    "nature"
+  ],
   "$defs": {
     "nature": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/personnalite-juridique.json"
@@ -40,20 +31,123 @@
     "siren": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/siren.json"
     },
-    "nom": {
-      "title": "Nom",
-      "type": "string",
-      "maxLength": 240
+    "personnePhysique": {
+      "properties": {
+        "nature": {
+          "$ref": "#/$defs/nature"
+        },
+        "type": {
+          "$ref": "#/$defs/type",
+          "oneOf": [
+            {
+              "const": "PROPRIETAIRE_UNIQUE",
+              "title": "Propriétaire unique"
+            },
+            {
+              "const": "COPROPRIETAIRE",
+              "title": "Copropriétaire des équipements"
+            },
+            {
+              "const": "MAITRE_OUVRAGE",
+              "title": "Maître d'ouvrage"
+            },
+            {
+              "const": "OCCUPANT_FINANCEUR",
+              "title": "Occupant financeur"
+            },
+            {
+              "const": "INDIVISAIRE",
+              "title": "Indivisaire"
+            }
+          ]
+        },
+        "nom": {
+          "title": "Nom",
+          "type": "string",
+          "maxLength": 240
+        },
+        "prenom": {
+          "title": "Prénom",
+          "type": "string",
+          "maxLength": 240
+        },
+        "adresse": {
+          "$ref": "#/$defs/adresse"
+        },
+        "telephone": {
+          "$ref": "#/$defs/telephone"
+        },
+        "email": {
+          "$ref": "#/$defs/email"
+        }
+      },
+      "required": [
+        "nature",
+        "type",
+        "nom",
+        "prenom",
+        "adresse",
+        "telephone",
+        "email"
+      ]
     },
-    "prenom": {
-      "title": "Prénom",
-      "type": "string",
-      "maxLength": 240
-    },
-    "raisonSociale": {
-      "title": "Raison sociale",
-      "type": "string",
-      "maxLength": 240
+    "personneMorale": {
+      "properties": {
+        "nature": {
+          "$ref": "#/$defs/nature"
+        },
+        "type": {
+          "$ref": "#/$defs/type",
+          "oneOf": [
+            {
+              "const": "PROPRIETAIRE_UNIQUE",
+              "title": "Propriétaire unique"
+            },
+            {
+              "const": "COPROPRIETAIRE",
+              "title": "Copropriétaire des équipements"
+            },
+            {
+              "const": "MAITRE_OUVRAGE",
+              "title": "Maître d'ouvrage"
+            },
+            {
+              "const": "OCCUPANT_FINANCEUR",
+              "title": "Occupant financeur"
+            },
+            {
+              "const": "INDIVISAIRE",
+              "title": "Indivisaire"
+            }
+          ]
+        },
+        "raisonSociale": {
+          "title": "Raison sociale",
+          "type": "string",
+          "maxLength": 240
+        },
+        "siren": {
+          "$ref": "#/$defs/siren"
+        },
+        "adresse": {
+          "$ref": "#/$defs/adresse"
+        },
+        "telephone": {
+          "$ref": "#/$defs/telephone"
+        },
+        "email": {
+          "$ref": "#/$defs/email"
+        }
+      },
+      "required": [
+        "nature",
+        "type",
+        "raisonSociale",
+        "siren",
+        "adresse",
+        "telephone",
+        "email"
+      ]
     }
   },
   "allOf": [
@@ -66,42 +160,8 @@
         }
       },
       "then": {
-        "properties": {
-          "type": {
-            "oneOf": [
-              {
-                "const": "PROPRIETAIRE_UNIQUE",
-                "title": "Propriétaire unique"
-              },
-              {
-                "const": "COPROPRIETAIRE",
-                "title": "Copropriétaire des équipements"
-              },
-              {
-                "const": "MAITRE_OUVRAGE",
-                "title": "Maître d'ouvrage"
-              },
-              {
-                "const": "OCCUPANT_FINANCEUR",
-                "title": "Occupant financeur"
-              },
-              {
-                "const": "INDIVISAIRE",
-                "title": "Indivisaire"
-              }
-            ]
-          },
-          "nom": {
-            "$ref": "#/$defs/nom"
-          },
-          "prenom": {
-            "$ref": "#/$defs/prenom"
-          }
-        },
-        "required": [
-          "type",
-          "nom",
-          "prenom"
+        "allOf": [
+          "#/$defs/personnePhysique"
         ]
       }
     },
@@ -114,54 +174,10 @@
         }
       },
       "then": {
-        "properties": {
-          "type": {
-            "oneOf": [
-              {
-                "const": "PROPRIETAIRE_UNIQUE",
-                "title": "Propriétaire unique"
-              },
-              {
-                "const": "COPROPRIETAIRE",
-                "title": "Copropriétaire des équipements"
-              },
-              {
-                "const": "MAITRE_OUVRAGE",
-                "title": "Maître d'ouvrage"
-              },
-              {
-                "const": "INDIVISAIRE",
-                "title": "Indivisaire"
-              },
-              {
-                "const": "SYNDIC_COPROPRIETE",
-                "title": "Syndic de copropriété"
-              },
-              {
-                "const": "COLLECTIVITE_AFFECTATAIRE",
-                "title": "Collectivité affectataire"
-              }
-            ]
-          },
-          "raisonSociale": {
-            "$ref": "#/$defs/raisonSociale"
-          },
-          "siren": {
-            "$ref": "#/$defs/siren"
-          }
-        },
-        "required": [
-          "type",
-          "raisonSociale"
+        "allOf": [
+          "#/$defs/personneMorale"
         ]
       }
     }
-  ],
-  "required": [
-    "nature",
-    "type",
-    "adresse",
-    "telephone",
-    "email"
   ]
 }

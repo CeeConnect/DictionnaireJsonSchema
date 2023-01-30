@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/partie-a/bar/installateur",
+  "$id": "https://schemas.ceeconnect.fr/bundle/dossier/partie-a/bar/installateur",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Installateur",
   "description": "Identité du professionnel titulaire du signe de qualité ayant réalisé l'opération, s'il n’est pas le signataire de cette attestation (sous-traitant par exemple)",

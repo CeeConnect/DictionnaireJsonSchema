@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/fiche/bar/BAR-EQ-115",
+  "$id": "https://schemas.ceeconnect.fr/bundle/fiche/bar/BAR-EQ-115",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-EQ-115",
   "type": "object",

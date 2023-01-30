@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/logements",
+  "$id": "https://schemas.ceeconnect.fr/type/bar/logements",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Nombre de logements",
   "type": "integer",

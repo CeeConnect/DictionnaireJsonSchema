@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/beneficiaire/type",
+  "$id": "https://schemas.ceeconnect.fr/type/common/beneficiaire/type",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Type",
   "type": "string",

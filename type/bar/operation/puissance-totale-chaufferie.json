@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/operation/puissance-totale-chaufferie",
+  "$id": "https://schemas.ceeconnect.fr/type/bar/operation/puissance-totale-chaufferie",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Puissance totale de la chaufferie après travaux",
   "type": "number",

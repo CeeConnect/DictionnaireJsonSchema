@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/operation/puissance-totale-bar-th-107",
+  "$id": "https://schemas.ceeconnect.fr/type/bar/operation/puissance-totale-bar-th-107",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Puissance totale des chaudières collectives à haute performance énergétique installées",
   "type": "number",

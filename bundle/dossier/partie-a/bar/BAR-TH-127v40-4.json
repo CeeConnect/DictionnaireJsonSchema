@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/dossier/partie-a/bar/BAR-TH-127v40-4",
+  "$id": "https://schemas.ceeconnect.fr/bundle/dossier/partie-a/bar/BAR-TH-127v40-4",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-127",
   "type": "object",

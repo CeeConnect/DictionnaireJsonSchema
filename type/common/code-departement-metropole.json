@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/common/code-departement-metropole",
+  "$id": "https://schemas.ceeconnect.fr/type/common/code-departement-metropole",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Département",
   "type": "string",

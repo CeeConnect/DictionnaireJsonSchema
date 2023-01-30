@@ -1,0 +1,218 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundle/fiche/bar/BAR-TH-127",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-127",
+  "description": "Ventilation Mécanique Contrôlée simple flux hygroréglable",
+  "type": "object",
+  "properties": {
+    "_full": {
+      "type": "boolean",
+      "default": false
+    },
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "#/$defs/anciennete"
+        }
+      },
+      "required": [
+        "anciennete"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "codeDepartement": {
+          "$ref": "#/$defs/codeDepartement"
+        },
+        "typeInstallation": {
+          "$ref": "#/$defs/typeInstallation"
+        },
+        "typeVmcHygroreglable": {
+          "$ref": "#/$defs/typeVmcHygroreglable"
+        },
+        "typeCaissonVmc": {
+          "$ref": "#/$defs/typeCaissonVmc"
+        }
+      },
+      "required": [
+        "codeDepartement",
+        "typeInstallation",
+        "typeVmcHygroreglable",
+        "typeCaissonVmc"
+      ]
+    }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "properties": {
+              "typeInstallation": {
+                "const": "INDIVIDUEL"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "batiment": {
+            "properties": {
+              "surfaceHabitable": {
+                "$ref": "#/$defs/surfaceHabitable"
+              }
+            },
+            "required": [
+              "surfaceHabitable"
+            ]
+          },
+          "operation": {
+            "properties": {
+              "typeCaissonVmc": {
+                "oneOf": [
+                  {
+                    "const": "BASSE_CONSOMMATION",
+                    "title": "Caisson basse consommation"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "properties": {
+              "typeInstallation": {
+                "const": "COLLECTIF"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "operation": {
+            "properties": {
+              "logements": {
+                "$ref": "#/$defs/logements"
+              }
+            },
+            "required": [
+              "logements"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "dependentSchemas": {
+    "_full": {
+      "oneOf": [
+        {
+          "properties": {
+            "_full": {
+              "const": true
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/fullSchema"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "anciennete": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
+    },
+    "logements": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/logements.json"
+    },
+    "surfaceHabitable": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/surface-habitable.json"
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
+    },
+    "typeInstallation": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-installation.json"
+    },
+    "typeVmcHygroreglable": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-vmc-hygroreglable.json"
+    },
+    "typeCaissonVmc": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/type-caisson-vmc.json"
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
+    },
+    "fullSchema": {
+      "properties": {
+        "operation": {
+          "properties": {
+            "referenceAvisTechnique": {
+              "title": "Référence de l'avis technique",
+              "type": "string"
+            },
+            "dureeValiditéAvisTechnique": {
+              "title": "Durée de validité de l'avis technique",
+              "type": "integer"
+            },
+            "installateur": {
+              "$ref": "#/$defs/installateur"
+            }
+          },
+          "required": [
+            "referenceAvisTechnique",
+            "dureeValiditéAvisTechnique"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "typeInstallation": {
+                    "const": "INDIVIDUEL"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "classeEnergetique": {
+                    "title": "Classe énergie",
+                    "type": "string",
+                    "oneOf": [
+                      {
+                        "const": "A+",
+                        "title": "A+"
+                      },
+                      {
+                        "const": "A",
+                        "title": "A"
+                      }
+                    ]
+                  }
+                },
+                "required": ["classeEnergetique"]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

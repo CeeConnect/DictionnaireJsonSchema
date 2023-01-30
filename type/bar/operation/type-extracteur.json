@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/operation/type-extracteur",
+  "$id": "https://schemas.ceeconnect.fr/type/bar/operation/type-extracteur",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Type d'extracteur",
   "type": "string",

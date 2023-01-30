@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/type/bar/batiment/type",
+  "$id": "https://schemas.ceeconnect.fr/type/bar/batiment/type",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Type de bâtiment",
   "type": "string",
