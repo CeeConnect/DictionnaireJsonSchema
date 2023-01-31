@@ -19,8 +19,6 @@
   ],
   "$defs": {
     "maison": {
-      "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/type",
-      "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
       "title": "Type de bâtiment",
       "type": "string",
       "oneOf": [
@@ -31,8 +29,6 @@
       ]
     },
     "appartement": {
-      "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/type",
-      "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
       "title": "Type de bâtiment",
       "type": "string",
       "oneOf": [
@@ -43,8 +39,6 @@
       ]
     },
     "immeuble": {
-      "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/type",
-      "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
       "title": "Type de bâtiment",
       "type": "string",
       "oneOf": [
@@ -55,8 +49,6 @@
       ]
     },
     "individuel": {
-      "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/type",
-      "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
       "title": "Type de bâtiment",
       "type": "string",
       "oneOf": [

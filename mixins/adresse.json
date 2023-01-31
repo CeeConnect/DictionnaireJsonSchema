@@ -25,5 +25,10 @@
       "type": "string"
     }
   },
-  "required": ["nom", "commune", "codeCommune", "codePostal"]
+  "required": [
+    "nom",
+    "commune",
+    "codeCommune",
+    "codePostal"
+  ]
 }

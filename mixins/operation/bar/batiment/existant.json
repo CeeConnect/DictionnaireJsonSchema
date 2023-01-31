@@ -4,6 +4,7 @@
   "title": "Bâtiment de plus de 2 ans",
   "description": "Bâtiment résidentiel existant depuis plus de 2 ans à la date d'engagement de l'opération",
   "type": "string",
+  "deprecated": true,
   "oneOf": [
     {
       "const": "EXISTANT",
