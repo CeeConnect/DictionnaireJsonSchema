@@ -1,0 +1,85 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/fiche/bar/batiment",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "type": "object",
+  "$defs": {
+    "type": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+    },
+    "anciennete": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json"
+    },
+    "existant": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/existant.json"
+    },
+    "energieChauffage": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"
+    },
+    "maison": {
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/type",
+          "oneOf": [
+            {
+              "$ref": "#/$defs/type/oneOf/0"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "appartement": {
+      "$id": "https://schemas.ceeconnect.fr/bundles/fiche/bar/batiment/appartement",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/type",
+          "oneOf": [
+            {
+              "$ref": "#/$defs/type/oneOf/1"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "immeuble": {
+      "$id": "https://schemas.ceeconnect.fr/bundles/fiche/bar/batiment/immeuble",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/type",
+          "oneOf": [
+            {
+              "$ref": "#/$defs/type/oneOf/2"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "individuel": {
+      "$id": "https://schemas.ceeconnect.fr/bundles/fiche/bar/batiment/individuel",
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/type",
+          "oneOf": [
+            {
+              "$ref": "#/$defs/type/oneOf/0"
+            },
+            {
+              "$ref": "#/$defs/type/oneOf/1"
+            }
+          ]
+        }
+      },
+      "required": [
+        "type"
+      ]
+    }
+  }
+}

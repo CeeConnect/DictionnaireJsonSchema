@@ -17,17 +17,12 @@
       "maxLength": 240
     },
     "demandeur": {
-      "properties": {
-        "raisonSociale": {
-          "$ref": "#/$defs/demandeur/properties/raisonSociale"
-        },
-        "siren": {
-          "$ref": "#/$defs/demandeur/properties/siren"
+      "title": "Demandeur",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/$defs/demandeur"
         }
-      },
-      "required": [
-        "raisonSociale",
-        "siren"
       ]
     },
     "operations": {
@@ -89,105 +84,28 @@
           "beneficiaire": {
             "title": "Bénéficiaire",
             "type": "object",
-            "properties": {
-              "nature": {
-                "$ref": "#/$defs/beneficiaire/properties/nature"
-              },
-              "telephone": {
-                "$ref": "#/$defs/beneficiaire/properties/telephone"
-              },
-              "email": {
-                "$ref": "#/$defs/beneficiaire/properties/email"
-              }
-            },
-            "required": [
-              "nature",
-              "telephone",
-              "email"
-            ],
             "allOf": [
               {
-                "if": {
-                  "properties": {
-                    "nature": {
-                      "const": "PERSONNE_PHYSIQUE"
-                    }
-                  }
-                },
-                "then": {
-                  "properties": {
-                    "nom": {
-                      "$ref": "#/$defs/beneficiaire/$defs/nom"
-                    },
-                    "prenom": {
-                      "$ref": "#/$defs/beneficiaire/$defs/prenom"
-                    }
-                  },
-                  "required": [
-                    "nom",
-                    "prenom"
-                  ]
-                }
-              },
-              {
-                "if": {
-                  "properties": {
-                    "nature": {
-                      "const": "PERSONNE_MORALE"
-                    }
-                  }
-                },
-                "then": {
-                  "properties": {
-                    "raisonSociale": {
-                      "$ref": "#/$defs/beneficiaire/$defs/raisonSociale"
-                    },
-                    "siren": {
-                      "$ref": "#/$defs/beneficiaire/$defs/siren"
-                    },
-                    "adresse": {
-                      "$ref": "#/$defs/beneficiaire/properties/adresse"
-                    }
-                  },
-                  "required": [
-                    "raisonSociale",
-                    "siren",
-                    "adresse"
-                  ]
-                }
+                "$ref": "#/$defs/beneficiaire"
               }
             ]
           },
           "controleur": {
-            "title": "Bénéficiaire",
+            "title": "Contrôleur",
             "type": "object",
-            "properties": {
-              "raisonSociale": {
-                "$ref": "#/$defs/controleur/properties/raisonSociale"
-              },
-              "siren": {
-                "$ref": "#/$defs/controleur/properties/siren"
+            "allOf": [
+              {
+                "$ref": "#/$defs/controleur"
               }
-            },
-            "required": [
-              "raisonSociale",
-              "siren"
             ]
           },
           "professionnel": {
             "title": "Professionnel",
             "type": "object",
-            "properties": {
-              "raisonSociale": {
-                "$ref": "#/$defs/professionnel/properties/raisonSociale"
-              },
-              "siren": {
-                "$ref": "#/$defs/siren"
+            "allOf": [
+              {
+                "$ref": "#/$defs/professionnel"
               }
-            },
-            "required": [
-              "raisonSociale",
-              "siren"
             ]
           }
         },

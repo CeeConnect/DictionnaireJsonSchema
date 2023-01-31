@@ -175,7 +175,12 @@
                 "$comment": "Avis d'imposition uniquement",
                 "title": "Pièce justificative",
                 "type": "string",
-                "const": "AVIS_IMPOSITION"
+                "oneOf": [
+                  {
+                    "const": "AVIS_IMPOSITION",
+                    "title": "Avis d'imposition"
+                  }
+                ]
               },
               "nombrePersonnes": {
                 "title": "Composition",
@@ -236,7 +241,7 @@
     "personneMorale": {
       "properties": {
         "nom": {
-          "$ref": "#/$defs/fonction"
+          "$ref": "#/$defs/nom"
         },
         "prenom": {
           "$ref": "#/$defs/prenom"
@@ -262,7 +267,7 @@
     "personnePhysique": {
       "properties": {
         "nom": {
-          "$ref": "#/$defs/fonction"
+          "$ref": "#/$defs/nom"
         },
         "prenom": {
           "$ref": "#/$defs/prenom"

@@ -65,7 +65,8 @@
     "personnePhysique": {
       "properties": {
         "nature": {
-          "$ref": "#/$defs/nature"
+          "$ref": "#/$defs/nature",
+          "const": "PERSONNE_PHYSIQUE"
         },
         "type": {
           "$ref": "#/$defs/type",
@@ -125,7 +126,8 @@
     "personneMorale": {
       "properties": {
         "nature": {
-          "$ref": "#/$defs/nature"
+          "$ref": "#/$defs/nature",
+          "const": "PERSONNE_MORALE"
         },
         "type": {
           "$ref": "#/$defs/type",
@@ -192,7 +194,9 @@
       },
       "then": {
         "allOf": [
-          "#/$defs/personnePhysique"
+          {
+            "$ref": "#/$defs/personnePhysique"
+          }
         ]
       }
     },
@@ -206,7 +210,9 @@
       },
       "then": {
         "allOf": [
-          "#/$defs/personneMorale"
+          {
+            "$ref": "#/$defs/personneMorale"
+          }
         ]
       }
     }
