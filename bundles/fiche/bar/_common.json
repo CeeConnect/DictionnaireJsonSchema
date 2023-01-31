@@ -56,12 +56,13 @@
       "$dynamicAnchor": "Attestation"
     },
     "beneficiaire": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
+      "$dynamicAnchor": "Beneficiaire"
     },
     "installateur": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/installateur.json"
     },
     "batiment": {
+      "$dynamicAnchor": "Batiment",
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/batiment.json"
     },
     "operation": {

@@ -3,7 +3,21 @@
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-104",
   "type": "object",
+  "properties": {},
   "$defs": {
+    "beneficiaire": {
+      "$dynamicAnchor": "Beneficiaire",
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/installateur.json"
+    },
+    "batiment": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/batiment.json"
+    },
+    "operation": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/operation.json"    
+    },
     "etas": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json"
     },
