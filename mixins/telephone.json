@@ -1,0 +1,7 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/telephone",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Téléphone",
+  "type": "string",
+  "pattern": "^(01|02|03|04|05|06|07|09)+[0-9]{8,8}$"
+}

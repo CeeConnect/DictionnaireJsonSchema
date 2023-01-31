@@ -1,0 +1,37 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/classe-isolation",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "$comment": "Classe de l'isolation selon la norme NF EN 12 828+A1:2014",
+  "title": "Classe",
+  "type": "integer",
+  "oneOf": [
+    {
+      "const": 0,
+      "title": "Classe 0"
+    },
+    {
+      "const": 1,
+      "title": "Classe 1"
+    },
+    {
+      "const": 2,
+      "title": "Classe 2"
+    },
+    {
+      "const": 3,
+      "title": "Classe 3"
+    },
+    {
+      "const": 4,
+      "title": "Classe 4"
+    },
+    {
+      "const": 5,
+      "title": "Classe 5"
+    },
+    {
+      "const": 6,
+      "title": "Classe 6"
+    }
+  ]
+}

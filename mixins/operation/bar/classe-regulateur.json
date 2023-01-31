@@ -1,0 +1,29 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/classe-regulateur",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "$comment": "Classe du régulateur telle que définie au paragraphe 6.1 de la communication de la Commission 2014/C 207/02 dans le cadre du règlement (UE) n°813/2013",
+  "title": "Classe",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "IV",
+      "title": "Classe IV"
+    },
+    {
+      "const": "V",
+      "title": "Classe V"
+    },
+    {
+      "const": "VI",
+      "title": "Classe VI"
+    },
+    {
+      "const": "VII",
+      "title": "Classe VII"
+    },
+    {
+      "const": "VIII",
+      "title": "Classe VIII"
+    }
+  ]
+}

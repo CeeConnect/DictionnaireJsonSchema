@@ -1,0 +1,281 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/depot",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Dépôt",
+  "description": "Tableau récapitulatif des opérations d'économies d'énergie pour dépôt auprès du PNCEE",
+  "type": "object",
+  "properties": {
+    "referenceEmmy": {
+      "title": "Référence EMMY",
+      "description": "Référence EMMY de la demande générée depuis le portail CEE",
+      "type": "string",
+      "maxLength": 240
+    },
+    "referenceInterne": {
+      "title": "Référence interne",
+      "type": "string",
+      "maxLength": 240
+    },
+    "demandeur": {
+      "properties": {
+        "raisonSociale": {
+          "$ref": "#/$defs/demandeur/properties/raisonSociale"
+        },
+        "siren": {
+          "$ref": "#/$defs/demandeur/properties/siren"
+        }
+      },
+      "required": [
+        "raisonSociale",
+        "siren"
+      ]
+    },
+    "operations": {
+      "title": "Opérations",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "title": "Opération",
+        "type": "object",
+        "properties": {
+          "fiche": {
+            "title": "Référence de la fiche",
+            "type": "string",
+            "pattern": "/^(AGRI|BAR|BAT|IND|RES|TRA)+-+(BA|CH|EC|EN|EQ|SE|TH|UT)+-+[0-9]*(-+SE)?$/"
+          },
+          "bonification": {
+            "title": "Nature de la bonification",
+            "type": "string"
+          },
+          "natureRai": {
+            "title": "Nature du rôle actif et incitatif",
+            "type": "string"
+          },
+          "dateEngagement": {
+            "title": "Date d'engagement",
+            "type": "string",
+            "format": "date"
+          },
+          "dateAchevement": {
+            "title": "Date d'achèvement",
+            "type": "string",
+            "format": "date"
+          },
+          "adresse": {
+            "title": "Adresse",
+            "type": "object",
+            "allOf": [
+              {
+                "$ref": "#/$defs/adresse"
+              }
+            ]
+          },
+          "ceeClassique": {
+            "title": "Volume de CEE classique",
+            "description": "Volume de CEE hors précarité",
+            "type": "number",
+            "minimum": 0
+          },
+          "ceePrecarite": {
+            "title": "Volume de CEE précarité",
+            "type": "number",
+            "minimum": 0
+          },
+          "commentaire": {
+            "title": "Commentaire",
+            "type": "string",
+            "maxLength": 240
+          },
+          "beneficiaire": {
+            "title": "Bénéficiaire",
+            "type": "object",
+            "properties": {
+              "nature": {
+                "$ref": "#/$defs/beneficiaire/properties/nature"
+              },
+              "telephone": {
+                "$ref": "#/$defs/beneficiaire/properties/telephone"
+              },
+              "email": {
+                "$ref": "#/$defs/beneficiaire/properties/email"
+              }
+            },
+            "required": [
+              "nature",
+              "telephone",
+              "email"
+            ],
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "nature": {
+                      "const": "PERSONNE_PHYSIQUE"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "nom": {
+                      "$ref": "#/$defs/beneficiaire/$defs/nom"
+                    },
+                    "prenom": {
+                      "$ref": "#/$defs/beneficiaire/$defs/prenom"
+                    }
+                  },
+                  "required": [
+                    "nom",
+                    "prenom"
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "nature": {
+                      "const": "PERSONNE_MORALE"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "raisonSociale": {
+                      "$ref": "#/$defs/beneficiaire/$defs/raisonSociale"
+                    },
+                    "siren": {
+                      "$ref": "#/$defs/beneficiaire/$defs/siren"
+                    },
+                    "adresse": {
+                      "$ref": "#/$defs/beneficiaire/properties/adresse"
+                    }
+                  },
+                  "required": [
+                    "raisonSociale",
+                    "siren",
+                    "adresse"
+                  ]
+                }
+              }
+            ]
+          },
+          "controleur": {
+            "title": "Bénéficiaire",
+            "type": "object",
+            "properties": {
+              "raisonSociale": {
+                "$ref": "#/$defs/controleur/properties/raisonSociale"
+              },
+              "siren": {
+                "$ref": "#/$defs/controleur/properties/siren"
+              }
+            },
+            "required": [
+              "raisonSociale",
+              "siren"
+            ]
+          },
+          "professionnel": {
+            "title": "Professionnel",
+            "type": "object",
+            "properties": {
+              "raisonSociale": {
+                "$ref": "#/$defs/professionnel/properties/raisonSociale"
+              },
+              "siren": {
+                "$ref": "#/$defs/siren"
+              }
+            },
+            "required": [
+              "raisonSociale",
+              "siren"
+            ]
+          }
+        },
+        "required": [
+          "fiche",
+          "bonification",
+          "natureRai",
+          "dateEngagement",
+          "dateAchevement",
+          "adresse",
+          "ceeClassique",
+          "ceePrecarite"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "natureRai": {
+                  "const": "PATRIM"
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "montantRai": {
+                  "title": "Montant du rôle actif et incitatif",
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "montantRai"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "beneficiaire": {
+                  "properties": {
+                    "nature": {
+                      "const": "PERSONNE_MORALE"
+                    }
+                  }
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "adresse": {
+                  "properties": {
+                    "nom": {
+                      "title": "Nom du site",
+                      "description": "Nom du site des travaux ou nom de la copropriété",
+                      "type": "string",
+                      "maxLength": 240
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "demandeur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/demandeur.json"
+    },
+    "beneficiaire": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
+    },
+    "professionnel": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/professionnel.json"
+    },
+    "controleur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/controleur.json"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+    }
+  },
+  "required": [
+    "referenceEmmy",
+    "referenceInterne"
+  ]
+}

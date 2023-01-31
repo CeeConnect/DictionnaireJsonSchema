@@ -1,0 +1,16 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/type-vmc-hygroreglable",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Type de VMC hygroreglable",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "TYPE_A",
+      "title": "Type A"
+    },
+    {
+      "const": "TYPE_B",
+      "title": "Type B"
+    }
+  ]
+}

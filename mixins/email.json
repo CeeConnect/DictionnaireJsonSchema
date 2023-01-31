@@ -1,0 +1,7 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/email",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Adress email",
+  "type": "string",
+  "format": "email"
+}

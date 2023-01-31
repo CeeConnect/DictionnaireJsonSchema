@@ -1,0 +1,40 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/energie-chauffage",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Energie de chauffage",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "ELECTRICITE",
+      "title": "Electricité"
+    },
+    {
+      "const": "GAZ_NATUREL",
+      "title": "Gaz naturel"
+    },
+    {
+      "const": "FIOUL",
+      "title": "Fioul"
+    },
+    {
+      "const": "PAC",
+      "title": "Pompe à chaleur"
+    },
+    {
+      "const": "BOIS",
+      "title": "Bois"
+    },
+    {
+      "const": "GPL",
+      "title": "Gaz de pétrole liquéfié (GPL)"
+    },
+    {
+      "const": "CHARBON",
+      "title": "Charbon"
+    },
+    {
+      "const": "ENR",
+      "title": "Énergies renouvelables"
+    }
+  ]
+}

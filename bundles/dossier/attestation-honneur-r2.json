@@ -1,0 +1,277 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur-r2",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Partie R2",
+  "description": "Identification, par le bénéficiaire, des ménages concernés par l'opération et dont les revenus sont inférieurs à certains seuils (avec pièces justificatives des revenus)",
+  "type": "object",
+  "properties": {
+    "nature": {
+      "$ref": "#/$defs/nature"
+    }
+  },
+  "required": [
+    "nature"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "nature": {
+            "const": "PERSONNE_PHYSIQUE"
+          }
+        }
+      },
+      "then": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/personnePhysique"
+          }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "nature": {
+            "const": "PERSONNE_MORALE"
+          }
+        }
+      },
+      "then": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/personneMorale"
+          }
+        ]
+      }
+    },
+    {
+      "$ref": "#/$defs/common"
+    }
+  ],
+  "$defs": {
+    "nom": {
+      "title": "Nom",
+      "description": "Nom du bénéficiaire signataire de l'attestation sur l'honneur",
+      "type": "string",
+      "maxLength": 240
+    },
+    "prenom": {
+      "title": "Prénom",
+      "description": "Prénom du bénéficiaire signataire de l'attestation sur l'honneur",
+      "type": "string",
+      "maxLength": 240
+    },
+    "fonction": {
+      "title": "Fonction",
+      "description": "Fonction du signataire de l'attestation sur l'honneur",
+      "type": "string",
+      "maxLength": 240
+    },
+    "raisonSociale": {
+      "title": "Raison sociale",
+      "type": "string",
+      "maxLength": 240
+    },
+    "nature": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "telephone": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
+    },
+    "email": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+    },
+    "identifiantFiscal": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/identifiant-fiscal.json"
+    },
+    "referenceAvisImposition": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/reference-avis-imposition.json"
+    },
+    "foyerFiscal": {
+      "type": "object",
+      "properties": {
+        "nom": {
+          "title": "Nom",
+          "description": "Nom de famille du premier déclarant",
+          "type": "string",
+          "maxLength": 240
+        },
+        "prenom": {
+          "title": "Prénom",
+          "description": "Prénom du premier déclarant",
+          "type": "string",
+          "maxLength": 240
+        },
+        "identifiantFiscal": {
+          "$ref": "#/$defs/identifiantFiscal"
+        },
+        "referenceAvis": {
+          "$ref": "#/$defs/referenceAvisImposition"
+        }
+      },
+      "required": [
+        "nom",
+        "prenom",
+        "identifiantFiscal",
+        "referenceAvis"
+      ]
+    },
+    "common": {
+      "properties": {
+        "adresse": {
+          "$ref": "#/$defs/adresse"
+        },
+        "telephone": {
+          "$ref": "#/$defs/telephone"
+        },
+        "email": {
+          "$ref": "#/$defs/email"
+        },
+        "nombreMenages": {
+          "title": "Nombre de ménages",
+          "description": "Nombre total de ménages bénéficiaires par l'opération d'économies d'énergie",
+          "type": "integer",
+          "minimum": 1
+        },
+        "nombreMenagesModestes": {
+          "title": "Nombre de ménages modestes",
+          "description": "Nombre total de ménages bénéficiaires de l'opération d'économies d'énergie considérés comme modestes ou précaires",
+          "type": "integer",
+          "minimum": 0
+        },
+        "nombreMenagesPrecaires": {
+          "title": "Nombre de ménages précaires",
+          "description": "Nombre total de ménages bénéficiaires de l'opération d'économies d'énergie considérés comme précaires",
+          "type": "integer",
+          "minimum": 0
+        },
+        "menages": {
+          "title": "Liste des ménages",
+          "type": "array",
+          "minContains": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "nom": {
+                "title": "Nom",
+                "description": "Nom de famille de l'un des représentants du ménage",
+                "type": "string",
+                "maxLength": 240
+              },
+              "prenom": {
+                "title": "Prénom",
+                "description": "Prénom de l'un des représentants du ménage",
+                "type": "string",
+                "maxLength": 240
+              },
+              "naturePieceJustificative": {
+                "$comment": "Avis d'imposition uniquement",
+                "title": "Pièce justificative",
+                "type": "string",
+                "const": "AVIS_IMPOSITION"
+              },
+              "nombrePersonnes": {
+                "title": "Composition",
+                "description": "Nombre de personnes composant le ménage",
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "nom",
+              "prenom",
+              "naturePieceJustificative",
+              "nombrePersonnes"
+            ],
+            "dependentSchemas": {
+              "naturePieceJustificative": {
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "naturePieceJustificative": {
+                          "const": "AVIS_IMPOSITION"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "foyersFiscaux": {
+                          "title": "Liste des foyers fiscaux du méngage",
+                          "type": "array",
+                          "minContains": 1,
+                          "items": {
+                            "$ref": "#/$defs/foyerFiscal"
+                          }
+                        }
+                      },
+                      "required": [
+                        "foyersFiscaux"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "adresse",
+        "telephone",
+        "email",
+        "nombreMenages",
+        "nombreMenagesModestes",
+        "nombreMenagesPrecaires",
+        "menages"
+      ]
+    },
+    "personneMorale": {
+      "properties": {
+        "nom": {
+          "$ref": "#/$defs/fonction"
+        },
+        "prenom": {
+          "$ref": "#/$defs/prenom"
+        },
+        "fonction": {
+          "$ref": "#/$defs/fonction"
+        },
+        "raisonSociale": {
+          "$ref": "#/$defs/raisonSociale"
+        },
+        "siren": {
+          "$ref": "#/$defs/siren"
+        }
+      },
+      "required": [
+        "nom",
+        "prenom",
+        "fonction",
+        "raisonSociale",
+        "siren"
+      ]
+    },
+    "personnePhysique": {
+      "properties": {
+        "nom": {
+          "$ref": "#/$defs/fonction"
+        },
+        "prenom": {
+          "$ref": "#/$defs/prenom"
+        }
+      },
+      "required": [
+        "nom",
+        "prenom"
+      ]
+    }
+  }
+}

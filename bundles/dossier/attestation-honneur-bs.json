@@ -1,0 +1,83 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur-bs",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Partie BS",
+  "description": "BS - Bailleur social gérant des logements concernés par l'opération",
+  "type": "object",
+  "properties": {
+    "bailleurSocial": {
+      "title": "Bailleur social",
+      "type": "object",
+      "properties": {
+        "nom": {
+          "title": "Nom",
+          "description": "Nom du représentant légale de l'organisme signataire de l'attestation sur l'honneur",
+          "type": "string",
+          "maxLength": 240
+        },
+        "prenom": {
+          "title": "Prénom",
+          "description": "Prénom du représentant légale de l'organisme signataire de l'attestation sur l'honneur",
+          "type": "string",
+          "maxLength": 240
+        },
+        "fonction": {
+          "title": "Fonction",
+          "description": "Fonction du représentant légale de l'organisme signataire de l'attestation sur l'honneur",
+          "type": "string",
+          "maxLength": 240
+        },
+        "raisonSociale": {
+          "title": "Raison sociale",
+          "type": "string",
+          "maxLength": 240
+        },
+        "siren": {
+          "$ref": "#/$defs/siren"
+        },
+        "adresse": {
+          "$ref": "#/$defs/adresse"
+        },
+        "telephone": {
+          "$ref": "#/$defs/telephone"
+        },
+        "email": {
+          "$ref": "#/$defs/email"
+        }
+      },
+      "required": [
+        "nom",
+        "prenom",
+        "fonction",
+        "raisonSociale",
+        "siren",
+        "adresse",
+        "telephone",
+        "email"
+      ]
+    },
+    "nombreMenages": {
+
+    },
+    "nombreMenagesLogementConventionne": {
+
+    }
+  },
+  "required": [
+    "bailleurSocial"
+  ],
+  "$defs": {
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "telephone": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
+    },
+    "email": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
+    }
+  }
+}

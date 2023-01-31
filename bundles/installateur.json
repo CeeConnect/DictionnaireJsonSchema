@@ -1,0 +1,44 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/installateur",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Installateur",
+  "description": "Professionnel titulaire du signe de qualité assurant la réalisation de l'opération",
+  "type": "object",
+  "properties": {
+    "nom": {
+      "title": "Nom du responsable",
+      "type": "string",
+      "maxLength": 240
+    },
+    "prenom": {
+      "title": "Prénom du responsable",
+      "type": "string",
+      "maxLength": 240
+    },
+    "raisonSociale": {
+      "title": "Raison sociale",
+      "type": "string",
+      "maxLength": 240
+    },
+    "siret": {
+      "$ref": "#/$defs/siret"
+    },
+    "domainesRge": {
+      "$ref": "#/$defs/domainesRge"
+    }
+  },
+  "$defs": {
+    "siret": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siret.json"
+    },
+    "domainesRge": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/domaines-rge.json"
+    }
+  },
+  "required": [
+    "nom",
+    "prenom",
+    "raisonSociale",
+    "siret"
+  ]
+}

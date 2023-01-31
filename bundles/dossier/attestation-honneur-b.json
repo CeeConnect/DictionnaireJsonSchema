@@ -1,0 +1,87 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur-b",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Bénéficiaire",
+  "description": "Bénéficiaire de l'opération d'économies d'énergie",
+  "type": "object",
+  "properties": {
+    "nature": {
+      "$ref": "#/$defs/beneficiaire/$defs/nature"
+    }
+  },
+  "required": [
+    "nature"
+  ],
+  "$defs": {
+    "beneficiaire": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
+    },
+    "personnePhysique": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/beneficiaire/$defs/personnePhysique"
+        }
+      ]
+    },
+    "personneMorale": {
+      "properties": {
+        "nom": {
+          "title": "Nom",
+          "description": "Nom du signataire de l'attestation sur l'honneur",
+          "type": "string",
+          "maxLength": 240
+        },
+        "prenom": {
+          "title": "Prénom",
+          "description": "Prénom du signataire de l'attestation sur l'honneur",
+          "type": "string",
+          "maxLength": 240
+        },
+        "fonction": {
+          "title": "Fonction",
+          "description": "Fonction du signataire de l'attestation sur l'honneur",
+          "type": "string",
+          "maxLength": 240
+        }
+      },
+      "required": [
+        "nom", "prenom", "fonction"
+      ],
+      "allOf": [
+        {
+          "$ref": "#/$defs/beneficiaire/$defs/personnePhysique"
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "nature": {
+            "const": "PERSONNE_PHYSIQUE"
+          }
+        }
+      },
+      "then": {
+        "allOf": [
+          "#/$defs/personnePhysique"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "nature": {
+            "const": "PERSONNE_MORALE"
+          }
+        }
+      },
+      "then": {
+        "allOf": [
+          "#/$defs/personneMorale"
+        ]
+      }
+    }
+  ]
+}

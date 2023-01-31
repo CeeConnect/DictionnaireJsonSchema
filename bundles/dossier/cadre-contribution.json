@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundle/dossier/cadre-contribution",
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/cadre-contribution",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Cadre de contribution",
   "type": "object",

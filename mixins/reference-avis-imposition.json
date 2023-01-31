@@ -1,0 +1,7 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/reference-avis-imposition",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Référence de l'avis d'imposition",
+  "type": "string",
+  "pattern": "^[0-9A-Z]{13,14}$"
+}

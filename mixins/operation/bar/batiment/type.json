@@ -1,0 +1,20 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/type",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Type de bâtiment",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "MAISON",
+      "title": "Maison individuelle"
+    },
+    {
+      "const": "APPARTEMENT",
+      "title": "Appartement individuel"
+    },
+    {
+      "const": "IMMEUBLE",
+      "title": "Immeuble collectif"
+    }
+  ]
+}
