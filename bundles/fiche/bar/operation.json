@@ -32,13 +32,12 @@
       "maxLength": 240
     },
     "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/fiche/bar/operation/adresse"
     },
     "codeDepartement": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
-    },
-    "logements": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/fiche/bar/operation/code-departement"
     },
     "installateur": {
       

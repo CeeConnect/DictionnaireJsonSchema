@@ -1,0 +1,15 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/operation/quantite",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Quantité de travaux",
+  "type": "integer",
+  "minimum": 0,
+  "$defs": {
+    "surfaceIsolant": {
+      "title": "Surface d'isolant",
+      "type": "number",
+      "unit": "m²",
+      "minimum": 0
+    }
+  }
+}

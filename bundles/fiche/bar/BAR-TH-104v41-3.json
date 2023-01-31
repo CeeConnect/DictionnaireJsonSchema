@@ -3,61 +3,109 @@
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-104",
   "type": "object",
-  "properties": {
-    "batiment": {
-      "title": "Logement",
-      "type": "object",
-      "properties": {
-        "type": {
-          "$ref": "#/$defs/batiment/$defs/type/$defs/individuel"
-        },
-        "anciennete": {
-          "$ref": "#/$defs/batiment/$defs/anciennete/$defs/existant"
-        }
-      },
-      "required": [
-        "type",
-        "anciennete"
-      ]
+  "oneOf": [
+    {
+      "$ref": "#/$defs/montant"
     },
-    "operation": {
-      "title": "Opération",
-      "type": "object",
-      "properties": {
-        "codeDepartement": {
-          "$ref": "#/$defs/batiment/$defs/type/$defs/individuel"
-        },
-        "etas": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/etas.json",
-          "minimum": 102
-        },
-        "surfacehauffee": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/operation/surface-chauffee.json"
-        }
-      },
-      "required": [
-        "codeDepartement",
-        "etas",
-        "surfacehauffee"
-      ]
+    {
+      "$ref": "#/$defs/attestation"
     }
-  },
+  ],
   "$defs": {
-    "type": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
-    },
-    "anciennete": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json"
-    },
     "batiment": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/batiment.json"
     },
     "operation": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/operation.json"
+    },
+    "etas": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/etas.json"
+    },
+    "surfacehauffee": {
+      "title": "Surface chauffée",
+      "type": "number",
+      "unit": "m²",
+      "minimum": 0
+    },
+    "montant": {
+      "properties": {
+        "batiment": {
+          "title": "Logement",
+          "type": "object",
+          "properties": {
+            "type": {
+              "$ref": "#/$defs/batiment/$defs/type/$defs/individuel"
+            },
+            "anciennete": {
+              "$ref": "#/$defs/batiment/$defs/anciennete/$defs/existant"
+            }
+          },
+          "required": [
+            "type",
+            "anciennete"
+          ]
+        },
+        "operation": {
+          "title": "Opération",
+          "type": "object",
+          "properties": {
+            "codeDepartement": {
+              "$ref": "#/$defs/operation/$defs/codeDepartement"
+            },
+            "etas": {
+              "$ref": "#/$defs/etas",
+              "minimum": 102
+            },
+            "surfacehauffee": {
+              "$ref": "#/$defs/surfacehauffee"
+            }
+          },
+          "required": [
+            "codeDepartement",
+            "etas",
+            "surfacehauffee"
+          ]
+        }
+      },
+      "required": [
+        "batiment",
+        "operation"
+      ]
+    },
+    "attestation": {
+      "properties": {
+        "beneficiaire": {
+          "title": "Bénéficiaire",
+          "type": "object",
+          "properties": {}
+        },
+        "batiment": {
+          "$ref": "#/$defs/cumac/properties/batiment"
+        },
+        "operation": {
+          "title": "Opération",
+          "type": "object",
+          "properties": {
+            "dateEngagement": {
+              "$ref": "#/$defs/operation/$defs/dateEngagement"
+            },
+            "dateRealisation": {
+              "$ref": "#/$defs/operation/$defs/dateRealisation"
+            },
+            "referenceFacture": {
+              "$ref": "#/$defs/operation/$defs/referenceFacture"
+            },
+            "adresse": {
+              "$ref": "#/$defs/operation/$defs/adresse"
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/$defs/cumac"
+        }
+      ]
     }
-  },
-  "required": [
-    "batiment",
-    "operation"
-  ]
+  }
 }
