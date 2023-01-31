@@ -14,7 +14,8 @@
   ],
   "$defs": {
     "nature": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/nature"
     },
     "type": {
       "title": "Type",
@@ -48,28 +49,11 @@
           "const": "COLLECTIVITE_AFFECTATAIRE",
           "title": "Collectivité affectataire"
         }
-      ]
-    },
-    "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
-    },
-    "telephone": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
-    },
-    "email": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
-    },
-    "siren": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
-    },
-    "personnePhysique": {
-      "properties": {
-        "nature": {
-          "$ref": "#/$defs/nature",
-          "const": "PERSONNE_PHYSIQUE"
-        },
-        "type": {
-          "$ref": "#/$defs/type",
+      ],
+      "$defs": {
+        "personneMorale": {
+          "title": "Type",
+          "type": "string",
           "oneOf": [
             {
               "const": "PROPRIETAIRE_UNIQUE",
@@ -92,6 +76,62 @@
               "title": "Indivisaire"
             }
           ]
+        },
+        "personnePhysique": {
+          "title": "Type",
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "PROPRIETAIRE_UNIQUE",
+              "title": "Propriétaire unique"
+            },
+            {
+              "const": "COPROPRIETAIRE",
+              "title": "Copropriétaire des équipements"
+            },
+            {
+              "const": "MAITRE_OUVRAGE",
+              "title": "Maître d'ouvrage"
+            },
+            {
+              "const": "OCCUPANT_FINANCEUR",
+              "title": "Occupant financeur"
+            },
+            {
+              "const": "INDIVISAIRE",
+              "title": "Indivisaire"
+            }
+          ]
+        }
+      }
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/adresse"
+    },
+    "telephone": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/telephone"
+    },
+    "email": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/email"
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/siren"
+    },
+    "personnePhysique": {
+      "title": "Bénéficiaire",
+      "description": "Bénéficiaire de l'opération d'économies d'énergie",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "#/$defs/nature",
+          "const": "PERSONNE_PHYSIQUE"
+        },
+        "type": {
+          "$ref": "#/$defs/type/$defs/personnePhysique"
         },
         "nom": {
           "title": "Nom",
@@ -124,35 +164,16 @@
       ]
     },
     "personneMorale": {
+      "title": "Bénéficiaire",
+      "description": "Bénéficiaire de l'opération d'économies d'énergie",
+      "type": "object",
       "properties": {
         "nature": {
           "$ref": "#/$defs/nature",
           "const": "PERSONNE_MORALE"
         },
         "type": {
-          "$ref": "#/$defs/type",
-          "oneOf": [
-            {
-              "const": "PROPRIETAIRE_UNIQUE",
-              "title": "Propriétaire unique"
-            },
-            {
-              "const": "COPROPRIETAIRE",
-              "title": "Copropriétaire des équipements"
-            },
-            {
-              "const": "MAITRE_OUVRAGE",
-              "title": "Maître d'ouvrage"
-            },
-            {
-              "const": "OCCUPANT_FINANCEUR",
-              "title": "Occupant financeur"
-            },
-            {
-              "const": "INDIVISAIRE",
-              "title": "Indivisaire"
-            }
-          ]
+          "$ref": "#/$defs/type/$defs/personneMorale"
         },
         "raisonSociale": {
           "title": "Raison sociale",
@@ -180,6 +201,26 @@
         "adresse",
         "telephone",
         "email"
+      ]
+    },
+    "copropriété": {
+      "title": "Bénéficiaire",
+      "description": "Bénéficiaire de l'opération d'économies d'énergie",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "#/$defs/nature",
+          "const": "PERSONNE_MORALE"
+        },
+        "type": {
+          "$ref": "#/$defs/type",
+          "const": "SYNDIC_COPROPRIETE"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/$defs/personneMorale"
+        }
       ]
     }
   },

@@ -3,65 +3,7 @@
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-104",
   "type": "object",
-  "properties": {
-    "_template": {
-      "type": "string",
-      "default": "montant",
-      "oneOf": [
-        {
-          "const": "montant",
-          "title": "Montant"
-        },
-        {
-          "const": "attestation",
-          "title": "Attestation"
-        }
-      ]
-    }
-  },
-  "dependentSchemas": {
-    "_template": {
-      "oneOf": [
-        {
-          "properties": {
-            "_template": {
-              "const": "montant"
-            }
-          },
-          "allOf": [
-            {
-              "$ref": "#/$defs/montant"
-            }
-          ]
-        },
-        {
-          "properties": {
-            "_template": {
-              "const": "attestation"
-            }
-          },
-          "allOf": [
-            {
-              "$ref": "#/$defs/attestation"
-            }
-          ]
-        }
-      ]
-    }
-  },
   "$defs": {
-    "beneficiaire": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
-    },
-    "installateur": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/installateur.json"
-    },
-    "batiment": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/batiment.json"
-    },
-    "operation": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/operation.json"
-    },
     "etas": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json"
     },
@@ -69,6 +11,7 @@
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/surface-chauffee.json"
     },
     "montant": {
+      "$dynamicAnchor": "Montant",
       "properties": {
         "batiment": {
           "title": "Logement",
@@ -114,6 +57,7 @@
       ]
     },
     "attestation": {
+      "$dynamicAnchor": "Attestation",
       "properties": {
         "beneficiaire": {
           "title": "Bénéficiaire",
@@ -145,5 +89,6 @@
         }
       ]
     }
-  }
+  },
+  "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/_common.json"
 }

@@ -25,16 +25,20 @@
   },
   "$defs": {
     "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/demandeur/adresse"
     },
     "telephone": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/demandeur/telephone"
     },
     "email": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/controleur/email"
     },
     "siren": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/demandeur/siren"
     }
   },
   "required": [

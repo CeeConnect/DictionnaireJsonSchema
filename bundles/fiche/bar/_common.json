@@ -1,0 +1,71 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/fiche/bar/_common",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "type": "object",
+  "properties": {
+    "_template": {
+      "type": "string",
+      "default": "montant",
+      "oneOf": [
+        {
+          "const": "montant",
+          "title": "Montant"
+        },
+        {
+          "const": "attestation",
+          "title": "Attestation"
+        }
+      ]
+    }
+  },
+  "dependentSchemas": {
+    "_template": {
+      "oneOf": [
+        {
+          "properties": {
+            "_template": {
+              "const": "montant"
+            }
+          },
+          "allOf": [
+            {
+              "$dynamicRef": "#Montant"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "_template": {
+              "const": "attestation"
+            }
+          },
+          "allOf": [
+            {
+              "$dynamicRef": "#Attestation"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "montant": {
+      "$dynamicAnchor": "Montant"
+    },
+    "attestation": {
+      "$dynamicAnchor": "Attestation"
+    },
+    "beneficiaire": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/installateur.json"
+    },
+    "batiment": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/batiment.json"
+    },
+    "operation": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/operation.json"    
+    }
+  }
+}
