@@ -29,7 +29,7 @@
           },
           "allOf": [
             {
-              "$dynamicRef": "#Montant"
+              "$dynamicRef": "#Fiche/$defs/montant"
             }
           ]
         },
@@ -41,32 +41,11 @@
           },
           "allOf": [
             {
-              "$dynamicRef": "#Attestation"
+              "$dynamicRef": "#Fiche/$defs/attestation"
             }
           ]
         }
       ]
-    }
-  },
-  "$defs": {
-    "montant": {
-      "$dynamicAnchor": "Montant"
-    },
-    "attestation": {
-      "$dynamicAnchor": "Attestation"
-    },
-    "beneficiaire": {
-      "$dynamicAnchor": "Beneficiaire"
-    },
-    "installateur": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/installateur.json"
-    },
-    "batiment": {
-      "$dynamicAnchor": "Batiment",
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/batiment.json"
-    },
-    "operation": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/operation.json"    
     }
   }
 }

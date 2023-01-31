@@ -7,12 +7,13 @@
   "$defs": {
     "beneficiaire": {
       "$dynamicAnchor": "Beneficiaire",
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
+      "$dynamicRef": "#Beneficiaire"
     },
     "installateur": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/installateur.json"
     },
     "batiment": {
+      "$dynamicAnchor": "Batiment",
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/batiment.json"
     },
     "operation": {
