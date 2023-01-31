@@ -8,16 +8,15 @@
       "title": "Logement",
       "type": "object",
       "properties": {
+        "type": {
+          "$ref": "#/$defs/batiment/$defs/type/$defs/individuel"
+        },
         "anciennete": {
-          "$ref": "#/$defs/batiment/existant"
+          "$ref": "#/$defs/batiment/$defs/existant"
         }
       },
-      "allOf": [
-        {
-          "$ref": "#/$defs/batiment/$defs/individuel"
-        }
-      ],
       "required": [
+        "type",
         "anciennete"
       ]
     },

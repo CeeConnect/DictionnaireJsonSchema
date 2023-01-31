@@ -16,5 +16,59 @@
       "const": "IMMEUBLE",
       "title": "Immeuble collectif"
     }
-  ]
+  ],
+  "$defs": {
+    "maison": {
+      "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/type",
+      "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+      "title": "Type de bâtiment",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "MAISON",
+          "title": "Maison individuelle"
+        }
+      ]
+    },
+    "appartement": {
+      "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/type",
+      "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+      "title": "Type de bâtiment",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "APPARTEMENT",
+          "title": "Appartement individuel"
+        }
+      ]
+    },
+    "immeuble": {
+      "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/type",
+      "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+      "title": "Type de bâtiment",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "IMMEUBLE",
+          "title": "Immeuble collectif"
+        }
+      ]
+    },
+    "individuel": {
+      "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/type",
+      "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+      "title": "Type de bâtiment",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "MAISON",
+          "title": "Maison individuelle"
+        },
+        {
+          "const": "APPARTEMENT",
+          "title": "Appartement individuel"
+        }
+      ]
+    }
+  }
 }
