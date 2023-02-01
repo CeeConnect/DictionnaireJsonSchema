@@ -6,78 +6,33 @@
   "type": "object",
   "properties": {
     "demandeur": {
-      "title": "Demandeur",
-      "type": "object",
-      "properties": {
-        "nom": {
-          "title": "Nom",
-          "description": "Nom du demandeur signataire de l'attestation sur l'honneur",
-          "type": "string",
-          "maxLength": 240
-        },
-        "prenom": {
-          "title": "Prénom",
-          "description": "Prénom du demandeur signataire de l'attestation sur l'honneur",
-          "type": "string",
-          "maxLength": 240
-        },
-        "fonction": {
-          "title": "Fonction",
-          "description": "Fonction du demandeur signataire de l'attestation sur l'honneur",
-          "type": "string",
-          "maxLength": 240
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/$defs/demandeur"
-        }
-      ],
-      "required": [
-        "nom",
-        "prenom",
-        "fonction"
-      ]
+      "$ref": "#/$defs/demandeur"
     },
-    "adresse": {
-      "title": "Adresse de l'opération",
+    "operation": {
+      "title": "Opération",
       "type": "object",
       "properties": {
-        "quartier": {
-          "title": "Quartier prioritaire",
-          "type": "object",
-          "properties": {
-            "nom": {
-              "title": "Nom",
-              "type": "string",
-              "maxLength": 240
-            },
-            "code": {
-              "$ref": "#/$defs/codeQuartierPrioritaire"
-            }
-          }
+        "adresse": {
+          "$ref": "#/$defs/adresse/$defs/quartierPrioritaire"
         }
       },
-      "allOf": [
-        {
-          "$ref": "#/$defs/adresse"
-        }
+      "required": [
+        "adresse"
       ]
     }
   },
   "required": [
     "demandeur",
-    "adresse"
+    "operation"
   ],
   "$defs": {
     "demandeur": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/demandeur.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/demandeur.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur-qpv/demandeur"
     },
     "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
-    },
-    "codeQuartierPrioritaire": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-quartier-prioritaire.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur-qpv/adresse"
     }
   }
 }

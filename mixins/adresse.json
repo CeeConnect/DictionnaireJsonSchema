@@ -10,19 +10,28 @@
     },
     "nom": {
       "title": "Numéro éventuel et nom de voie ou lieu dit",
-      "type": "string"
+      "type": "string",
+      "maxLength": 240
+    },
+    "complement": {
+      "title": "Complément d'adresse",
+      "type": "string",
+      "maxLength": 240
     },
     "commune": {
       "title": "Nom de la commune",
-      "type": "string"
+      "type": "string",
+      "maxLength": 240
     },
     "codeCommune": {
       "title": "Code INSEE de la commune",
-      "type": "string"
+      "type": "string",
+      "maxLength": 240
     },
     "codePostal": {
       "title": "Code postal de la commune",
-      "type": "string"
+      "type": "string",
+      "maxLength": 240
     }
   },
   "required": [
@@ -30,5 +39,32 @@
     "commune",
     "codeCommune",
     "codePostal"
-  ]
+  ],
+  "$defs": {
+    "quartierPrioritaire": {
+      "title": "Adresse",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#"
+        }
+      ],
+      "properties": {
+        "quartier": {
+          "title": "Quartier prioritaire",
+          "type": "object",
+          "properties": {
+            "nom": {
+              "title": "Nom",
+              "type": "string",
+              "maxLength": 240
+            },
+            "code": {
+              "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-quartier-prioritaire.json"
+            }
+          }
+        }
+      }
+    }
+  }
 }

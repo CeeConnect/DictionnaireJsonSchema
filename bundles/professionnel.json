@@ -5,6 +5,24 @@
   "description": "Professionnel ayant mis en œuvre l'opération d'économies d'énergie ou assuré sa maîtrise d'œuvre",
   "type": "object",
   "properties": {
+    "nom": {
+      "title": "Nom",
+      "description": "Nom du représentant légal de l'entreprise",
+      "type": "string",
+      "maxLength": 240
+    },
+    "prenom": {
+      "title": "Prénom",
+      "description": "Prénom du représentant légal de l'entreprise",
+      "type": "string",
+      "maxLength": 240
+    },
+    "fonction": {
+      "title": "Fonction",
+      "description": "Fonction du représentant légal de l'entreprise",
+      "type": "string",
+      "maxLength": 240
+    },
     "raisonSociale": {
       "title": "Raison sociale",
       "type": "string",
@@ -63,6 +81,9 @@
     "siren",
     "adresse",
     "telephone",
+    "nom",
+    "prenom",
+    "fonction",
     "email",
     "prestation"
   ]

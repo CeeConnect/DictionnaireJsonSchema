@@ -5,38 +5,12 @@
   "description": "Professionnel ayant mis en œuvre l'opération d'économies d'énergie ou assuré sa maîtrise d'œuvrer",
   "type": "object",
   "properties": {
-    "nom": {
-      "title": "Nom",
-      "description": "Nom de famille du professionnel signataire de l'attestation sur l'honneur",
-      "type": "string",
-      "maxLength": 240
-    },
-    "prenom": {
-      "title": "Prénom",
-      "description": "Prénom du professionnel signataire de l'attestation sur l'honneur",
-      "type": "string",
-      "maxLength": 240
-    },
-    "fonction": {
-      "title": "Fonction",
-      "description": "Fonction du professionnel signataire de l'attestation sur l'honneur",
-      "type": "string",
-      "maxLength": 240
-    }
+    "$ref": "#/$defs/professionnel"
   },
-  "required": [
-    "nom",
-    "prenom",
-    "fonction"
-  ],
-  "allOf": [
-    {
-      "$ref": "#/$defs/professionnel"
-    }
-  ],
   "$defs": {
     "professionnel": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/professionnel.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/professionnel.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur-c/professionnel"
     }
   }
 }

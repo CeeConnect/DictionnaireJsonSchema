@@ -21,6 +21,24 @@
     },
     "email": {
       "$ref": "#/$defs/email"
+    },
+    "nom": {
+      "title": "Nom",
+      "description": "Nom du représentant légal de l'entreprise",
+      "type": "string",
+      "maxLength": 240
+    },
+    "prenom": {
+      "title": "Prénom",
+      "description": "Prénom du représentant légal de l'entreprise",
+      "type": "string",
+      "maxLength": 240
+    },
+    "fonction": {
+      "title": "Fonction",
+      "description": "Fonction du représentant légal de l'entreprise",
+      "type": "string",
+      "maxLength": 240
     }
   },
   "$defs": {
@@ -46,6 +64,9 @@
     "siren",
     "adresse",
     "telephone",
-    "email"
+    "email",
+    "nom",
+    "prenom",
+    "fonction"
   ]
 }

@@ -1,0 +1,160 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/valorisation",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Valorisation",
+  "type": "object",
+  "properties": {
+    "nature": {
+      "$ref": "#/$defs/nature"
+    },
+    "montant": {
+      "title": "Montant",
+      "type": "number",
+      "minimum": 0
+    },
+    "fiches": {
+      "title": "Opérations standardisées",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "title": "Code",
+            "type": "string",
+            "pattern": "/^(AGRI|BAR|BAT|IND|RES|TRA)+-+(BA|CH|EC|EN|EQ|SE|TH|UT)+-+[0-9]*(-+SE)?$/"
+          },
+          "nom": {
+            "title": "Nom",
+            "type": "string",
+            "maxLength": 240
+          },
+          "url": {
+            "title": "Lien",
+            "type": "string",
+            "format": "url"
+          }
+        },
+        "required": [
+          "code",
+          "nom",
+          "url"
+        ]
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "nature": {
+            "const": "PRET"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "teg": {
+            "title": "Taux effectif global",
+            "type": "number",
+            "unit": "%"
+          },
+          "bonification": {
+            "title": "Montant de la bonification",
+            "type": "number",
+            "minimum": 0
+          },
+          "distributeur": {
+            "title": "Distributeur",
+            "type": "object",
+            "properties": {
+              "raisonSociale": {
+                "title": "Raison sociale",
+                "type": "string",
+                "maxLength": 240
+              },
+              "siren": {
+                "$ref": "#/$defs/siren"
+              }
+            },
+            "required": [
+              "raisonSociale",
+              "siren"
+            ]
+          }
+        },
+        "required": [
+          "teg",
+          "bonification",
+          "distributeur"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "nature": {
+            "const": "PSO"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "description": {
+            "title": "Description",
+            "type": "string",
+            "maxLength": 240
+          }
+        },
+        "required": [
+          "description"
+        ]
+      }
+    }
+  ],
+  "required": [
+    "nature",
+    "montant",
+    "fiches"
+  ],
+  "$defs": {
+    "nature": {
+      "title": "Nature",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "PRIME",
+          "title": "Prime"
+        },
+        {
+          "const": "BON_ACHAT",
+          "title": "Bon d'achat"
+        },
+        {
+          "const": "PRET",
+          "title": "Prêt bonifié"
+        },
+        {
+          "const": "CONSEIL",
+          "title": "Conseil personnalisé"
+        },
+        {
+          "const": "PSO",
+          "title": "Produit ou service offert"
+        },
+        {
+          "const": "PSO",
+          "title": "Produit ou service offert"
+        },
+        {
+          "const": "PATRIM",
+          "title": "Opération sur patrimoine propre"
+        }
+      ]
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/valorisation/siren"
+    }
+  }
+}

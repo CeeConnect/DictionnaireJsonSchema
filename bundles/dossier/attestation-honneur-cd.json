@@ -6,76 +6,16 @@
   "type": "object",
   "properties": {
     "beneficiaire": {
-      "title": "Bénéficiaire",
-      "type": "object",
-      "properties": {
-        "nom": {
-          "title": "Nom",
-          "description": "Nom du bénéficiaire signataire de l'attestation sur l'honneur",
-          "type": "string",
-          "maxLength": 240
-        },
-        "prenom": {
-          "title": "Prénom",
-          "description": "Prénom du bénéficiaire signataire de l'attestation sur l'honneur",
-          "type": "string",
-          "maxLength": 240
-        },
-        "fonction": {
-          "title": "Fonction",
-          "description": "Fonction du bénéficiaire signataire de l'attestation sur l'honneur",
-          "type": "string",
-          "maxLength": 240
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/$defs/beneficiaire"
-        },
-        {
-          "properties": {
-            "type": {
-              "const": "SYNDIC_COPROPRIETE"
-            }
-          }
-        }
-      ],
-      "required": [
-        "nom",
-        "prenom",
-        "fonction"
-      ]
-    },
-    "copropriete": {
-      "title": "Copropriété",
-      "type": "object",
-      "properties": {
-        "nom": {
-          "title": "Nom",
-          "description": "Nom de la copropriété",
-          "type": "string",
-          "maxLength": 240
-        },
-        "adresse": {
-          "$ref": "#/$defs/adresse"
-        }
-      },
-      "required": [
-        "nom",
-        "adresse"
-      ]
+      "$ref": "#/$defs/beneficiaire/$defs/copropriete"
     }
   },
   "required": [
-    "beneficiaire",
-    "copropriete"
+    "beneficiaire"
   ],
   "$defs": {
     "beneficiaire": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
-    },
-    "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/beneficiaire.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/dossier/cadre-contribution/beneficiaire"
     }
   }
 }

@@ -4,6 +4,11 @@
   "title": "BAR-TH-104",
   "type": "object",
   "properties": {},
+  "allOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/_common.json"
+    }
+  ],
   "$defs": {
     "beneficiaire": {
       "$dynamicAnchor": "Beneficiaire",
@@ -104,6 +109,5 @@
         }
       ]
     }
-  },
-  "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/fiche/bar/_common.json"
+  }
 }
