@@ -63,7 +63,7 @@
         }
       ]
     },
-    "logementInidividuel": {
+    "logementIndividuel": {
       "title": "Type de bâtiment",
       "type": "string",
       "oneOf": [
