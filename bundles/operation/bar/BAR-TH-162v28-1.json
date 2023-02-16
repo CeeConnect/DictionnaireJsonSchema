@@ -9,8 +9,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json",
-          "const": "MAISON"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"

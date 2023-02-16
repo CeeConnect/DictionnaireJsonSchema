@@ -12,13 +12,7 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
         },
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json",
-          "oneOf": [
-            {
-              "title": "Maison individuelle",
-              "const": "MAISON"
-            }
-          ]
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
         },
         "energieChauffage": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"

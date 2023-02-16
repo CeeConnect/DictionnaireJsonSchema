@@ -12,16 +12,10 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json"
         },
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json",
-          "oneOf": [
-            {
-              "title": "Maison individuelle",
-              "const": "MAISON"
-            }
-          ]
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
         },
         "logements": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type-installation-chauffage.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/installation-chauffage.json"
         }
       },
       "required": [

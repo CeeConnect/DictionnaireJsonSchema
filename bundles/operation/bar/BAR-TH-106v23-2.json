@@ -9,17 +9,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json",
-          "oneOf": [
-            {
-              "title": "Maison individuelle",
-              "const": "MAISON"
-            },
-            {
-              "title": "Appartement",
-              "const": "APPARTEMENT"
-            }
-          ]
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"

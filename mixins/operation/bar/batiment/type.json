@@ -38,6 +38,31 @@
         }
       ]
     },
+    "immeuble": {
+      "title": "Type de bâtiment",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "IMMEUBLE",
+          "title": "Immeuble collectif"
+        }
+      ]
+    },
+    "batiment": {
+      "$comment": "Le logement est un bâtiment",
+      "title": "Type de bâtiment",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "MAISON",
+          "title": "Maison individuelle"
+        },
+        {
+          "const": "IMMEUBLE",
+          "title": "Immeuble collectif"
+        }
+      ]
+    },
     "logementInidividuel": {
       "title": "Type de bâtiment",
       "type": "string",
