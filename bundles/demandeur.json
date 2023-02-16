@@ -11,16 +11,16 @@
       "maxLength": 240
     },
     "siren": {
-      "$ref": "#/$defs/siren"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
     },
     "adresse": {
-      "$ref": "#/$defs/adresse"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
     },
     "telephone": {
-      "$ref": "#/$defs/telephone"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
     },
     "email": {
-      "$ref": "#/$defs/email"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
     },
     "nom": {
       "title": "Nom",
@@ -39,24 +39,6 @@
       "description": "Fonction du représentant légal de l'entreprise",
       "type": "string",
       "maxLength": 240
-    }
-  },
-  "$defs": {
-    "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/demandeur/adresse"
-    },
-    "telephone": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/demandeur/telephone"
-    },
-    "email": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/controleur/email"
-    },
-    "siren": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/demandeur/siren"
     }
   },
   "required": [

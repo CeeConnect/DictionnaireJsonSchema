@@ -1,0 +1,21 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur-cd",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Partie CD",
+  "description": "CD - Copropriété objet d'une subvention de l'Agence nationale de l'habitat",
+  "type": "object",
+  "properties": {
+    "beneficiaire": {
+      "$ref": "#/$defs/beneficiaire/$defs/copropriete"
+    }
+  },
+  "required": [
+    "beneficiaire"
+  ],
+  "$defs": {
+    "beneficiaire": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json",
+      "$id": "https://schemas.ceeconnect.fr/bundles/dossier/cadre-contribution/beneficiaire"
+    }
+  }
+}

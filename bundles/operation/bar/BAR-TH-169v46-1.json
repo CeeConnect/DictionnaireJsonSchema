@@ -1,0 +1,51 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-169",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json",
+          "const": "IMMEUBLE"
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "logements": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete",
+        "logements"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+        },
+        "cop": {
+          "title": "Coefficient de performance énergétique",
+          "type": "number",
+          "minimum": 2.8
+        }
+      },
+      "required": [
+        "codeDepartement",
+        "cop"
+      ]
+    }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur-qpv",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Partie QPV",
+  "description": "QPV - Quartier prioritaire de la politique de la ville",
+  "type": "object",
+  "properties": {
+    "demandeur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/demandeur.json"
+    },
+    "beneficiaire": {
+      "allOf": [
+        {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
+        },
+        {
+          "properties": {
+            "type": {
+              "const": "SYNSYNDIC_COPROPRIETE"
+            },
+            "adresse": {
+              "properties": {
+                "quartierPrioritaire": {
+                  "const": true
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "demandeur",
+    "beneficiaire"
+  ]
+}

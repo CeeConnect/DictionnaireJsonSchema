@@ -405,6 +405,10 @@
       "title": "La Réunion"
     },
     {
+      "const": "975",
+      "title": "Saint-Pierre"
+    },
+    {
       "const": "976",
       "title": "Mayotte"
     }
@@ -797,6 +801,30 @@
         {
           "const": "95",
           "title": "Val-d'Oise"
+        },
+        {
+          "const": "971",
+          "title": "Guadeloupe"
+        },
+        {
+          "const": "972",
+          "title": "Martinique"
+        },
+        {
+          "const": "973",
+          "title": "Guyane"
+        },
+        {
+          "const": "974",
+          "title": "La Réunion"
+        },
+        {
+          "const": "975",
+          "title": "Saint-Pierre"
+        },
+        {
+          "const": "976",
+          "title": "Mayotte"
         }
       ]
     },
@@ -819,6 +847,10 @@
         {
           "const": "974",
           "title": "La Réunion"
+        },
+        {
+          "const": "975",
+          "title": "Saint-Pierre"
         },
         {
           "const": "976",

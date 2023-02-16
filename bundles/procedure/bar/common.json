@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "type": "object",
+  "properties": {
+    "beneficiaire": {
+      "title": "Bénéficiaire",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "#/$defs/beneficiaire/$defs/nature"
+        }
+      },
+      "required": [
+        "nature"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "dateEngagement": {
+          "title": "Date d'engagement",
+          "description": "Date de signature du devis ou du contrat",
+          "type": "string",
+          "format": "date"
+        },
+        "dateRealisation": {
+          "title": "Date de réalisation",
+          "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
+          "type": "string",
+          "format": "date",
+          "formatMinimum": {
+            "$data": "1/dateEngagement"
+          }
+        },
+        "referenceFacture": {
+          "title": "Référence de la facture",
+          "type": "string",
+          "maxLength": 240
+        },
+        "adresse": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+        }
+      }
+    }
+  },
+  "required": [
+    "beneficiaire",
+    "operation"
+  ],
+  "$defs": {
+    "beneficiaire": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
+    }
+  }
+}

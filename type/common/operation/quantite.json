@@ -1,8 +1,0 @@
-{
-  "$id": "https://schemas.ceeconnect.fr/type/common/operation/quantite",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Quantité de travaux",
-  "type": "integer",
-  "minimum": 0,
-  "deprecated": true
-}

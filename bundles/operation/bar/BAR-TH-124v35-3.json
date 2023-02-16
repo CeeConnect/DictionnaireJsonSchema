@@ -1,0 +1,57 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-124",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-124",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json",
+          "oneOf": [
+            {
+              "title": "Maison individuelle",
+              "const": "MAISON"
+            }
+          ]
+        },
+        "logements": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type-installation-chauffage.json"
+        }
+      },
+      "required": [
+        "anciennete",
+        "type",
+        "logements"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/outreMer"
+        },
+        "superficieCapteursSolaires": {
+          "title": "Surface des capteurs solaires",
+          "type": "number",
+          "minimum": 0,
+          "unit": "m²"
+        }
+      },
+      "required": [
+        "codeDepartement",
+        "superficieCapteursSolaires"
+      ]
+    }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
+}

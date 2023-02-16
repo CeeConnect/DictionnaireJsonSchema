@@ -1,0 +1,61 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-102",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-102",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json",
+          "oneOf": [
+            {
+              "title": "Immeuble",
+              "const": "IMMEUBLE"
+            }
+          ]
+        }
+      },
+      "required": [
+        "anciennete",
+        "type"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+        },
+        "besoinAnnuelEcs": {
+          "title": "Besoin annuel d'ECS",
+          "description": "Besoin annuel d'eau chaude sanitaire à produire par l'énergie solaire",
+          "type": "number",
+          "minimum": 0,
+          "unite": "kWh"
+        },
+        "productionSolaireUtile": {
+          "title": "Production solaire utile",
+          "type": "number",
+          "minimum": 0,
+          "unit": "kWh/an"
+        }
+      },
+      "required": [
+        "codeDepartement",
+        "besoinAnnuelEcs",
+        "productionSolaireUtile"
+      ]
+    }
+  },
+  "required": [
+    "batiment",
+    "operation"
+  ]
+}

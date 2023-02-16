@@ -1,0 +1,94 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/beneficiaire/type",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Type",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "PROPRIETAIRE_UNIQUE",
+      "title": "Propriétaire unique"
+    },
+    {
+      "const": "LOCATAIRE",
+      "title": "Locataire de l'équipement"
+    },
+    {
+      "const": "COPROPRIETAIRE",
+      "title": "Copropriétaire des équipements"
+    },
+    {
+      "const": "MAITRE_OUVRAGE",
+      "title": "Maître d'ouvrage"
+    },
+    {
+      "const": "OCCUPANT_FINANCEUR",
+      "title": "Occupant financeur"
+    },
+    {
+      "const": "SYNDICAT_COPROPRIETAIRES",
+      "title": "Syndicat de copropriétaires"
+    },
+    {
+      "const": "COLLECTIVITE_AFFECTATAIRE",
+      "title": "Collectivité affectataire"
+    }
+  ],
+  "$defs": {
+    "personneMorale": {
+      "title": "Type",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "PROPRIETAIRE_UNIQUE",
+          "title": "Propriétaire unique"
+        },
+        {
+          "const": "LOCATAIRE",
+          "title": "Locataire de l'équipement"
+        },
+        {
+          "const": "COPROPRIETAIRE",
+          "title": "Copropriétaire des équipements"
+        },
+        {
+          "const": "MAITRE_OUVRAGE",
+          "title": "Maître d'ouvrage"
+        },
+        {
+          "const": "SYNDICAT_COPROPRIETAIRES",
+          "title": "Syndicat de copropriétaires"
+        },
+        {
+          "const": "COLLECTIVITE_AFFECTATAIRE",
+          "title": "Collectivité affectataire"
+        }
+      ]
+    },
+    "personnePhysique": {
+      "title": "Type",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "PROPRIETAIRE_UNIQUE",
+          "title": "Propriétaire unique"
+        },
+        {
+          "const": "LOCATAIRE",
+          "title": "Locataire de l'équipement"
+        },
+        {
+          "const": "COPROPRIETAIRE",
+          "title": "Copropriétaire des équipements"
+        },
+        {
+          "const": "MAITRE_OUVRAGE",
+          "title": "Maître d'ouvrage"
+        },
+        {
+          "const": "OCCUPANT_FINANCEUR",
+          "title": "Occupant financeur"
+        }
+      ]
+    }
+  }
+}

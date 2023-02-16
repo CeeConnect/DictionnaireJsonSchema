@@ -1,8 +1,0 @@
-{
-  "$id": "https://schemas.ceeconnect.fr/type/bar/beneficiaire/menages-precaires",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Nombre de ménages précaires",
-  "description": "Nombre total de ménages précaires bénéficiaire de l'opération",
-  "type": "integer",
-  "deprecated": true
-}

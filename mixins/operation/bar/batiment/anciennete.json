@@ -14,25 +14,23 @@
     }
   ],
   "$defs": {
-    "existant": {
-      "title": "Bâtiment existant depuis plus de deux ans",
-      "type": "string",
-      "const": "EXISTANT",
-      "oneOf": [
-        {
-          "const": "EXISTANT",
-          "title": "Bâtiment de plus de 2 ans"
-        }
-      ]
-    },
     "neuf": {
-      "title": "Bâtiment existant depuis moins de deux ans",
+      "title": "Ancienneté du bâtiment",
       "type": "string",
-      "const": "NEUF",
       "oneOf": [
         {
           "const": "NEUF",
           "title": "Bâtiment de moins de 2 ans"
+        }
+      ]
+    },
+    "existant": {
+      "title": "Ancienneté du bâtiment",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "EXISTANT",
+          "title": "Bâtiment de plus de 2 ans"
         }
       ]
     }

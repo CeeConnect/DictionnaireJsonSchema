@@ -39,32 +39,5 @@
     "commune",
     "codeCommune",
     "codePostal"
-  ],
-  "$defs": {
-    "quartierPrioritaire": {
-      "title": "Adresse",
-      "type": "object",
-      "allOf": [
-        {
-          "$ref": "#"
-        }
-      ],
-      "properties": {
-        "quartier": {
-          "title": "Quartier prioritaire",
-          "type": "object",
-          "properties": {
-            "nom": {
-              "title": "Nom",
-              "type": "string",
-              "maxLength": 240
-            },
-            "code": {
-              "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-quartier-prioritaire.json"
-            }
-          }
-        }
-      }
-    }
-  }
+  ]
 }

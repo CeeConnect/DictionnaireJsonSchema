@@ -1,9 +1,0 @@
-{
-  "$id": "https://schemas.ceeconnect.fr/type/bar/operation/puissance-totale-bar-th-166",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Puissance totale des pompes à chaleur collectives de type air/eau ou eau/eau installées",
-  "type": "number",
-  "minimum": 0,
-  "unit": "kW",
-  "deprecated": true
-}

@@ -1,7 +1,0 @@
-{
-  "$id": "https://schemas.ceeconnect.fr/type/beneficiaire/menage-modeste",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Ménage modeste",
-  "type": "boolean",
-  "deprecated": true
-}

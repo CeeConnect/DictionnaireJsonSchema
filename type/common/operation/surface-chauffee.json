@@ -1,8 +1,0 @@
-{
-  "$id": "https://schemas.ceeconnect.fr/type/common/operation/surface-chauffee",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Surface chaufée par l'équipement",
-  "type": "number",
-  "unit": "m²",
-  "minimum": 0
-}

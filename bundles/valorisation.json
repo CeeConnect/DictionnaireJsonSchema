@@ -74,7 +74,7 @@
                 "maxLength": 240
               },
               "siren": {
-                "$ref": "#/$defs/siren"
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
               }
             },
             "required": [
@@ -151,10 +151,6 @@
           "title": "Opération sur patrimoine propre"
         }
       ]
-    },
-    "siren": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/valorisation/siren"
     }
   }
 }

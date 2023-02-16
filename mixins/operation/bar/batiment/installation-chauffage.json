@@ -1,0 +1,16 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment/installation-chauffage",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Installation de chauffage",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "INDIVIDUEL",
+      "title": "Installation individuelle"
+    },
+    {
+      "const": "COLLECTIF",
+      "title": "Installation collective"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/batiment",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "type": "object",
+  "$defs": {
+    "type": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+    },
+    "anciennete": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json"
+    },
+    "energieChauffage": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"
+    },
+    "installationChauffage": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type-installation-chauffage.json"
+    },
+    "surfaceHabitable": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/surface-habitable.json"
+    }
+  }
+}

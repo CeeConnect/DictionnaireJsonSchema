@@ -1,0 +1,82 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-137",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-137",
+  "version": "27.3",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Bâtiment",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json",
+          "oneOf": [
+            {
+              "const": "MAISON",
+              "title": "Maison individuelle"
+            },
+            {
+              "const": "IMMEUBLE",
+              "title": "Immeuble collectif"
+            }
+          ]
+        }
+      },
+      "dependencies": {
+        "type": {
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "MAISON"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "surfaceHabitable": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/surface-habitable.json"
+                  }
+                },
+                "required": [
+                  "surfaceHabitable"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "IMMEUBLE"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "logements": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+                  }
+                },
+                "required": [
+                  "logements"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "anciennete",
+        "type"
+      ]
+    }
+  },
+  "required": [
+    "batiment"
+  ]
+}

@@ -29,37 +29,16 @@
       "maxLength": 240
     },
     "siret": {
-      "$ref": "#/$defs/siret"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siret.json"
     },
     "adresse": {
-      "$ref": "#/$defs/adresse"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
     },
     "telephone": {
-      "$ref": "#/$defs/telephone"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
     },
     "email": {
-      "$ref": "#/$defs/email"
-    },
-    "prestation": {
-      "$ref": "#/$defs/prestation"
-    }
-  },
-  "$defs": {
-    "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/professionnel/adresse"
-    },
-    "telephone": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/professionnel/telephone"
-    },
-    "email": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/professionnel/email"
-    },
-    "siret": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siret.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/professionnel/siret"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
     },
     "prestation": {
       "title": "Prestation",
@@ -77,13 +56,13 @@
     }
   },
   "required": [
-    "raisonSociale",
-    "siren",
-    "adresse",
-    "telephone",
     "nom",
     "prenom",
     "fonction",
+    "raisonSociale",
+    "siret",
+    "adresse",
+    "telephone",
     "email",
     "prestation"
   ]

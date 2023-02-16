@@ -29,12 +29,10 @@
   },
   "$defs": {
     "siret": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siret.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/installateur/siret"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siret.json"
     },
     "domainesRge": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/domaines-rge.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/installateur/domaines-rge"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/domaines-rge.json"
     }
   },
   "required": [

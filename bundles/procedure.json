@@ -1,0 +1,41 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Procédure",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "title": "Identifiant unique",
+      "description": "Identifiant unique universel conforme au standard RFC 4122 (UUID)",
+      "type": "string",
+      "format": "uuid"
+    },
+    "volumeCee": {
+      "title": "Volume de certificats d'économies d'énergie",
+      "type": "number",
+      "minimum": 0,
+      "unit": "kWhc"
+    },
+    "volumeCeePrecarite": {
+      "title": "Volume de certificats d'économies d'énergie précarité",
+      "type": "number",
+      "minimum": 0,
+      "unit": "kWhc"
+    },
+    "demandeur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/demandeur"
+    },
+    "beneficiaire": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire"
+    },
+    "professionnel": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/professionnel"
+    },
+    "controleur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/controleur"
+    },
+    "valorisation": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/valorisation"
+    }
+  }
+}

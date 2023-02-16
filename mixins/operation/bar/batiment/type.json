@@ -38,17 +38,7 @@
         }
       ]
     },
-    "immeuble": {
-      "title": "Type de bâtiment",
-      "type": "string",
-      "oneOf": [
-        {
-          "const": "IMMEUBLE",
-          "title": "Immeuble collectif"
-        }
-      ]
-    },
-    "individuel": {
+    "logementInidividuel": {
       "title": "Type de bâtiment",
       "type": "string",
       "oneOf": [
@@ -59,6 +49,16 @@
         {
           "const": "APPARTEMENT",
           "title": "Appartement individuel"
+        }
+      ]
+    },
+    "logementCollectif": {
+      "title": "Type de bâtiment",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "IMMEUBLE",
+          "title": "Immeuble collectif"
         }
       ]
     }

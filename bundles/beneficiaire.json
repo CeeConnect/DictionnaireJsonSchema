@@ -1,6 +1,7 @@
 {
   "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "$comment": "Trois scénarios : Personne morale / Personne physique / Syndic de copropriété",
   "title": "Bénéficiaire",
   "description": "Bénéficiaire de l'opération d'économies d'énergie",
   "type": "object",
@@ -12,260 +13,6 @@
   "required": [
     "nature"
   ],
-  "$defs": {
-    "nature": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/nature"
-    },
-    "type": {
-      "title": "Type",
-      "type": "string",
-      "oneOf": [
-        {
-          "const": "PROPRIETAIRE_UNIQUE",
-          "title": "Propriétaire unique"
-        },
-        {
-          "const": "COPROPRIETAIRE",
-          "title": "Copropriétaire des équipements"
-        },
-        {
-          "const": "MAITRE_OUVRAGE",
-          "title": "Maître d'ouvrage"
-        },
-        {
-          "const": "OCCUPANT_FINANCEUR",
-          "title": "Occupant financeur"
-        },
-        {
-          "const": "INDIVISAIRE",
-          "title": "Indivisaire"
-        },
-        {
-          "const": "SYNDIC_COPROPRIETE",
-          "title": "Syndic de copropriété"
-        },
-        {
-          "const": "COLLECTIVITE_AFFECTATAIRE",
-          "title": "Collectivité affectataire"
-        }
-      ],
-      "$defs": {
-        "personneMorale": {
-          "title": "Type",
-          "type": "string",
-          "oneOf": [
-            {
-              "const": "PROPRIETAIRE_UNIQUE",
-              "title": "Propriétaire unique"
-            },
-            {
-              "const": "COPROPRIETAIRE",
-              "title": "Copropriétaire des équipements"
-            },
-            {
-              "const": "MAITRE_OUVRAGE",
-              "title": "Maître d'ouvrage"
-            },
-            {
-              "const": "OCCUPANT_FINANCEUR",
-              "title": "Occupant financeur"
-            },
-            {
-              "const": "INDIVISAIRE",
-              "title": "Indivisaire"
-            }
-          ]
-        },
-        "personnePhysique": {
-          "title": "Type",
-          "type": "string",
-          "oneOf": [
-            {
-              "const": "PROPRIETAIRE_UNIQUE",
-              "title": "Propriétaire unique"
-            },
-            {
-              "const": "COPROPRIETAIRE",
-              "title": "Copropriétaire des équipements"
-            },
-            {
-              "const": "MAITRE_OUVRAGE",
-              "title": "Maître d'ouvrage"
-            },
-            {
-              "const": "OCCUPANT_FINANCEUR",
-              "title": "Occupant financeur"
-            },
-            {
-              "const": "INDIVISAIRE",
-              "title": "Indivisaire"
-            }
-          ]
-        }
-      }
-    },
-    "adresse": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/adresse"
-    },
-    "telephone": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/telephone"
-    },
-    "email": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/email"
-    },
-    "siren": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire/siren"
-    },
-    "personnePhysique": {
-      "title": "Bénéficiaire",
-      "description": "Bénéficiaire de l'opération d'économies d'énergie",
-      "type": "object",
-      "properties": {
-        "nature": {
-          "$ref": "#/$defs/nature",
-          "const": "PERSONNE_PHYSIQUE"
-        },
-        "type": {
-          "$ref": "#/$defs/type/$defs/personnePhysique"
-        },
-        "nom": {
-          "title": "Nom",
-          "type": "string",
-          "maxLength": 240
-        },
-        "prenom": {
-          "title": "Prénom",
-          "type": "string",
-          "maxLength": 240
-        },
-        "adresse": {
-          "$ref": "#/$defs/adresse"
-        },
-        "telephone": {
-          "$ref": "#/$defs/telephone"
-        },
-        "email": {
-          "$ref": "#/$defs/email"
-        }
-      },
-      "required": [
-        "nature",
-        "type",
-        "nom",
-        "prenom",
-        "adresse",
-        "telephone",
-        "email"
-      ]
-    },
-    "personneMorale": {
-      "title": "Bénéficiaire",
-      "description": "Bénéficiaire de l'opération d'économies d'énergie",
-      "type": "object",
-      "properties": {
-        "nature": {
-          "$ref": "#/$defs/nature",
-          "const": "PERSONNE_MORALE"
-        },
-        "type": {
-          "$ref": "#/$defs/type/$defs/personneMorale"
-        },
-        "raisonSociale": {
-          "title": "Raison sociale",
-          "type": "string",
-          "maxLength": 240
-        },
-        "siren": {
-          "$ref": "#/$defs/siren"
-        },
-        "nom": {
-          "title": "Nom",
-          "description": "Nom du représentant légal de l'entreprise",
-          "type": "string",
-          "maxLength": 240
-        },
-        "prenom": {
-          "title": "Prénom",
-          "description": "Prénom du représentant légal de l'entreprise",
-          "type": "string",
-          "maxLength": 240
-        },
-        "fonction": {
-          "title": "Fonction",
-          "description": "Fonction du représentant légal de l'entreprise",
-          "type": "string",
-          "maxLength": 240
-        },
-        "adresse": {
-          "$ref": "#/$defs/adresse"
-        },
-        "telephone": {
-          "$ref": "#/$defs/telephone"
-        },
-        "email": {
-          "$ref": "#/$defs/email"
-        }
-      },
-      "required": [
-        "nature",
-        "type",
-        "raisonSociale",
-        "siren",
-        "nom",
-        "prenom",
-        "fonction",
-        "adresse",
-        "telephone",
-        "email"
-      ]
-    },
-    "copropriété": {
-      "title": "Bénéficiaire",
-      "description": "Bénéficiaire de l'opération d'économies d'énergie",
-      "type": "object",
-      "properties": {
-        "nature": {
-          "$ref": "#/$defs/nature",
-          "const": "PERSONNE_MORALE"
-        },
-        "type": {
-          "$ref": "#/$defs/type",
-          "const": "SYNDIC_COPROPRIETE"
-        },
-        "copropriete": {
-          "title": "Copropriété",
-          "type": "object",
-          "properties": {
-            "nom": {
-              "title": "Nom",
-              "type": "string",
-              "maxLength": 240
-            },
-            "adresse": {
-              "$ref": "#/$defs/adresse"
-            }
-          },
-          "required": [
-            "nom",
-            "adresse"
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "$ref": "#/$defs/personneMorale"
-        }
-      ],
-      "required": [
-        "copropriete"
-      ]
-    }
-  },
   "allOf": [
     {
       "if": {
@@ -294,10 +41,355 @@
       "then": {
         "allOf": [
           {
-            "$ref": "#/$defs/personneMorale"
+            "if": {
+              "properties": {
+                "type": {
+                  "const": "SYNDICAT_COPROPRIETAIRES"
+                }
+              }
+            },
+            "then": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/copropriete"
+                }
+              ]
+            },
+            "else": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/personneMorale"
+                }
+              ]
+            }
           }
         ]
       }
     }
-  ]
+  ],
+  "$defs": {
+    "nature": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "telephone": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
+    },
+    "email": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+    },
+    "raisonSociale": {
+      "title": "Raison sociale",
+      "type": "string",
+      "maxLength": 240
+    },
+    "nom": {
+      "title": "Nom",
+      "type": "string",
+      "maxLength": 240
+    },
+    "prenom": {
+      "title": "Prénom",
+      "type": "string",
+      "maxLength": 240
+    },
+    "fonction": {
+      "title": "Fonction",
+      "description": "Fonction du représentant légal de l'entreprise",
+      "type": "string",
+      "maxLength": 240
+    },
+    "type": {
+      "title": "Type",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "PROPRIETAIRE_UNIQUE",
+          "title": "Propriétaire unique"
+        },
+        {
+          "const": "LOCATAIRE",
+          "title": "Locataire de l'équipement"
+        },
+        {
+          "const": "COPROPRIETAIRE",
+          "title": "Copropriétaire des équipements"
+        },
+        {
+          "const": "MAITRE_OUVRAGE",
+          "title": "Maître d'ouvrage"
+        },
+        {
+          "const": "OCCUPANT_FINANCEUR",
+          "title": "Occupant financeur"
+        },
+        {
+          "const": "SYNDICAT_COPROPRIETAIRES",
+          "title": "Syndicat de copropriétaires"
+        },
+        {
+          "const": "COLLECTIVITE_AFFECTATAIRE",
+          "title": "Collectivité affectataire"
+        }
+      ]
+    },
+    "quartierPrioritaire": {
+      "type": "object",
+      "properties": {
+        "quartierPrioritaire": {
+          "title": "Quartier prioritaire de la politique de la ville",
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "quartierPrioritaire": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "nomQuartierPrioritaire": {
+                "title": "Nom",
+                "type": "string",
+                "maxLength": 240
+              },
+              "codeQuartierPrioritaire": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-quartier-prioritaire.json"
+              }
+            },
+            "required": [
+              "nomQuartierPrioritaire",
+              "codeQuartierPrioritaire"
+            ]
+          }
+        }
+      ]
+    },
+    "personnePhysique": {
+      "title": "Bénéficiaire",
+      "description": "Bénéficiaire de l'opération d'économies d'énergie",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "#/$defs/nature",
+          "const": "PERSONNE_PHYSIQUE"
+        },
+        "type": {
+          "$ref": "#/$defs/type",
+          "oneOf": [
+            {
+              "const": "PROPRIETAIRE_UNIQUE",
+              "title": "Propriétaire unique"
+            },
+            {
+              "const": "LOCATAIRE",
+              "title": "Locataire de l'équipement"
+            },
+            {
+              "const": "COPROPRIETAIRE",
+              "title": "Copropriétaire des équipements"
+            },
+            {
+              "const": "MAITRE_OUVRAGE",
+              "title": "Maître d'ouvrage"
+            },
+            {
+              "const": "OCCUPANT_FINANCEUR",
+              "title": "Occupant financeur"
+            }
+          ]
+        },
+        "nom": {
+          "$ref": "#/$defs/nom"
+        },
+        "prenom": {
+          "$ref": "#/$defs/prenom"
+        },
+        "telephone": {
+          "$ref": "#/$defs/telephone"
+        },
+        "email": {
+          "$ref": "#/$defs/email"
+        },
+        "adresse": {
+          "$ref": "#/$defs/adresse"
+        }
+      },
+      "required": [
+        "nature",
+        "type",
+        "nom",
+        "prenom",
+        "adresse",
+        "telephone",
+        "email"
+      ]
+    },
+    "personneMorale": {
+      "title": "Bénéficiaire",
+      "description": "Bénéficiaire de l'opération d'économies d'énergie",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "#/$defs/nature",
+          "const": "PERSONNE_MORALE"
+        },
+        "type": {
+          "$ref": "#/$defs/type",
+          "oneOf": [
+            {
+              "const": "PROPRIETAIRE_UNIQUE",
+              "title": "Propriétaire unique"
+            },
+            {
+              "const": "LOCATAIRE",
+              "title": "Locataire de l'équipement"
+            },
+            {
+              "const": "COPROPRIETAIRE",
+              "title": "Copropriétaire des équipements"
+            },
+            {
+              "const": "MAITRE_OUVRAGE",
+              "title": "Maître d'ouvrage"
+            },
+            {
+              "const": "SYNDICAT_COPROPRIETAIRES",
+              "title": "Syndicat de copropriétaires"
+            },
+            {
+              "const": "COLLECTIVITE_AFFECTATAIRE",
+              "title": "Collectivité affectataire"
+            }
+          ]
+        },
+        "raisonSociale": {
+          "$ref": "#/$defs/raisonSociale"
+        },
+        "siren": {
+          "$ref": "#/$defs/siren"
+        },
+        "nom": {
+          "$ref": "#/$defs/nom",
+          "description": "Nom du représentant légal de l'entreprise"
+        },
+        "prenom": {
+          "$ref": "#/$defs/prenom",
+          "description": "Prénom du représentant légal de l'entreprise"
+        },
+        "fonction": {
+          "$ref": "#/$defs/fonction"
+        },
+        "telephone": {
+          "$ref": "#/$defs/telephone"
+        },
+        "email": {
+          "$ref": "#/$defs/email"
+        },
+        "adresse": {
+          "$ref": "#/$defs/adresse"
+        }
+      },
+      "required": [
+        "nature",
+        "type",
+        "raisonSociale",
+        "siren",
+        "nom",
+        "prenom",
+        "fonction",
+        "adresse",
+        "telephone",
+        "email"
+      ]
+    },
+    "copropriete": {
+      "title": "Bénéficiaire",
+      "description": "Bénéficiaire de l'opération d'économies d'énergie",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "#/$defs/nature",
+          "const": "PERSONNE_MORALE"
+        },
+        "type": {
+          "$ref": "#/$defs/type",
+          "const": "SYNDICAT_COPROPRIETAIRES"
+        },
+        "raisonSociale": {
+          "$ref": "#/$defs/raisonSociale"
+        },
+        "siren": {
+          "$ref": "#/$defs/siren"
+        },
+        "nom": {
+          "$ref": "#/$defs/nom",
+          "description": "Nom du représentant légal de l'entreprise"
+        },
+        "prenom": {
+          "$ref": "#/$defs/prenom",
+          "description": "Prénom du représentant légal de l'entreprise"
+        },
+        "fonction": {
+          "$ref": "#/$defs/fonction"
+        },
+        "copropriete": {
+          "title": "Copropriété",
+          "type": "object",
+          "properties": {
+            "nom": {
+              "title": "Nom",
+              "type": "string",
+              "maxLength": 240
+            },
+            "adresse": {
+              "allOf": [
+                {
+                  "$ref": "#/%24defs/adresse"
+                },
+                {
+                  "$ref": "#/$defs/quartierPrioritaire"
+                }
+              ]
+            }
+          },
+          "required": [
+            "nom",
+            "adresse"
+          ]
+        },
+        "telephone": {
+          "$ref": "#/$defs/telephone"
+        },
+        "email": {
+          "$ref": "#/$defs/email"
+        },
+        "adresse": {
+          "$ref": "#/$defs/adresse"
+        }
+      },
+      "required": [
+        "nature",
+        "type",
+        "raisonSociale",
+        "siren",
+        "nom",
+        "prenom",
+        "fonction",
+        "adresse",
+        "copropriete",
+        "telephone",
+        "email"
+      ]
+    }
+  }
 }

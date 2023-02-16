@@ -1,0 +1,134 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-125",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-125",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        }
+      },
+      "dependencies": {
+        "type": {
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "IMMEUBLE"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "logements": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+                  }
+                },
+                "required": [
+                  "logements"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "MAISON",
+                      "APPARTEMENT"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "surfaceHabitable": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/surface-habitable.json"
+                  }
+                },
+                "required": [
+                  "surfaceHabitable"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "anciennete"
+      ]
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "codeDepartement": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+        },
+        "typeVmcDoubleFlux": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-vmc-double-flux.json"
+        }
+      },
+      "required": [
+        "codeDepartement",
+        "typeVmcDoubleFlux"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "batiment": {
+            "properties": {
+              "type": {
+                "const": "IMMEUBLE"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "operation": {
+            "properties": {
+              "typeInstallation": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-installation.json",
+                "oneOf": [
+                  {
+                    "const": "COLLECTIF",
+                    "title": "Installation collective"
+                  }
+                ]
+              },
+              "typeVmcDoubleFlux": {
+                "oneOf": [
+                  {
+                    "const": "AUTOREGLABLE",
+                    "title": "Autoréglable"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "typeInstallation"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "batiment",
+    "operation"
+  ]
+}

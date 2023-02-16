@@ -1,8 +1,0 @@
-{
-  "$id": "https://schemas.ceeconnect.fr/type/bar/batiment/appartements",
-  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Nombre d'appartements",
-  "type": "integer",
-  "minimum": 0,
-  "deprecated": true
-}

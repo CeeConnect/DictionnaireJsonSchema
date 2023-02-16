@@ -1,0 +1,8 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/uuid",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Identifiant unique",
+  "description": "Identifiant unique universel conforme au standard RFC 4122 (UUID)",
+  "type": "string",
+  "format": "uuid"
+}

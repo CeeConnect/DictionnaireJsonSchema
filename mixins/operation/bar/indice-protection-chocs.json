@@ -2,51 +2,51 @@
   "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/indice-protection-chocs",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Indice de de protection aux chocs",
-  "type": "integer",
+  "type": "string",
   "unit": "IK",
   "oneOf": [
     {
-      "const": 0,
+      "const": "00",
       "title": "00"
     },
     {
-      "const": 1,
+      "const": "01",
       "title": "01"
     },
     {
-      "const": 2,
+      "const": "02",
       "title": "02"
     },
     {
-      "const": 3,
+      "const": "03",
       "title": "03"
     },
     {
-      "const": 4,
+      "const": "04",
       "title": "04"
     },
     {
-      "const": 5,
+      "const": "05",
       "title": "05"
     },
     {
-      "const": 6,
+      "const": "06",
       "title": "06"
     },
     {
-      "const": 7,
+      "const": "07",
       "title": "07"
     },
     {
-      "const": 8,
+      "const": "08",
       "title": "08"
     },
     {
-      "const": 9,
+      "const": "09",
       "title": "09"
     },
     {
-      "const": 10,
+      "const": "10",
       "title": "10"
     }
   ]

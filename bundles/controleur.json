@@ -11,7 +11,7 @@
       "maxLength": 240
     },
     "siren": {
-      "$ref": "#/$defs/siren"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
     },
     "accreditation": {
       "title": "Accréditation COFRAC",
@@ -32,12 +32,6 @@
         "numero",
         "finValidite"
       ]
-    }
-  },
-  "$defs": {
-    "siren": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json",
-      "$id": "https://schemas.ceeconnect.fr/bundles/controleur/siren"
     }
   },
   "required": [
