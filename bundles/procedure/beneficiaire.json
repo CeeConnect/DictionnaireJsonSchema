@@ -16,11 +16,11 @@
   "allOf": [
     {
       "if": {
-        "properties": {
-          "nature": {
-            "const": "PERSONNE_PHYSIQUE"
+        "oneOf": [
+          {
+            "$ref": "#/$defs/nature/$defs/personnePhysique"
           }
-        }
+        ]
       },
       "then": {
         "allOf": [
@@ -32,11 +32,11 @@
     },
     {
       "if": {
-        "properties": {
-          "nature": {
-            "const": "PERSONNE_MORALE"
+        "oneOf": [
+          {
+            "$ref": "#/$defs/nature/$defs/personneMorale"
           }
-        }
+        ]
       },
       "then": {
         "allOf": [
@@ -144,8 +144,7 @@
       "type": "object",
       "properties": {
         "nature": {
-          "$ref": "#/$defs/nature",
-          "const": "PERSONNE_PHYSIQUE"
+          "$ref": "#/$defs/nature/$defs/personnePhysique"
         },
         "type": {
           "$ref": "#/$defs/type",
@@ -204,8 +203,7 @@
       "type": "object",
       "properties": {
         "nature": {
-          "$ref": "#/$defs/nature",
-          "const": "PERSONNE_MORALE"
+          "$ref": "#/$defs/nature/$defs/personneMorale"
         },
         "type": {
           "$ref": "#/$defs/type",
@@ -282,8 +280,7 @@
       "type": "object",
       "properties": {
         "nature": {
-          "$ref": "#/$defs/nature",
-          "const": "PERSONNE_MORALE"
+          "$ref": "#/$defs/nature/$defs/personneMorale"
         },
         "type": {
           "$ref": "#/$defs/type",
