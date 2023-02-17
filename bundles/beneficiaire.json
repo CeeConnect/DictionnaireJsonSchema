@@ -138,42 +138,6 @@
         }
       ]
     },
-    "quartierPrioritaire": {
-      "type": "object",
-      "properties": {
-        "quartierPrioritaire": {
-          "title": "Quartier prioritaire de la politique de la ville",
-          "type": "boolean"
-        }
-      },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "quartierPrioritaire": {
-                "const": true
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "nomQuartierPrioritaire": {
-                "title": "Nom",
-                "type": "string",
-                "maxLength": 240
-              },
-              "codeQuartierPrioritaire": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-quartier-prioritaire.json"
-              }
-            },
-            "required": [
-              "nomQuartierPrioritaire",
-              "codeQuartierPrioritaire"
-            ]
-          }
-        }
-      ]
-    },
     "personnePhysique": {
       "title": "Bénéficiaire",
       "description": "Bénéficiaire de l'opération d'économies d'énergie",
@@ -352,14 +316,7 @@
               "maxLength": 240
             },
             "adresse": {
-              "allOf": [
-                {
-                  "$ref": "#/%24defs/adresse"
-                },
-                {
-                  "$ref": "#/$defs/quartierPrioritaire"
-                }
-              ]
+              "$ref": "#/$defs/adresse"
             }
           },
           "required": [

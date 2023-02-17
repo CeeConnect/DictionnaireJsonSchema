@@ -1,56 +1,92 @@
 {
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/common",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "type": "object",
   "properties": {
-    "beneficiaire": {
-      "title": "Bénéficiaire",
-      "type": "object",
-      "properties": {
-        "nature": {
-          "$ref": "#/$defs/beneficiaire/$defs/nature"
-        }
-      },
-      "required": [
-        "nature"
-      ]
-    },
     "operation": {
-      "title": "Opération",
       "type": "object",
       "properties": {
         "dateEngagement": {
-          "title": "Date d'engagement",
-          "description": "Date de signature du devis ou du contrat",
-          "type": "string",
-          "format": "date"
+          "$ref": "#/$defs/dateEngagement",
+          "formatMinimum": {
+            "$data": "1/dateVisitePrealable"
+          }
+        },
+        "dateVisitePrealable": {
+          "$ref": "#/$defs/dateVisitePrealable"
+        },
+        "dateDebut": {
+          "$ref": "#/$defs/dateDebut",
+          "formatMinimum": {
+            "$data": "1/dateEngagement"
+          }
         },
         "dateRealisation": {
-          "title": "Date de réalisation",
-          "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
-          "type": "string",
-          "format": "date",
+          "$ref": "#/$defs/dateRealisation",
           "formatMinimum": {
             "$data": "1/dateEngagement"
           }
         },
         "referenceFacture": {
-          "title": "Référence de la facture",
-          "type": "string",
-          "maxLength": 240
+          "$ref": "#/$defs/referenceFacture"
         },
         "adresse": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+          "$ref": "#/$defs/adresse"
         }
       }
     }
   },
-  "required": [
-    "beneficiaire",
-    "operation"
-  ],
   "$defs": {
-    "beneficiaire": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/beneficiaire.json"
+    "dateEngagement": {
+      "title": "Date d'engagement",
+      "description": "Date de signature du devis ou du contrat",
+      "type": "string",
+      "format": "date"
+    },
+    "dateVisitePrealable": {
+      "title": "Date de visite préalable",
+      "description": "Date de la visite préalable du bâtiment où ont eu lieu les travaux",
+      "type": "string",
+      "format": "date"
+    },
+    "dateDebut": {
+      "title": "Date de début des travaux",
+      "type": "string",
+      "format": "date"
+    },
+    "dateRealisation": {
+      "title": "Date de réalisation",
+      "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
+      "type": "string",
+      "format": "date"
+    },
+    "referenceFacture": {
+      "title": "Référence de la facture",
+      "type": "string",
+      "maxLength": 240
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "marque": {
+      "title": "Marque",
+      "type": "string",
+      "maxLength": 240
+    },
+    "reference": {
+      "title": "Référence",
+      "type": "string",
+      "maxLength": 240
+    },
+    "resistanceIsolant": {
+      "title": "Résistance thermmique de l'isolant",
+      "type": "number",
+      "unit": "m2.K/W"
+    },
+    "epaisseurIsolant": {
+      "title": "Epaisseur de l'isolant",
+      "type": "number",
+      "minimum": 0,
+      "unit": "mm"
     }
   }
 }

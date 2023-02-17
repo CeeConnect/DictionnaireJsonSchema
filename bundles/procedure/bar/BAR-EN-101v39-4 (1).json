@@ -1,0 +1,214 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/fiche/bar/BAR-EN-101",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-101",
+  "description": "Isolation de combles ou de toiture",
+  "type": "object",
+  "properties": {
+    "_template": {
+      "type": "string",
+      "default": "montant",
+      "oneOf": [
+        {
+          "const": "montant",
+          "title": "Montant"
+        },
+        {
+          "const": "attestation",
+          "title": "Attestation"
+        }
+      ]
+    }
+  },
+  "dependentSchemas": {
+    "_template": {
+      "oneOf": [
+        {
+          "properties": {
+            "_template": {
+              "const": "montant"
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/montant"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "_template": {
+              "const": "attestation"
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/attestation"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "anciennete": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+    },
+    "type": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/type.json"
+    },
+    "quantiteIsolant": {
+      "$ref": "https://schemas.ceeconnect.fr/type/common/operation/quantite-isolant"
+    },
+    "codeDepartementMetropole": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-metropole.json"
+    },
+    "typePoseIsolant": {
+      "title": "Type de pose",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "COMBLES_PERDUS",
+          "title": "Pose en combles perdus"
+        },
+        {
+          "const": "RAMPANT_TOITURES",
+          "title": "Pose en rampant de toitures"
+        }
+      ]
+    },
+    "epaisseurIsolant": {
+      "title": "Epaisseur de l'isolant",
+      "type": "number",
+      "minimum": 0,
+      "unit": "mm"
+    },
+    "resistanceIsolant": {
+      "title": "Résistance thermmique de l'isolant",
+      "type": "number",
+      "minimum": 0,
+      "unit": "m2.K/W"
+    },
+    "posePareVapeur": {
+      "title": "Mise en place d'un pare-vapeur",
+      "description": "L’isolation thermique réalisée a nécessité la mise en place d’un pare-vapeur ou tout autre dispositif permettant d'atteindre un résultat équivalent",
+      "type": "boolean"
+    },
+    "mentionMarqueReference": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json"
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
+    },
+    "montant": {
+      "properties": {
+        "batiment": {
+          "title": "Bâtiment",
+          "type": "object",
+          "properties": {
+            "anciennete": {
+              "$ref": "#/$defs/anciennete"
+            },
+            "type": {
+              "$ref": "#/$defs/type"
+            }
+          },
+          "required": [
+            "anciennete",
+            "type"
+          ]
+        },
+        "operation": {
+          "title": "Opération",
+          "type": "object",
+          "properties": {
+            "codeDepartementMetropole": {
+              "$ref": "#/$defs/codeDepartementMetropole"
+            },
+            "quantiteIsloant": {
+              "$ref": "#/$defs/quantiteIsolant"
+            }
+          },
+          "required": [
+            "codeDepartementMetropole",
+            "quantiteIsolant"
+          ]
+        }
+      },
+      "required": [
+        "batiment",
+        "operation"
+      ]
+    },
+    "attestation": {
+      "properties": {
+        "operation": {
+          "properties": {
+            "typePoseIsolant": {
+              "$ref": "#/$defs/typePoseIsolant"
+            },
+            "epaisseurIsolant": {
+              "$ref": "#/$defs/epaisseurIsolant"
+            },
+            "resistanceIsolant": {
+              "$ref": "#/$defs/resistanceIsolant"
+            },
+            "posePareVapeur": {
+              "$ref": "#/$defs/posePareVapeur"
+            }
+          },
+          "required": [
+            "typePoseIsolant",
+            "posePareVapeur",
+            "resistanceIsolant",
+            "epaisseurIsolant"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "typePoseIsolant": {
+                    "const": "COMBLES_PERDUS"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "resistanceIsolant": {
+                    "minimum": 7
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "typePoseIsolant": {
+                    "const": "RAMPANT_TOITURES"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "resistanceIsolant": {
+                    "minimum": 6
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "mentionMarqueReference": {
+          "$ref": "#/$defs/mentionMarqueReference"
+        },
+        "installateur": {
+          "$ref": "#/$defs/installateur"
+        },
+        "required": [
+          "mentionMarqueReference",
+          "installateur"
+        ]
+      }
+    }
+  }
+}

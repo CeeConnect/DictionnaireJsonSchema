@@ -1,0 +1,282 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/precarite",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "$comment": "Prise en compte de la précarité énergétique",
+  "title": "Précarité énergétique",
+  "type": "object",
+  "properties": {
+    "precarite": {
+      "$ref": "#/$defs/precarite"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "precarite": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "type": {
+            "$ref": "#/$defs/type"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/$defs/main"
+          }
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "type": {
+      "title": "Scénario",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "8.1",
+          "title": "Ménage en situation de précarité énergétique"
+        },
+        {
+          "const": "8.2",
+          "title": "Opération concernant au moins un logement locatif social"
+        },
+        {
+          "const": "8.3",
+          "title": "Copropriété objet d'une subvention de l'Agence nationale de l'habitat"
+        },
+        {
+          "const": "8.4",
+          "title": "Quartier prioritaire de la politique de la ville"
+        },
+        {
+          "const": "8.5",
+          "title": "Autres cas"
+        }
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "precarite": {
+      "title": "Opération au bénéfice d'un ménage en situation de précarité énergétique",
+      "type": "boolean"
+    },
+    "main": {
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "8.2"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "codeDepartement": {
+                "$ref": "#/$defs/codeDepartement"
+              },
+              "logements": {
+                "title": "Nombre de logements",
+                "type": "integer",
+                "exclusiveMinimum": 0
+              },
+              "logementsSociaux": {
+                "title": "Nombre de logements sociaux",
+                "description": "Nombre de logements gérés par un bailleur social",
+                "type": "integer",
+                "minimum": 0,
+                "maximumFormat": {
+                  "$data": "1/logements"
+                }
+              },
+              "menagesPrecaires": {
+                "title": "Nombre de ménages précaires",
+                "type": "integer",
+                "minimum": 0,
+                "maximumFormat": {
+                  "$data": "1/logements"
+                }
+              }
+            },
+            "required": [
+              "codeDepartement",
+              "logements",
+              "logementsSociaux",
+              "menagesPrecaires"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "8.3"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "partPrecaires": {
+                "title": "Part de ménages précaires",
+                "description": "Information issue des résultats de l'enquête sociale sur au moins 50% des occupants",
+                "type": "number",
+                "maximum": 100,
+                "minimum": 0
+              }
+            },
+            "required": [
+              "partPrecaires"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "8.4"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "codeDepartement": {
+                "$ref": "#/$defs/codeDepartement"
+              }
+            },
+            "required": [
+              "codeDepartement"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "8.5"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "menages": {
+                "title": "Nombre total de ménages",
+                "type": "integer",
+                "minimumExclusive": 0
+              },
+              "menagesPrecaires": {
+                "title": "Nombre de ménages précaires",
+                "type": "integer",
+                "minimum": 0,
+                "maximumFormat": {
+                  "$data": "1/menages"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "logementIndividuel": {
+      "title": "Précarité énergétique",
+      "type": "object",
+      "properties": {
+        "precarite": {
+          "$ref": "#/$defs/precarite"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "precarite": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "type": {
+                "$ref": "#/$defs/type",
+                "oneOf": [
+                  {
+                    "const": "8.1",
+                    "title": "Ménage en situation de précarité énergétique"
+                  },
+                  {
+                    "const": "8.2",
+                    "title": "Opération concernant au moins un logement locatif social"
+                  },
+                  {
+                    "const": "8.5",
+                    "title": "Autres cas"
+                  }
+                ]
+              }
+            },
+            "allOf": [
+              {
+                "$ref": "#/$defs/main"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "logementCollectif": {
+      "title": "Précarité énergétique",
+      "type": "object",
+      "properties": {
+        "precarite": {
+          "$ref": "#/$defs/precarite"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "precarite": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "type": {
+                "$ref": "#/$defs/type",
+                "oneOf": [
+                  {
+                    "const": "8.2",
+                    "title": "Opération concernant au moins un logement locatif social"
+                  },
+                  {
+                    "const": "8.3",
+                    "title": "Copropriété objet d'une subvention de l'Agence nationale de l'habitat"
+                  },
+                  {
+                    "const": "8.4",
+                    "title": "Quartier prioritaire de la politique de la ville"
+                  },
+                  {
+                    "const": "8.5",
+                    "title": "Autres cas"
+                  }
+                ]
+              }
+            },
+            "allOf": [
+              {
+                "$ref": "#/$defs/main"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

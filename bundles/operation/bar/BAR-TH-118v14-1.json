@@ -9,94 +9,75 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+          "$ref": "#/$defs/type"
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
         }
       },
-      "dependencies": {
-        "type": {
-          "allOf": [
-            {
-              "if": {
-                "properties": {
-                  "type": {
-                    "const": "IMMEUBLE"
-                  }
-                }
-              },
-              "then": {
-                "properties": {
-                  "typeInstallationChauffage": {
-                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/installation-chauffage.json",
-                    "oneOf": [
-                      {
-                        "const": "COLLECTIF",
-                        "title": "Installation collective"
-                      }
-                    ]
-                  },
-                  "logements": {
-                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
-                  }
-                },
-                "required": [
-                  "logements",
-                  "typeInstallationChauffage"
-                ]
-              }
-            },
-            {
-              "if": {
-                "properties": {
-                  "type": {
-                    "enum": [
-                      "MAISON",
-                      "APPARTEMENT"
-                    ]
-                  }
-                }
-              },
-              "then": {
-                "properties": {
-                  "energieChauffage": {
-                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"
-                  }
-                },
-                "required": [
-                  "energieChauffage"
-                ]
-              }
-            },
-            {
-              "if": {
-                "properties": {
-                  "type": {
-                    "const": "APPARTEMENT"
-                  }
-                }
-              },
-              "then": {
-                "properties": {
-                  "typeInstallationChauffage": {
-                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/installation-chauffage.json",
-                    "oneOf": [
-                      {
-                        "const": "INDIVIDUEL",
-                        "title": "Installation individuelle"
-                      }
-                    ]
-                  }
-                },
-                "required": [
-                  "typeInstallationChauffage"
-                ]
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "$ref": "#/$defs/type#/$defs/logementCollectif"
               }
             }
-          ]
+          },
+          "then": {
+            "properties": {
+              "installationChauffage": {
+                "$ref": "#/$defs/installationChauffage#/$defs/collectif"
+              },
+              "logements": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+              }
+            },
+            "required": [
+              "logements",
+              "installationChauffage"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "$ref": "#/$defs/type#/$defs/logementIndividuel"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "energieChauffage": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"
+              }
+            },
+            "required": [
+              "energieChauffage"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "$ref": "#/$defs/type#/$defs/appartement"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "installationChauffage": {
+                "$ref": "#/$defs/installationChauffage#/$defs/individuel"
+              }
+            },
+            "required": [
+              "typeInstallationChauffage"
+            ]
+          }
         }
-      },
+      ],
       "required": [
         "type",
         "anciennete"
@@ -122,7 +103,7 @@
           "batiment": {
             "properties": {
               "type": {
-                "const": "MAISON"
+                "$ref": "#/$defs/type#/$defs/maison"
               }
             }
           }
@@ -147,5 +128,13 @@
   "required": [
     "batiment",
     "operation"
-  ]
+  ],
+  "$defs": {
+    "type": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+    },
+    "installationChauffage": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/installation-chauffage.json"
+    }
+  }
 }

@@ -1,0 +1,155 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/fiche/bar/BAR-EN-108",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-108",
+  "description": "Fermeture isolante",
+  "type": "object",
+  "properties": {
+    "_template": {
+      "type": "string",
+      "default": "montant",
+      "oneOf": [
+        {
+          "const": "montant",
+          "title": "Montant"
+        },
+        {
+          "const": "attestation",
+          "title": "Attestation"
+        }
+      ]
+    }
+  },
+  "dependentSchemas": {
+    "_template": {
+      "oneOf": [
+        {
+          "properties": {
+            "_template": {
+              "const": "montant"
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/montant"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "_template": {
+              "const": "attestation"
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/attestation"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "anciennete": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
+    },
+    "type": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/type.json"
+    },
+    "quantite": {
+      "$ref": "https://schemas.ceeconnect.fr/type/common/operation/quantite"
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
+    },
+    "ageEquipement": {
+      "title": "La fenêtre ou porte-fenêtre sur laquelle est installée la fermeture isolante est âgée de plus de 2 ans",
+      "type": "boolean",
+      "default": true
+    },
+    "resistanceIsolant": {
+      "type": "number",
+      "minimum": 0,
+      "unit": "m2.K/W"
+    },
+    "mentionMarqueReference": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json"
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
+    },
+    "montant": {
+      "properties": {
+        "batiment": {
+          "title": "Bâtiment",
+          "type": "object",
+          "properties": {
+            "anciennete": {
+              "$ref": "#/$defs/anciennete"
+            },
+            "type": {
+              "$ref": "#/$defs/type"
+            }
+          },
+          "required": [
+            "anciennete",
+            "type"
+          ]
+        },
+        "operation": {
+          "title": "Opération",
+          "type": "object",
+          "properties": {
+            "codeDepartement": {
+              "$ref": "#/$defs/codeDepartement"
+            },
+            "quantite": {
+              "$ref": "#/$defs/quantite",
+              "title": "Nombre de fermetures",
+              "description": "Nombre de fermetures isolantes posées"
+            }
+          },
+          "required": [
+            "codeDepartement",
+            "quantite"
+          ]
+        },
+        "required": [
+          "batiment",
+          "operation"
+        ]
+      }
+    },
+    "attestation": {
+      "properties": {
+        "operation": {
+          "properties": {
+            "ageEquipement": {
+              "$ref": "#/$defs/ageEquipement"
+            },
+            "resistanceIsolant": {
+              "title": "Résistance thermmique aditionnelle",
+              "$ref": "#/$defs/resistanceIsolant",
+              "minimum": 0.22
+            }
+          },
+          "required": [
+            "resistanceIsolant",
+            "ageEquipement"
+          ]
+        },
+        "mentionMarqueReference": {
+          "$ref": "#/$defs/mentionMarqueReference"
+        },
+        "installateur": {
+          "$ref": "#/$defs/installateur"
+        },
+        "required": [
+          "mentionMarqueReference",
+          "installateur"
+        ]
+      }
+    }
+  }
+}

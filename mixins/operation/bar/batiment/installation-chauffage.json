@@ -12,5 +12,27 @@
       "const": "COLLECTIF",
       "title": "Installation collective"
     }
-  ]
+  ],
+  "$defs": {
+    "individuel": {
+      "title": "Installation de chauffage",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "INDIVIDUEL",
+          "title": "Installation individuelle"
+        }
+      ]
+    },
+    "collectif": {
+      "title": "Installation de chauffage",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "COLLECTIF",
+          "title": "Installation collective"
+        }
+      ]
+    }
+  }
 }
