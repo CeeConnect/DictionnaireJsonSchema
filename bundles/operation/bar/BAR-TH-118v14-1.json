@@ -15,69 +15,73 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
         }
       },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "type": {
-                "$ref": "#/$defs/type#/$defs/logementCollectif"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "installationChauffage": {
-                "$ref": "#/$defs/installationChauffage#/$defs/collectif"
+      "dependencies": {
+        "type": {
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "$ref": "#/$defs/type/$defs/logementCollectif"
+                  }
+                }
               },
-              "logements": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+              "then": {
+                "properties": {
+                  "installationChauffage": {
+                    "$ref": "#/$defs/installationChauffage/$defs/collectif"
+                  },
+                  "logements": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+                  }
+                },
+                "required": [
+                  "logements",
+                  "installationChauffage"
+                ]
               }
             },
-            "required": [
-              "logements",
-              "installationChauffage"
-            ]
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "type": {
-                "$ref": "#/$defs/type#/$defs/logementIndividuel"
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "$ref": "#/$defs/type/$defs/logementIndividuel"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "energieChauffage": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"
+                  }
+                },
+                "required": [
+                  "energieChauffage"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "$ref": "#/$defs/type/$defs/appartement"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "installationChauffage": {
+                    "$ref": "#/$defs/installationChauffage/$defs/individuel"
+                  }
+                },
+                "required": [
+                  "typeInstallationChauffage"
+                ]
               }
             }
-          },
-          "then": {
-            "properties": {
-              "energieChauffage": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"
-              }
-            },
-            "required": [
-              "energieChauffage"
-            ]
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "type": {
-                "$ref": "#/$defs/type#/$defs/appartement"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "installationChauffage": {
-                "$ref": "#/$defs/installationChauffage#/$defs/individuel"
-              }
-            },
-            "required": [
-              "typeInstallationChauffage"
-            ]
-          }
+          ]
         }
-      ],
+      },
       "required": [
         "type",
         "anciennete"
@@ -103,7 +107,7 @@
           "batiment": {
             "properties": {
               "type": {
-                "$ref": "#/$defs/type#/$defs/maison"
+                "$ref": "#/$defs/type/$defs/maison"
               }
             }
           }

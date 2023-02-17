@@ -2,6 +2,9 @@
   "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/common",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "properties": {
+    "beneficiaire": {
+
+    },
     "operation": {
       "type": "object",
       "properties": {
@@ -36,6 +39,9 @@
     }
   },
   "$defs": {
+    "beneficiaire": {
+
+    },
     "dateEngagement": {
       "title": "Date d'engagement",
       "description": "Date de signature du devis ou du contrat",

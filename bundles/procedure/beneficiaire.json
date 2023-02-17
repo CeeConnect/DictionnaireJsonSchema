@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/beneficiaire",
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/beneficiaire",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "$comment": "Trois scénarios : Personne morale / Personne physique / Syndic de copropriété",
   "title": "Bénéficiaire",

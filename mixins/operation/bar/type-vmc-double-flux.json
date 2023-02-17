@@ -12,5 +12,27 @@
       "const": "MODULE",
       "title": "Modulée"
     }
-  ]
+  ],
+  "$defs": {
+    "autoreglable": {
+      "title": "Type de VMC double flux",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "AUTOREGLABLE",
+          "title": "Autoréglable"
+        }
+      ]
+    },
+    "module": {
+      "title": "Type de VMC double flux",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "MODULE",
+          "title": "Modulée"
+        }
+      ]
+    }
+  }
 }

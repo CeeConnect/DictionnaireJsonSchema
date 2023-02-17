@@ -9,7 +9,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+          "$ref": "#/$defs/typeBatiment"
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
@@ -22,7 +22,7 @@
               "if": {
                 "properties": {
                   "type": {
-                    "const": "IMMEUBLE"
+                    "$ref": "#/$defs/typeBatiment/$defs/logementCollectif"
                   }
                 }
               },
@@ -41,10 +41,7 @@
               "if": {
                 "properties": {
                   "type": {
-                    "enum": [
-                      "MAISON",
-                      "APPARTEMENT"
-                    ]
+                    "$ref": "#/$defs/typeBatiment/$defs/logementIndividuel"
                   }
                 }
               },
@@ -75,7 +72,7 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
         },
         "typeVmcDoubleFlux": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-vmc-double-flux.json"
+          "$ref": "#/$defs/typeVmc"
         }
       },
       "required": [
@@ -91,7 +88,7 @@
           "batiment": {
             "properties": {
               "type": {
-                "const": "IMMEUBLE"
+                "$ref": "#/$defs/type/$defs/logementCollectif"
               }
             }
           }
@@ -102,21 +99,10 @@
           "operation": {
             "properties": {
               "typeInstallation": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-installation.json",
-                "oneOf": [
-                  {
-                    "const": "COLLECTIF",
-                    "title": "Installation collective"
-                  }
-                ]
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-installation.json#/$defs/collectif"
               },
               "typeVmcDoubleFlux": {
-                "oneOf": [
-                  {
-                    "const": "AUTOREGLABLE",
-                    "title": "Autoréglable"
-                  }
-                ]
+                "$ref": "#/$defs/typeVmc/$defs/autoreglable"
               }
             },
             "required": [
@@ -130,5 +116,13 @@
   "required": [
     "batiment",
     "operation"
-  ]
+  ],
+  "$defs": {
+    "typeBatiment": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+    },
+    "typeVmc": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-vmc-double-flux.json"
+    }
+  }
 }

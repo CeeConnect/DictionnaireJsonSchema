@@ -12,5 +12,25 @@
       "const": "PERSONNE_MORALE",
       "title": "Personne morale"
     }
-  ]
+  ],
+  "personnePhysique": {
+    "title": "Personnalité juridique",
+    "type": "string",
+    "oneOf": [
+      {
+        "const": "PERSONNE_PHYSIQUE",
+        "title": "Personne physique"
+      }
+    ]
+  },
+  "personneMorale": {
+    "title": "Personnalité juridique",
+    "type": "string",
+    "oneOf": [
+      {
+        "const": "PERSONNE_MORALE",
+        "title": "Personne morale"
+      }
+    ]
+  }
 }
