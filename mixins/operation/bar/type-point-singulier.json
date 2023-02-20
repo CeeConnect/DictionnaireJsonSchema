@@ -12,5 +12,23 @@
       "const": "HORS_ECHANGEUR",
       "title": "Autres"
     }
-  ]
+  ],
+  "$defs": {
+    "echangeur": {
+      "oneOf": [
+        {
+          "const": "ECHANGEUR",
+          "title": "Echangeur à plaques"
+        }
+      ]
+    },
+    "autres": {
+      "oneOf": [
+        {
+          "const": "HORS_ECHANGEUR",
+          "title": "Autres"
+        }
+      ]
+    }
+  }
 }

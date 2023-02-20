@@ -1,109 +1,35 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundles/procedure/bar/BAR-EN-101",
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-101v39-4",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-EN-101",
-  "description": "Isolation de combles ou de toiture",
   "type": "object",
   "properties": {
-    "operation": {
-      "title": "Opération",
+    "batiment": {
+      "title": "Bâtiment",
       "type": "object",
       "properties": {
-        "typePoseIsolant": {
-          "$ref": "#/$defs/typePoseIsolant"
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
         },
-        "epaisseurIsolant": {
-          "$ref": "#/$defs/epaisseurIsolant"
-        },
-        "resistanceIsolant": {
-          "$ref": "#/$defs/resistanceIsolant"
-        },
-        "posePareVapeur": {
-          "$ref": "#/$defs/posePareVapeur"
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
         }
       },
       "required": [
-        "typePoseIsolant",
-        "posePareVapeur",
-        "resistanceIsolant",
-        "epaisseurIsolant"
-      ],
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "typePoseIsolant": {
-                "const": "COMBLES_PERDUS"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "resistanceIsolant": {
-                "minimum": 7
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "typePoseIsolant": {
-                "const": "RAMPANT_TOITURES"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "resistanceIsolant": {
-                "minimum": 6
-              }
-            }
-          }
-        }
+        "anciennete",
+        "type"
       ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json#/$defs/surfaceIsolant"
     }
   },
   "required": [
-    "operation"
-  ],
-  "$defs": {
-    "typePoseIsolant": {
-      "title": "Type de pose",
-      "type": "string",
-      "oneOf": [
-        {
-          "const": "COMBLES_PERDUS",
-          "title": "Pose en combles perdus"
-        },
-        {
-          "const": "RAMPANT_TOITURES",
-          "title": "Pose en rampant de toitures"
-        }
-      ]
-    },
-    "epaisseurIsolant": {
-      "title": "Epaisseur de l'isolant",
-      "type": "number",
-      "minimum": 0,
-      "unit": "mm"
-    },
-    "resistanceIsolant": {
-      "title": "Résistance thermmique de l'isolant",
-      "type": "number",
-      "minimum": 0,
-      "unit": "m2.K/W"
-    },
-    "posePareVapeur": {
-      "title": "Mise en place d'un pare-vapeur",
-      "description": "L’isolation thermique réalisée a nécessité la mise en place d’un pare-vapeur ou tout autre dispositif permettant d'atteindre un résultat équivalent",
-      "type": "boolean"
-    },
-    "mentionMarqueReference": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json"
-    },
-    "installateur": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
-    }
-  }
+    "batiment",
+    "codeDepartement",
+    "quantite"
+  ]
 }

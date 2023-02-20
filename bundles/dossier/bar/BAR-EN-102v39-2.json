@@ -1,0 +1,66 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundles/procedure/bar/BAR-EN-102v39-2",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-102",
+  "description": "Isolation des murs",
+  "type": "object",
+  "properties": {
+    "resistanceIsolant": {
+      "$ref": "#/$defs/isolation/$defs/resistanceIsolant",
+      "minimum": 3.7
+    },
+    "epaisseurIsolant": {
+      "$ref": "#/$defs/isolation/$defs/epaisseurIsolant"
+    },
+    "showMarqueEtReference": {
+      "$ref": "#/$defs/isolation/$defs/showMarqueEtReference"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "showMarqueEtReference": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "marquesEtRerences": {
+            "title": "Marques et références",
+            "description": "Dans le cas d’une pose superposée de plusieurs isolants, indiquer les marques et références de chacun des isolants posés",
+            "type": "array",
+            "minContains": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "marque": {
+                  "$ref": "#/$defs/isolation/$defs/marque"
+                },
+                "reference": {
+                  "$ref": "#/$defs/isolation/$defs/reference"
+                }
+              },
+              "required": [
+                "marque",
+                "reference"
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "$ref": "#/$defs/common"
+    }
+  ],
+  "$defs": {
+    "common": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/procedure/bar/common.json"
+    },
+    "isolation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/procedure/bar/isolation.json"
+    }
+  }
+}

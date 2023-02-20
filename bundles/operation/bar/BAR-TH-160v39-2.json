@@ -20,27 +20,19 @@
         "anciennete"
       ]
     },
-    "operation": {
-      "title": "Opération",
-      "type": "object",
-      "properties": {
-        "codeDepartement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
-        },
-        "quantite": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json",
-          "type": "number",
-          "unit": "m"
-        }
-      },
-      "required": [
-        "codeDepartement",
-        "quantite"
-      ]
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json",
+      "title": "Longueur isolée du réseau de chauffage ou d'ECS hors du volume chauffé",
+      "type": "number",
+      "unit": "m"
     }
   },
   "required": [
     "batiment",
-    "operation"
+    "codeDepartement",
+    "quantite"
   ]
 }

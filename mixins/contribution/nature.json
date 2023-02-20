@@ -1,0 +1,56 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/contribution/nature",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Nature",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "PRIME",
+      "title": "Prime"
+    },
+    {
+      "const": "BON_ACHAT",
+      "title": "Bon d'achat"
+    },
+    {
+      "const": "PRET",
+      "title": "Prêt bonifié"
+    },
+    {
+      "const": "CONSEIL",
+      "title": "Conseil personnalisé"
+    },
+    {
+      "const": "PSO",
+      "title": "Produit ou service offert"
+    },
+    {
+      "const": "PSO",
+      "title": "Produit ou service offert"
+    },
+    {
+      "const": "PATRIM",
+      "title": "Opération sur patrimoine propre"
+    }
+  ],
+  "$defs": {
+    "prime": {
+      "const": "PRIME"
+    },
+    "bon": {
+      "const": "BON_ACHAT"
+    },
+    "pret": {
+      "const": "PRET"
+    },
+    "conseil": {
+      "const": "CONSEIL"
+    },
+    "pso": {
+      "const": "PSO"
+    },
+    "patrim": {
+      "const": "PATRIM"
+    }
+  }
+}

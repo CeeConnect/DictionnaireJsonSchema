@@ -1,0 +1,24 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/professionnel/prestation",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Prestation",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "MISE_EN_OEUVRE",
+      "title": "Mise en oeuvre"
+    },
+    {
+      "const": "MAITRISE_OEUVRE",
+      "title": "Maîtrise d'oeuvre"
+    }
+  ],
+  "$defs": {
+    "realisation": {
+      "const": "MISE_EN_OEUVRE"
+    },
+    "maitriseOeuvre": {
+      "const": "MAITRISE_OEUVRE"
+    }
+  }
+}

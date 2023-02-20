@@ -1,0 +1,96 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-161v28-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-161",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/batiment"
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete"
+      ]
+    },
+    "typePointSingulier": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-point-singulier.json"
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json"
+    },
+    "temperatureFluide": {
+      "title": "Température du fluide caloporteur",
+      "type": "number",
+      "unit": "°C",
+      "minimun": 50
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "typePointSingulier": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-point-singulier.json#/$defs/autres"
+          }
+        },
+        "required": [
+          "typePointSingulier"
+        ]
+      },
+      "then": {
+        "properties": {
+          "quantite": {
+            "title": "Nombre de houses isolantes mises en place"
+          },
+          "diametreNominal": {
+            "title": "Diamètre nominal",
+            "type": "number",
+            "minimun": 20,
+            "unit": "mm"
+          }
+        },
+        "required": [
+          "quantite",
+          "diametreNominal"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "typePointSingulier": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-point-singulier.json#/$defs/echangeur"
+          }
+        },
+        "required": [
+          "typePointSingulier"
+        ]
+      },
+      "then": {
+        "properties": {
+          "quantite": {
+            "title": "Nombre d'échangeurs à plaques isolés"
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "batiment",
+    "typePointSingulier",
+    "codeDepartement",
+    "quantite",
+    "temperatureFluide"
+  ]
+}

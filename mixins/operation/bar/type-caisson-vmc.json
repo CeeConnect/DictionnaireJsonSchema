@@ -17,5 +17,31 @@
       "const": "BASSE_PRESSION",
       "title": "Caisson basse pression"
     }
-  ]
+  ],
+  "$defs": {
+    "basseConsommation": {
+      "oneOf": [
+        {
+          "const": "BASSE_CONSOMMATION",
+          "title": "Caisson basse consommation"
+        }
+      ]
+    },
+    "standard": {
+      "oneOf": [
+        {
+          "const": "STANDARD",
+          "title": "Caisson standard"
+        }
+      ]
+    },
+    "bassePression": {
+      "oneOf": [
+        {
+          "const": "BASSE_PRESSION",
+          "title": "Caisson basse pression"
+        }
+      ]
+    }
+  }
 }

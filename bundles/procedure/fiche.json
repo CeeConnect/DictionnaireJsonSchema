@@ -1,0 +1,23 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/fiche",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "$comment": "Données récupérées depuis le Répertoire national des fiches d'opération standardisée",
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "Identifiant unique",
+      "type": "string",
+      "pattern": "^(AGRI|BAR|BAT|IND|RES|TRA)-(BA|CH|EC|EN|EQ|SE|TH|UT)-[0-9]*([-]SE)?v[0-9]*[-][0-9]*$"
+    },
+    "code": {
+      "title": "Code",
+      "type": "string",
+      "pattern": "^(AGRI|BAR|BAT|IND|RES|TRA)-(BA|CH|EC|EN|EQ|SE|TH|UT)-[0-9]*([-]SE)?$"
+    },
+    "secteur": {
+      "title": "Secteur d'application",
+      "type": "string",
+      "enum": ["AGRI", "BAR", "BAT", "IND", "RES","TRA"]
+    }
+  }
+}

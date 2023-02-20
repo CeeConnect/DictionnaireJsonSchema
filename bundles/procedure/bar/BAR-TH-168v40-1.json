@@ -1,0 +1,42 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/schemas/resource/bar/BAR-TH-168v40-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-168",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "surfaceCapteursSolaires": {
+      "title": "Surface des capteurs solaires",
+      "type": "number",
+      "minimum": 0,
+      "unit": "m²"
+    },
+    "typeUsage": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-usage.json#/$defs/chauffages"
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "superficieCapteursSolaires",
+    "typeUsage"
+  ]
+}

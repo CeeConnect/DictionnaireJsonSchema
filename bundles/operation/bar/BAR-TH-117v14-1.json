@@ -41,25 +41,17 @@
         "type"
       ]
     },
-    "operation": {
-      "title": "Opération",
-      "type": "object",
-      "properties": {
-        "codeDepartement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
-        },
-        "quantite": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json"
-        }
-      },
-      "required": [
-        "codeDepartement",
-        "quantite"
-      ]
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json",
+      "title": "Nombre de robinets thermostatiques"
     }
   },
   "required": [
     "batiment",
-    "operation"
+    "codeDepartement",
+    "quantite"
   ]
 }

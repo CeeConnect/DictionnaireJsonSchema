@@ -1,0 +1,72 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-167v38-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-167",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "batiment": {
+            "properties": {
+              "type": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "required": [
+            "batiment"
+          ]
+        }
+      },
+      "then": {
+        "properties": {
+          "batiment": {
+            "properties": {
+              "surfaceHabitable": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/surface-habitable.json"
+              }
+            },
+            "required": [
+              "surfaceHabitable"
+            ]
+          },
+          "typeChauffeBain": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-chauffe-bain.json"
+          }
+        },
+        "required": [
+          "typeChauffeBain"
+        ]
+      }
+    }
+  ],
+  "required": [
+    "batiment",
+    "codeDepartement"
+  ]
+}

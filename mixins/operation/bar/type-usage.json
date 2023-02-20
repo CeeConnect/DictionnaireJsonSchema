@@ -16,5 +16,21 @@
       "const": "CHAUFFAGE_ECS",
       "title": "Chauffage et eau chaude sanitaire"
     }
-  ]
+  ],
+  "$defs": {
+    "chauffages": {
+      "title": "Type d'usage",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "CHAUFFAGE",
+          "title": "Chauffage"
+        },
+        {
+          "const": "CHAUFFAGE_ECS",
+          "title": "Chauffage et eau chaude sanitaire"
+        }
+      ]
+    }
+  }
 }

@@ -1,0 +1,36 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-139v23-2",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-139",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/immeuble"
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "puissanceNominale": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/puissance-nominale.json",
+      "title": "Puissance nominale du moteur de la pompe"
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "puissanceNominale"
+  ]
+}

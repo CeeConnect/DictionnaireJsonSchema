@@ -1,0 +1,263 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/cadre-contribution",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Cadre de contribution",
+  "type": "object",
+  "properties": {
+    "demandeur": {
+      "title": "Demandeur",
+      "type": "object",
+      "properties": {
+        "raisonSociale": {
+          "title": "Raison sociale",
+          "type": "string",
+          "maxLength": 240
+        },
+        "logo": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/url.json",
+          "title": "Logo"
+        }
+      },
+      "required": [
+        "raisonSociale",
+        "logo"
+      ]
+    },
+    "beneficiaire": {
+      "title": "Bénéficiaire",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json"
+        },
+        "email": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
+        },
+        "telephone": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
+        },
+        "adresse": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+        }
+      },
+      "required": [
+        "nature",
+        "email",
+        "telephone",
+        "adresse"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "nature": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json#/$defs/personneMorale"
+              }
+            },
+            "required": [
+              "nature"
+            ]
+          },
+          "then": {
+            "properties": {
+              "type": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/beneficiaire/type.json#/$defs/personneMorale"
+              },
+              "raisonSociale": {
+                "title": "Raison sociale",
+                "type": "string",
+                "maxLength": 240
+              },
+              "siren": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+              }
+            },
+            "required": [
+              "type",
+              "raisonSociale",
+              "siren"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "nature": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json#/$defs/personnePhysique"
+              }
+            },
+            "required": [
+              "nature"
+            ]
+          },
+          "then": {
+            "properties": {
+              "type": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/beneficiaire/type.json#/$defs/personnePhysique"
+              },
+              "nom": {
+                "title": "Nom",
+                "type": "string",
+                "maxLength": 240
+              },
+              "prenom": {
+                "title": "Prénom",
+                "type": "string",
+                "maxLength": 240
+              }
+            },
+            "required": [
+              "type",
+              "nom",
+              "prenom"
+            ]
+          }
+        }
+      ]
+    },
+    "operations": {
+      "title": "Opérations",
+      "type": "array",
+      "minContains": 1,
+      "items": {
+        "title": "Opération",
+        "type": "object",
+        "properties": {
+          "fiche": {
+            "title": "Fiche d'opération standardisée",
+            "type": "object",
+            "properties": {
+              "code": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/fiche/code.json"
+              },
+              "nom": {
+                "title": "Nom",
+                "type": "string",
+                "maxLength": 240
+              },
+              "lien": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/url.json"
+              }
+            },
+            "required": [
+              "code",
+              "nom",
+              "lien"
+            ]
+          }
+        },
+        "required": [
+          "fiche"
+        ]
+      }
+    },
+    "contribution": {
+      "title": "Contribution",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/contribution/nature.json"
+        },
+        "montant": {
+          "title": "Montant",
+          "type": "number",
+          "minimum": 0
+        },
+        "telephone": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
+        },
+        "lien": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/url.json",
+          "title": "Lien"
+        }
+      },
+      "required": [
+        "nature",
+        "montant",
+        "telephone",
+        "lien"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "nature": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/contribution/nature.json#/$defs/pret"
+              }
+            },
+            "required": [
+              "nature"
+            ]
+          },
+          "then": {
+            "properties": {
+              "teg": {
+                "title": "Taux effectif global",
+                "type": "number",
+                "unit": "%"
+              },
+              "bonification": {
+                "title": "Montant de la bonification",
+                "type": "number",
+                "minimum": 0
+              },
+              "distributeur": {
+                "title": "Distributeur",
+                "type": "object",
+                "properties": {
+                  "raisonSociale": {
+                    "title": "Raison sociale",
+                    "type": "string",
+                    "maxLength": 240
+                  },
+                  "siren": {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+                  }
+                },
+                "required": [
+                  "raisonSociale",
+                  "siren"
+                ]
+              }
+            },
+            "required": [
+              "teg",
+              "bonification",
+              "distributeur"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "nature": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/contribution/nature.json#/$defs/pso"
+              }
+            },
+            "required": [
+              "nature"
+            ]
+          },
+          "then": {
+            "properties": {
+              "description": {
+                "title": "Description",
+                "type": "string",
+                "maxLength": 240
+              }
+            },
+            "required": [
+              "description"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "demandeur",
+    "beneficiaire",
+    "operations",
+    "contribution"
+  ]
+}

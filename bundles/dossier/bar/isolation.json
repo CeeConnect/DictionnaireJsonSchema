@@ -1,0 +1,68 @@
+{
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "$defs": {
+    "marque": {
+      "title": "Marque",
+      "type": "string",
+      "maxLength": 240
+    },
+    "reference": {
+      "title": "Référence",
+      "type": "string",
+      "maxLength": 240
+    },
+    "resistanceIsolant": {
+      "title": "Résistance thermmique de l'isolant",
+      "type": "number",
+      "unit": "m2.K/W"
+    },
+    "epaisseurIsolant": {
+      "title": "Epaisseur de l'isolant",
+      "type": "number",
+      "minimum": 0,
+      "unit": "mm"
+    },
+    "posePareVapeur": {
+      "title": "Mise en place d'un pare-vapeur",
+      "description": "L’isolation thermique réalisée a nécessité la mise en place d’un pare-vapeur ou tout autre dispositif permettant d'atteindre un résultat équivalent",
+      "type": "boolean"
+    },
+    "showMarqueEtReference": {
+      "title": "La marque et la référence des équipements ne sont pas mentionnées sur la preuve de réalisation de l'opération",
+      "type": "boolean",
+      "default": false
+    },
+    "marqueReference": {
+      "properties": {
+        "showMarqueEtReference": {
+          "$ref": "#/$defs/showMarqueEtReference"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "showMarqueEtReference": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "marque": {
+                "$ref": "#/$defs/marque"
+              },
+              "reference": {
+                "$ref": "#/$defs/reference"
+              }
+            },
+            "required": [
+              "marque",
+              "reference"
+            ]
+          }
+        }
+      ]
+    }
+  }  
+}

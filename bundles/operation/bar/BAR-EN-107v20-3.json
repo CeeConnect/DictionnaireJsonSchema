@@ -20,32 +20,23 @@
         "type"
       ]
     },
-    "operation": {
-      "title": "Opération",
-      "type": "object",
-      "properties": {
-        "codeDepartement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/outreMer"
-        },
-        "resistanceIsolant": {
-          "title": "Résistance thermmique de l'isolant",
-          "type": "number",
-          "minimum": 0.5,
-          "unit": "m2.K/W"
-        },
-        "quantite": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json#/$defs/surfaceIsolant"
-        }
-      },
-      "required": [
-        "codeDepartement",
-        "quantite",
-        "resistanceIsolant"
-      ]
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/outreMer"
+    },
+    "resistanceIsolant": {
+      "title": "Résistance thermmique de l'isolant",
+      "type": "number",
+      "minimum": 0.5,
+      "unit": "m2.K/W"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json#/$defs/surfaceIsolant"
     }
   },
   "required": [
     "batiment",
-    "operation"
+    "codeDepartement",
+    "quantite",
+    "resistanceIsolant"
   ]
 }

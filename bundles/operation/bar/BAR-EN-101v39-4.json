@@ -20,25 +20,16 @@
         "type"
       ]
     },
-    "operation": {
-      "title": "Opération",
-      "type": "object",
-      "properties": {
-        "codeDepartement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
-        },
-        "quantite": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json#/$defs/surfaceIsolant"
-        }
-      },
-      "required": [
-        "codeDepartement",
-        "quantite"
-      ]
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json#/$defs/surfaceIsolant"
     }
   },
   "required": [
     "batiment",
-    "operation"
+    "codeDepartement",
+    "quantite"
   ]
 }

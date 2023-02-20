@@ -1,0 +1,595 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/fiche/bar/BAR-TH-165",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-165",
+  "description": "Chaudière biomasse collective",
+  "type": "object",
+  "properties": {
+    "_template": {
+      "type": "string",
+      "default": "montant",
+      "oneOf": [
+        {
+          "const": "montant",
+          "title": "Montant"
+        },
+        {
+          "const": "attestation",
+          "title": "Attestation"
+        }
+      ]
+    }
+  },
+  "dependentSchemas": {
+    "_template": {
+      "oneOf": [
+        {
+          "properties": {
+            "_template": {
+              "const": "montant"
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/montant"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "_template": {
+              "const": "attestation"
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/attestation"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "anciennete": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
+    },
+    "type": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/type.json",
+      "oneOf": [
+        {
+          "const": "IMMEUBLE",
+          "title": "Immeuble collectif"
+        }
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
+    },
+    "puissanceNominale": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/puissance-nominale.json"
+    },
+    "quantiteChaleurNette": {
+      "title": "Chaleur produite par la chaudière",
+      "description": "Chaleur nette utile produite par la chaudière issue de l'étude de dimensionnement préalable à la réalisation des travaux",
+      "type": "number",
+      "exclusiveMaximum": 12,
+      "unit": "GWh/an"
+    },
+    "logements": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+    },
+    "surfaceChauffee": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/surface-chauffee.json",
+      "title": "Surface totale chauffée du bâtiment"
+    },
+    "typeBiomasseLigneuse": {
+      "title": "Biomasse ligneuse à base de bûches de bois, de copeaux de bois, de bois comprimé sous forme de granulés, de bois comprimé sous forme de briquettes ou de sciure de bois",
+      "type": "boolean",
+      "const": true
+    },
+    "etas": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/operation/etas.json",
+      "title": "Efficacité énergétique saisonnière (ηs) de la chaudière biomasse"
+    },
+    "rendementPci": {
+      "title": "Rendement PCI à pleine charge de la chaudière",
+      "type": "number",
+      "minimum": 92,
+      "unite": "%"
+    },
+    "classeRegulateur": {
+      "title": "Classe du régulateur",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "IV"
+        },
+        {
+          "const": "V"
+        },
+        {
+          "const": "VI"
+        },
+        {
+          "const": "VII"
+        },
+        {
+          "const": "VIII"
+        }
+      ]
+    },
+    "puissanceNominale70": {
+      "type": "object",
+      "title": "Chaudière de puissance nominale inférieure ou égale à 70kw",
+      "properties": {
+        "etas": {
+          "$ref": "#/$defs/etas",
+          "minimum": 83
+        },
+        "typeChaudiereBiomasse": {
+          "$ref": "#/$defs/typeChaudiereBiomasse"
+        },
+        "flammeVerte7": {
+          "$ref": "#/$defs/flammeVerte7"
+        }
+      },
+      "required": [
+        "etas",
+        "typeChaudiereBiomasse",
+        "flammeVerte7"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "flammeVerte7": {
+                "const": false
+              }
+            }
+          },
+          "then": {
+            "typeEmissions": {
+              "$ref": "#/$defs/typeEmissions"
+            },
+            "required": [
+              "typeEmissions"
+            ]
+          }
+        }
+      ]
+    },
+    "puissanceNominaleMaximum500": {
+      "type": "object",
+      "title": "Chaudière de puissance nominale inférieure ou égale à 500kw",
+      "properties": {
+        "etas": {
+          "$ref": "#/$defs/etas",
+          "minimum": 83
+        },
+        "typeChaudiereBiomasse": {
+          "$ref": "#/$defs/typeChaudiereBiomasse"
+        },
+        "typeEmissions": {
+          "$ref": "#/$defs/typeEmissions"
+        }
+      },
+      "required": [
+        "etas",
+        "typeChaudiereBiomasse",
+        "typeEmissions"
+      ]
+    },
+    "puissanceNominaleMinimum500": {
+      "type": "object",
+      "title": "Chaudière de puissance nominale supérieure à 500kw",
+      "properties": {
+        "rendementPci": {
+          "$ref": "#/$defs/rendementPci"
+        },
+        "emissionsParticules": {
+          "$ref": "#/$defs/emissionsParticules",
+          "title": "Émissions de particules en mg/Nm3 à 6% d’O2",
+          "exclusiveMaximum": 75
+        },
+        "emissionsAzote": {
+          "$ref": "#/$defs/emissionsAzote",
+          "title": "Émissions d'oxydes d'azote (NOx) en mg/Nm3 à 6% d’O2",
+          "exclusiveMaximum": 300
+        }
+      },
+      "required": [
+        "rendementPci",
+        "emissionsParticules",
+        "emissionsAzote"
+      ]
+    },
+    "presenceSilo": {
+      "title": "Présence d’un silo d’au moins 225 litres",
+      "type": "boolean",
+      "oneOf": [
+        {
+          "title": "Oui",
+          "const": true
+        },
+        {
+          "title": "Non",
+          "const": false
+        }
+      ]
+    },
+    "presenceBallon": {
+      "title": "Présence d’un ballon tampon",
+      "type": "boolean",
+      "oneOf": [
+        {
+          "title": "Oui",
+          "const": true
+        },
+        {
+          "title": "Non",
+          "const": false
+        }
+      ]
+    },
+    "chargement": {
+      "title": "Le chargement de la chaudière est opéré de manière",
+      "type": "string",
+      "oneOf": [
+        {
+          "title": "Automatique",
+          "const": "AUTOMATIQUE"
+        },
+        {
+          "title": "Manuelle",
+          "const": "MANUELLE"
+        }
+      ]
+    },
+    "typeChaudiereBiomasse": {
+      "title": "Caractéristiques de la chaudière biomasse",
+      "type": "string",
+      "properties": {
+        "chargement": {
+          "$ref": "#/$defs/chargement"
+        }
+      },
+      "required": [
+        "chargement"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "chargement": {
+                "const": "AUTOMATIQUE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "presenceSilo": {
+                "$ref": "#/$defs/presenceSilo",
+                "const": true
+              }
+            },
+            "required": [
+              "presenceSilo"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "chargement": {
+                "const": "MANUELLE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "presenceBallon": {
+                "$ref": "#/$defs/presenceSilo",
+                "const": true
+              }
+            },
+            "required": [
+              "presenceBallon"
+            ]
+          }
+        }
+      ]
+    },
+    "flammeVerte7": {
+      "title": "La chaudière installée possède le label Flamme Verte 7*",
+      "type": "boolean",
+      "oneOf": [
+        {
+          "title": "Oui",
+          "const": true
+        },
+        {
+          "title": "Non",
+          "const": false
+        }
+      ]
+    },
+    "emissionsParticules": {
+      "title": "Émissions saisonnières de particules en mg/Nm3",
+      "type": "number",
+      "minimum": 0,
+      "unite": "mg/Nm3"
+    },
+    "emissionsMonoxyde": {
+      "title": "Émissions saisonnières de monoxyde de carbone (CO) en mg/Nm3",
+      "type": "number",
+      "minimum": 0,
+      "unite": "mg/Nm3"
+    },
+    "emissionsAzote": {
+      "title": "Émissions saisonnières d'oxydes d'azote (NOx) en mg/Nm3",
+      "type": "number",
+      "minimum": 0,
+      "unite": "mg/Nm3"
+    },
+    "emissionsOrganiques": {
+      "title": "Émissions saisonnières de composés organiques gazeux en mg/Nm3",
+      "type": "number",
+      "minimum": 0,
+      "unite": "mg/Nm3"
+    },
+    "typeEmissions": {
+      "title": "Émissions saisonnières de polluants",
+      "description": "Si la chaudière installée ne possède pas le label Flamme Verte 7*, ses émissions saisonnières de polluants à 10 % d’O2 sont à renseigner",
+      "type": "object",
+      "allOf": [
+        {
+          "if": {
+            "typeChaudiereBiomasse": {
+              "properties": {
+                "chargement": {
+                  "$ref": "#/$defs/chargement",
+                  "const": "AUTOMATIQUE"
+                }
+              }
+            },
+            "required": [
+              "typeChaudiereBiomasse"
+            ]
+          },
+          "then": {
+            "properties": {
+              "emissionsParticules": {
+                "$ref": "#/$defs/emissionsParticules",
+                "exclusiveMaximum": 40
+              },
+              "emissionsMonoxyde": {
+                "$ref": "#/$defs/emissionsMonoxyde",
+                "exclusiveMaximum": 500
+              },
+              "emissionsAzote": {
+                "$ref": "#/$defs/emissionsAzote",
+                "exclusiveMaximum": 200
+              },
+              "emissionsOrganiques": {
+                "$ref": "#/$defs/emissionsOrganiques",
+                "exclusiveMaximum": 20
+              }
+            },
+            "required": [
+              "emissionsParticules",
+              "emissionsMonoxyde",
+              "emissionsAzote",
+              "emissionsOrganiques"
+            ]
+          }
+        },
+        {
+          "if": {
+            "typeChaudiereBiomasse": {
+              "properties": {
+                "chargement": {
+                  "$ref": "#/$defs/chargement",
+                  "const": "MANUELLE"
+                }
+              }
+            },
+            "required": [
+              "typeChaudiereBiomasse"
+            ]
+          },
+          "then": {
+            "properties": {
+              "emissionsParticules": {
+                "$ref": "#/$defs/emissionsParticules",
+                "exclusiveMaximum": 60
+              },
+              "emissionsMonoxyde": {
+                "$ref": "#/$defs/emissionsMonoxyde",
+                "exclusiveMaximum": 700
+              },
+              "emissionsAzote": {
+                "$ref": "#/$defs/emissionsAzote",
+                "exclusiveMaximum": 200
+              },
+              "emissionsOrganiques": {
+                "$ref": "#/$defs/emissionsOrganiques",
+                "exclusiveMaximum": 30
+              }
+            },
+            "required": [
+              "emissionsParticules",
+              "emissionsMonoxyde",
+              "emissionsAzote",
+              "emissionsOrganiques"
+            ]
+          }
+        }
+      ]
+    },
+    "entrepriseEtudeDimensionnement": {
+      "title": "Coordonnées de l’entité ayant établi l’étude de dimensionnement",
+      "type": "object",
+      "properties": {
+        "raisonSociale": {
+          "title": "Raison sociale",
+          "type": "string",
+          "maxlength": 240
+        },
+        "siren": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+        },
+        "referenceEtude": {
+          "title": "Référence de l’étude de dimensionnement",
+          "type": "string",
+          "maxlength": 240
+        }
+      },
+      "required": [
+        "raisonSociale",
+        "siren",
+        "referenceEtude"
+      ]
+    },
+    "mentionMarqueReference": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+      "title": "Marque et référence de la chaudière biomasse"
+    },
+    "montant": {
+      "properties": {
+        "batiment": {
+          "title": "Bâtiment",
+          "type": "object",
+          "properties": {
+            "anciennete": {
+              "$ref": "#/$defs/anciennete"
+            },
+            "type": {
+              "$ref": "#/$defs/type"
+            }
+          },
+          "required": [
+            "anciennete",
+            "type"
+          ]
+        },
+        "operation": {
+          "title": "Opération",
+          "type": "object",
+          "properties": {
+            "codeDepartement": {
+              "$ref": "#/$defs/codeDepartement"
+            },
+            "puissanceNominale": {
+              "$ref": "#/$defs/puissanceNominale"
+            },
+            "quantiteChaleurNette": {
+              "$ref": "#/$defs/quantiteChaleurNette"
+            }
+          },
+          "required": [
+            "codeDepartement",
+            "puissanceNominale",
+            "quantiteChaleurNette"
+          ]
+        }
+      }
+    },
+    "required": [
+      "batiment",
+      "operation"
+    ],
+    "attestation": {
+      "properties": {
+        "batiment": {
+          "properties": {
+            "logements": {
+              "$ref": "#/$defs/logements"
+            }
+          },
+          "required": [
+            "logements"
+          ]
+        },
+        "operation": {
+          "properties": {
+            "typeBiomasseLigneuse": {
+              "$ref": "#/$defs/typeBiomasseLigneuse"
+            },
+            "puissanceNominale": {
+              "$ref": "#/$defs/puissanceNominale"
+            },
+            "classeRegulateur": {
+              "$ref": "#/$defs/classeRegulateur"
+            },
+            "entrepriseEtudeDimensionnement": {
+              "$ref": "#/$defs/entrepriseEtudeDimensionnement"
+            }
+          },
+          "required": [
+            "typeBiomasseLigneuse",
+            "puissanceNominale",
+            "classeRegulateur",
+            "entrepriseEtudeDimensionnement"
+          ],
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "puissanceNominale": {
+                    "maximum": 70
+                  }
+                }
+              },
+              "then": {
+                "puissanceNominale70": {
+                  "$ref": "#/$defs/puissanceNominale70"
+                },
+                "required": [
+                  "puissanceNominale70"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "puissanceNominale": {
+                    "maximum": 500
+                  }
+                }
+              },
+              "then": {
+                "puissanceNominaleMaximum500": {
+                  "$ref": "#/$defs/puissanceNominaleMaximum500"
+                },
+                "required": [
+                  "puissanceNominaleMaximum500"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "puissanceNominale": {
+                    "exclusiveMinimum": 500
+                  }
+                }
+              },
+              "then": {
+                "puissanceNominaleMinimum500": {
+                  "$ref": "#/$defs/puissanceNominaleMinimum500"
+                },
+                "required": [
+                  "puissanceNominaleMinimum500"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "operation"
+      ]
+    }
+  }
+}

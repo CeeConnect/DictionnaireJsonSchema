@@ -1,0 +1,132 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur-b",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Partie B",
+  "description": "Bénéficiaire de l'opération d'économies d'énergie",
+  "type": "object",
+  "properties": {
+    "demandeur": {
+      "title": "Demandeur",
+      "type": "object",
+      "properties": {
+        "raisonSociale": {
+          "title": "Raison sociale",
+          "type": "string",
+          "maxLength": 240
+        }
+      },
+      "required": [
+        "raisonSociale"
+      ]
+    },
+    "beneficiaire": {
+      "title": "Bénéficiaire",
+      "type": "object",
+      "properties": {
+        "nature": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json"
+        }
+      },
+      "dependentSchema": {
+        "nature": {
+          "properties": {
+            "nom": {
+              "title": "Nom du signataire",
+              "type": "string",
+              "maxLength": 240
+            },
+            "prenom": {
+              "title": "Prénom du signataire",
+              "type": "string",
+              "maxLength": 240
+            },
+            "adresse": {
+              "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+            },
+            "telephone": {
+              "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
+            },
+            "email": {
+              "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
+            }
+          }
+        }
+      },
+      "required": [
+        "nature",
+        "nom",
+        "prenom",
+        "adresse",
+        "telephone",
+        "email"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "nature": {
+                "const": "PERSONNE_MORALE"
+              }
+            },
+            "required": [
+              "nature"
+            ]
+          },
+          "then": {
+            "properties": {
+              "type": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/beneficiaire/type.json#/$defs/personneMorale"
+              },
+              "fonction": {
+                "title": "Fonction",
+                "description": "Fonction du représentant légal de l'entreprise",
+                "type": "string",
+                "maxLength": 240
+              },
+              "raisonSociale": {
+                "title": "Raison sociale",
+                "type": "string",
+                "maxLength": 240
+              },
+              "siren": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+              }
+            },
+            "required": [
+              "type",
+              "fonction",
+              "raisonSociale",
+              "siren"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "nature": {
+                "const": "PERSONNE_PHYSIQUE"
+              }
+            },
+            "required": [
+              "nature"
+            ]
+          },
+          "then": {
+            "properties": {
+              "type": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/beneficiaire/type.json#/$defs/personneMorale"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "demandeur",
+    "beneficiaire"
+  ]
+}

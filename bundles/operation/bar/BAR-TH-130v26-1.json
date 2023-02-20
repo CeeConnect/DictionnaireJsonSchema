@@ -4,42 +4,50 @@
   "title": "BAR-TH-130",
   "type": "object",
   "properties": {
-    "operation": {
-      "title": "Opération",
+    "batiment": {
+      "title": "Bâtiment",
       "type": "object",
       "properties": {
-        "codeDepartement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/neuf"
         },
-        "surfaceThermique": {
-          "title": "Surface thermique",
-          "description": "Surface thermique du bâtiment au sens de la règlementation thermique",
-          "type": "number",
-          "unit": "m²",
-          "minimum": 0
-        },
-        "cefBat": {
-          "title": "Consommation d’énergie",
-          "description": "Consommation conventionnelle d’énergie du bâtiment exprimée en énergie final",
-          "type": "number",
-          "unite": "kWh/m².an"
-        },
-        "cefMax": {
-          "title": "Consommation d'énergie maximale",
-          "description": "Consommation conventionnelle d’énergie maximale exprimée en énergie final",
-          "type": "number",
-          "unite": "kWh/m².an"
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
         }
       },
       "required": [
-        "codeDepartement",
-        "surfaceThermique",
-        "cefBat",
-        "cefMax"
+        "anciennete",
+        "type"
       ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+    },
+    "surfaceThermique": {
+      "title": "Surface thermique",
+      "description": "Surface thermique du bâtiment au sens de la règlementation thermique",
+      "type": "number",
+      "unit": "m²",
+      "minimum": 0
+    },
+    "cefBat": {
+      "title": "Consommation d’énergie",
+      "description": "Consommation conventionnelle d’énergie du bâtiment exprimée en énergie final",
+      "type": "number",
+      "unite": "kWh/m².an"
+    },
+    "cefMax": {
+      "title": "Consommation d'énergie maximale",
+      "description": "Consommation conventionnelle d’énergie maximale exprimée en énergie final",
+      "type": "number",
+      "unite": "kWh/m².an"
     }
   },
   "required": [
-    "operation"
+    "batiment",
+    "codeDepartement",
+    "surfaceThermique",
+    "cefBat",
+    "cefMax"
   ]
 }

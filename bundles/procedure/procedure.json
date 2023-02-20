@@ -1,9 +1,13 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/common",
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/procedure",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "type": "object",
   "properties": {
     "beneficiaire": {
-
+      "$ref": "#/$defs/beneficiaire"
+    },
+    "professionnel": {
+      "$ref": "#/$defs/professionnel"
     },
     "operation": {
       "type": "object",
@@ -38,9 +42,52 @@
       }
     }
   },
+  "required": [
+    "beneficiaire",
+    "professionnel",
+    "operation"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "beneficiaire": {
+            "properties": {
+              "nature": {
+                "$ref": "#/$defs/beneficiaire/$defs/nature/$defs/personneMorale"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "operation": {
+            "properties": {
+              "adresse": {
+                "properties": {
+                  "site": {
+                    "title": "Nom du site ou de la copropriété",
+                    "type": "string",
+                    "maxLength": 240
+                  }
+                },
+                "required": [
+                  "site"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
   "$defs": {
     "beneficiaire": {
-
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/procedure/beneficiaire.json"
+    },
+    "professionnel": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/procedure/professionnel.json"
     },
     "dateEngagement": {
       "title": "Date d'engagement",
@@ -93,6 +140,44 @@
       "type": "number",
       "minimum": 0,
       "unit": "mm"
+    },
+    "posePareVapeur": {
+      "title": "Mise en place d'un pare-vapeur",
+      "description": "L’isolation thermique réalisée a nécessité la mise en place d’un pare-vapeur ou tout autre dispositif permettant d'atteindre un résultat équivalent",
+      "type": "boolean"
+    },
+    "marqueReference": {
+      "properties": {
+        "mentionMarqueReference": {
+          "title": "La marque et la référence des équipements ne sont pas mentionnées sur la preuve de réalisation de l'opération",
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mentionMarqueReference": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "marque": {
+                "$ref": "#/$defs/marque"
+              },
+              "reference": {
+                "$ref": "#/$defs/reference"
+              }
+            },
+            "required": [
+              "marque",
+              "reference"
+            ]
+          }
+        }
+      ]
     }
   }
 }

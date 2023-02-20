@@ -1,218 +1,37 @@
 {
-    "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/fiche/bar/BAR-EN-109",
-    "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-    "title": "BAR-EN-109",
-    "description": "Réduction des apports solaires par la toiture (France d’outre-mer)",
-    "type": "object",
-    "properties": {
-        "_template": {
-            "type": "string",
-            "default": "montant",
-            "oneOf": [
-                {
-                    "const": "montant",
-                    "title": "Montant"
-                },
-                {
-                    "const": "attestation",
-                    "title": "Attestation"
-                }
-            ]
-        }
-    },
-    "dependentSchemas": {
-        "_template": {
-            "oneOf": [
-                {
-                    "properties": {
-                        "_template": {
-                            "const": "montant"
-                        }
-                    },
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/montant"
-                        }
-                    ]
-                },
-                {
-                    "properties": {
-                        "_template": {
-                            "const": "attestation"
-                        }
-                    },
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/attestation"
-                        }
-                    ]
-                }
-            ]
-        }
-    },
-    "$defs": {
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-109v24-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-109",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
         "anciennete": {
-            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
         },
         "type": {
-            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/type.json"
-        },
-        "quantite": {
-            "$ref": "https://schemas.ceeconnect.fr/type/common/operation/quantite"
-        },
-        "codeDepartementOutreMer": {
-            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-outre-mer.json"
-        },
-        "typeToiture": {
-            "title": "Type de toiture",
-            "description": "type de toiture",
-            "type": "string",
-            "oneOf": [
-              {
-                "const": "SYSTEME_TOITURE",
-                "title": "Toiture contituée d'un système de toiture assurant à lui seul le facteur solaire requis"
-              },
-              {
-                "const": "ENSEMBLE",
-                "title": "Toiture constituée d'un ensemble d’éléments dont la composition permet d’obtenir le facteur solaire requis"
-              }
-            ]
-          },
-          "facteurSolaire": {
-            "title": "Facteur solaire Sw",
-            "type": "number",
-            "minimum": 0
-          },
-        "mentionMarqueReference": {
-            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json"
-        },
-        "installateur": {
-            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
-        },
-        "montant": {
-            "properties": {
-                "batiment": {
-                    "title": "Bâtiment",
-                    "type": "object",
-                    "properties": {
-                        "anciennete": {
-                            "$ref": "#/$defs/anciennete"
-                        },
-                        "type": {
-                            "$ref": "#/$defs/type"
-                        }
-                    },
-                    "required": [
-                        "anciennete",
-                        "type"
-                    ]
-                },
-                "operation": {
-                    "title": "Opération",
-                    "type": "object",
-                    "properties": {
-                        "codeDepartementOutreMer": {
-                            "$ref": "#/$defs/codeDepartementOutreMer"
-                        },
-                        "quantite": {
-                            "$ref": "#/$defs/quantite",
-                            "title": "Surface de toiture protégée",
-                            "unit": "m²"
-                          }
-                    },
-                    "required": [
-                        "codeDepartementOutreMer",
-                        "quantiteIsolant"
-                    ]
-                }
-            },
-            "required": [
-                "batiment",
-                "operation"
-            ]
-        },
-        "attestation": {
-            "properties": {
-                "operation": {
-                    "properties": {
-                        "typeToiture": {
-                            "$ref": "#/$defs/typeToiture"
-                          },
-                          "facteurSolaire": {
-                            "$ref": "#/$defs/facteurSolaire"
-                          }
-                        },
-                        "required": [
-                          "facteurSolaire",
-                          "typeToiture"
-                        ],
-                        "allOf": [
-                          {
-                            "if": {
-                              "propeties": {
-                                "codeDepartementOutremer": {
-                                  "oneOf": [
-                                    {
-                                      "const": "971",
-                                      "title": "Guadeloupe"
-                                    },
-                                    {
-                                      "const": "972",
-                                      "title": "Martinique"
-                                    },
-                                    {
-                                      "const": "973",
-                                      "title": "Guyane"
-                                    },
-                                    {
-                                      "const": "974",
-                                      "title": "La Réunion"
-                                    }
-                                  ]
-                                }
-                              }
-                            },
-                            "then": {
-                              "properties": {
-                                "facteurSolaire": {
-                                  "title": "Facteur solaire Sw",
-                                  "type": "number",
-                                  "maximum": 0.3
-                                }
-                              }
-                            }
-                          },
-                          {
-                            "if": {
-                              "properties": {
-                                "codeDepartement": {
-                                  "const": "976"
-                                }
-                              }
-                            },
-                            "then": {
-                              "properties": {
-                                "facteurSolaire": {
-                                  "title": "Facteur solaire Sw",
-                                  "type": "number",
-                                  "maximum": 0.2
-                                }
-                              }
-                            }
-                          }
-                        ]
-                },
-                "mentionMarqueReference": {
-                    "$ref": "#/$defs/mentionMarqueReference"
-                },
-                "installateur": {
-                    "$ref": "#/$defs/installateur"
-                },
-                "required": [
-                    "mentionMarqueReference",
-                    "installateur"
-                ]
-            }
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
         }
+      },
+      "required": [
+        "anciennete",
+        "type"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/outreMer"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json",
+      "title": "Surface de toiture protégée",
+      "unit": "m²"
     }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "quantite"
+  ]
 }

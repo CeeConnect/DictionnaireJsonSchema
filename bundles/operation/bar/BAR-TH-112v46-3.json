@@ -20,21 +20,17 @@
         "type"
       ]
     },
-    "operation": {
-      "title": "Opération",
-      "type": "object",
-      "properties": {
-        "codeDepartement": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
-        }
-      },
-      "required": [
-        "codeDepartement"
-      ]
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "etas": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json",
+      "minimum": 66
     }
   },
   "required": [
     "batiment",
-    "operation"
+    "codeDepartement",
+    "etas"
   ]
 }

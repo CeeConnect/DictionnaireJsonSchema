@@ -1,0 +1,7 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/fiche/code",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Code",
+  "type": "string",
+  "pattern": "(AGRI|BAR|BAT|IND|RES|TRA)[-](BA|CH|EC|EN|EQ|SE|TH|UT)[-][0-9]*([-]SE)?"
+}

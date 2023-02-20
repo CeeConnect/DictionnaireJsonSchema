@@ -1,154 +1,35 @@
 {
-  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/fiche/bar/BAR-EN-102",
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-102v39-2",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-EN-102",
-  "description": "Isolation des murs",
   "type": "object",
   "properties": {
-    "_template": {
-      "type": "string",
-      "default": "montant",
-      "oneOf": [
-        {
-          "const": "montant",
-          "title": "Montant"
-        },
-        {
-          "const": "attestation",
-          "title": "Attestation"
-        }
-      ]
-    }
-  },
-  "dependentSchemas": {
-    "_template": {
-      "oneOf": [
-        {
-          "properties": {
-            "_template": {
-              "const": "montant"
-            }
-          },
-          "allOf": [
-            {
-              "$ref": "#/$defs/montant"
-            }
-          ]
-        },
-        {
-          "properties": {
-            "_template": {
-              "const": "attestation"
-            }
-          },
-          "allOf": [
-            {
-              "$ref": "#/$defs/attestation"
-            }
-          ]
-        }
-      ]
-    }
-  },
-  "$defs": {
-    "anciennete": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
-    },
-    "type": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/type.json"
-    },
-    "quantiteIsolant": {
-      "$ref": "https://schemas.ceeconnect.fr/type/common/operation/quantite-isolant"
-    },
-    "codeDepartementMetropole": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-metropole.json"
-    },
-    "epaisseurIsolant": {
-      "title": "Epaisseur de l'isolant",
-      "type": "number",
-      "minimum": 0,
-      "unit": "mm"
-    },
-    "resistanceIsolant": {
-      "title": "Résistance thermmique de l'isolant",
-      "type": "number",
-      "minimum": 0,
-      "unit": "m2.K/W"
-    },
-    "mentionMarqueReference": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json"
-    },
-    "installateur": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
-    },
-    "montant": {
+    "batiment": {
+      "title": "Bâtiment",
+      "type": "object",
       "properties": {
-        "batiment": {
-          "title": "Bâtiment",
-          "type": "object",
-          "properties": {
-            "anciennete": {
-              "$ref": "#/$defs/anciennete"
-            },
-            "type": {
-              "$ref": "#/$defs/type"
-            }
-          },
-          "required": [
-            "anciennete",
-            "type"
-          ]
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
         },
-        "operation": {
-          "title": "Opération",
-          "type": "object",
-          "properties": {
-            "codeDepartementMetropole": {
-              "$ref": "#/$defs/codeDepartementMetropole"
-            },
-            "quantiteIsolant": {
-              "$ref": "#/$defs/quantiteIsolant"
-            }
-          },
-          "required": [
-            "codeDepartementMetropole",
-            "quantiteIsolant"
-          ]
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
         }
       },
       "required": [
-        "batiment",
-        "operation"
+        "anciennete",
+        "type"
       ]
     },
-    "attestation": {
-      "properties": {
-        "operation": {
-          "properties": {
-            "epaisseurIsolant": {
-              "$ref": "#/$defs/epaisseurIsolant"
-            },
-            "resistanceIsolant": {
-              "$ref": "#/$defs/resistanceIsolant",
-              "minimum": 3.7
-            }
-          },
-          "required": [
-            "resistanceIsolant",
-            "epaisseurIsolant"
-          ]
-        },
-        "mentionMarqueReference": {
-          "$ref": "#/$defs/mentionMarqueReference"
-        },
-        "installateur": {
-          "$ref": "#/$defs/installateur"
-        },
-        "required": [
-          "mentionMarqueReference",
-          "installateur"
-        ]
-      }
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json#/$defs/surfaceIsolant"
     }
-  }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "quantite"
+  ]
 }

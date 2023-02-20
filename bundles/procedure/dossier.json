@@ -1,0 +1,21 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/beneficiaire",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "$comment": "Trois scénarios : Personne morale / Personne physique",
+  "type": "object",
+  "properties": {
+    "$context": {
+      "type": "object",
+      "properties": {
+        "beneficiaire": {
+          "$ref": "#/$defs/beneficiaire"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "beneficiaire": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/procedure/beneficiaire.json"
+    }
+  }
+}

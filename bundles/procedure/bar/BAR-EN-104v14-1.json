@@ -1,255 +1,41 @@
 {
-    "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundle/fiche/bar/BAR-EN-104",
-    "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-    "title": "BAR-EN-104",
-    "description": "Fenêtre ou porte-fenêtre complète avec vitrage isolant",
-    "type": "object",
-    "properties": {
-        "_template": {
-            "type": "string",
-            "default": "montant",
-            "oneOf": [
-                {
-                    "const": "montant",
-                    "title": "Montant"
-                },
-                {
-                    "const": "attestation",
-                    "title": "Attestation"
-                }
-            ]
-        }
-    },
-    "dependentSchemas": {
-        "_template": {
-            "oneOf": [
-                {
-                    "properties": {
-                        "_template": {
-                            "const": "montant"
-                        }
-                    },
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/montant"
-                        }
-                    ]
-                },
-                {
-                    "properties": {
-                        "_template": {
-                            "const": "attestation"
-                        }
-                    },
-                    "allOf": [
-                        {
-                            "$ref": "#/$defs/attestation"
-                        }
-                    ]
-                }
-            ]
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-104v14-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-104",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
         },
-        "$defs": {
-            "anciennete": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/existant.json"
-            },
-            "type": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/type.json"
-            },
-            "energieChauffage": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/bar/batiment/energie-chauffage.json"
-            },
-            "quantite": {
-                "$ref": "https://schemas.ceeconnect.fr/type/common/operation/quantite"
-            },
-            "codeDepartement": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement.json"
-            },
-            "typeFenetre": {
-                "title": "Type de fenêtre",
-                "description": "type de fenêtre",
-                "type": "string",
-                "oneOf": [
-                    {
-                        "const": "FENETRE_TOITURE",
-                        "title": "Fenêtre de toiture"
-                    },
-                    {
-                        "const": "AUTRE_FENETRE",
-                        "title": "Autre fenêtre"
-                    },
-                    {
-                        "const": "PORTE_FENETRE",
-                        "title": "Porte-fenêtre"
-                    }
-                ]
-            },
-            "coefficientSurfacique": {
-                "title": "Coefficient de transmission surfacique Uw",
-                "type": "number",
-                "maximum": 0,
-                "unit": "W/m².K"
-            },
-            "facteurSolaire": {
-                "title": "Facteur solaire",
-                "description": "Facteur solaire de l'équipement",
-                "type": "number",
-                "maximum": 0,
-                "unit": "Sw"
-            },
-            "mentionMarqueReference": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json"
-            },
-            "installateur": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundle/dossier/partie-a/bar/_installateur.json"
-            },
-            "montant": {
-                "properties": {
-                    "batiment": {
-                        "title": "Bâtiment",
-                        "type": "object",
-                        "properties": {
-                            "anciennete": {
-                                "$ref": "#/$defs/anciennete"
-                            },
-                            "type": {
-                                "$ref": "#/$defs/type"
-                            },
-                            "energieChauffage": {
-                                "$ref": "#/$defs/energieChauffage"
-                            }
-                        },
-                        "required": [
-                            "anciennete",
-                            "type",
-                            "energieChauffage"
-                        ]
-                    },
-                    "operation": {
-                        "title": "Opération",
-                        "type": "object",
-                        "properties": {
-                            "codeDepartement": {
-                                "$ref": "#/$defs/codeDepartement"
-                            },
-                            "quantite": {
-                                "$ref": "#/$defs/quantiteIsolant",
-                                "title": "Nombre d'équipements",
-                                "description": "Nombre de fenêtres ou portes-fenêtres complètes avec vitrage isolant posées"
-                            }
-                        },
-                        "required": [
-                            "codeDepartement",
-                            "quantite"
-                        ]
-                    }
-                },
-                "required": [
-                    "batiment",
-                    "operation"
-                ]
-            },
-            "attestation": {
-                "properties": {
-                    "operation": {
-                        "properties": {
-                            "typeFenetre": {
-                                "$ref": "#/$defs/typeFenetre"
-                            },
-                            "required": [
-                                "typeFenetre"
-                            ],
-                            "allOf": [
-                                {
-                                    "if": {
-                                        "properties": {
-                                            "typeFenetre": {
-                                                "const": "FENETRE_TOITURE"
-                                            }
-                                        }
-                                    },
-                                    "then": {
-                                        "properties": {
-                                            "coefficientSurfacique": {
-                                                "$ref": "#/$defs/coefficientSurfacique",
-                                                "maximum": 1.5
-                                            },
-                                            "facteurSolaire": {
-                                                "$ref": "#/$defs/facteurSolaire",
-                                                "maximum": 0.36
-                                            }
-                                        },
-                                        "required": [
-                                            "coefficientSurfacique",
-                                            "facteurSolaire"
-                                        ]
-                                    }
-                                },
-                                {
-                                    "if": {
-                                        "properties": {
-                                            "typeFenetre": {
-                                                "const": "AUTRE_FENETRE"
-                                            }
-                                        }
-                                    },
-                                    "then": {
-                                        "properties": {
-                                            "coefficientSurfacique": {
-                                                "$ref": "#/$defs/coefficientSurfacique",
-                                                "maximum": 1.3
-                                            },
-                                            "facteurSolaire": {
-                                                "$ref": "#/$defs/facteurSolaire",
-                                                "maximum": 0.3
-                                            }
-                                        },
-                                        "required": [
-                                            "coefficientSurfacique",
-                                            "facteurSolaire"
-                                        ]
-                                    }
-                                },
-                                {
-                                    "if": {
-                                        "properties": {
-                                            "typeFenetre": {
-                                                "const": "FENETRE_TOITURE"
-                                            }
-                                        }
-                                    },
-                                    "then": {
-                                        "properties": {
-                                            "coefficientSurfacique": {
-                                                "$ref": "#/$defs/coefficientSurfacique",
-                                                "maximum": 1.7
-                                            },
-                                            "facteurSolaire": {
-                                                "$ref": "#/$defs/facteurSolaire",
-                                                "maximum": 0.36
-                                            }
-                                        },
-                                        "required": [
-                                            "coefficientSurfacique",
-                                            "facteurSolaire"
-                                        ]
-                                    }
-                                }
-                            ]
-                        },
-                        "mentionMarqueReference": {
-                            "$ref": "#/$defs/mentionMarqueReference"
-                        },
-                        "installateur": {
-                            "$ref": "#/$defs/installateur"
-                        }
-                    },
-                    "required": [
-                        "mentionMarqueReference",
-                        "installateur"
-                    ]
-                }
-            }
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+        },
+        "energieChauffage": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"
         }
+      },
+      "required": [
+        "anciennete",
+        "type",
+        "energieChauffage"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json",
+      "title": "Nombre d'équipements",
+      "description": "Nombre de fenêtres ou portes-fenêtres complètes avec vitrage isolant posées"
     }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "quantite"
+  ]
 }

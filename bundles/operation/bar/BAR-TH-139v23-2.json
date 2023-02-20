@@ -20,21 +20,16 @@
         "anciennete"
       ]
     },
-    "operation": {
-      "title": "Opération",
-      "type": "object",
-      "properties": {
-        "puissanceNominale": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/puissance-nominale.json"
-        }
-      },
-      "required": [
-        "puissanceNominale"
-      ]
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "puissanceNominale": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/puissance-nominale.json",
+      "title": "Puissance nominale du moteur de la pompe"
     }
   },
   "required": [
     "batiment",
-    "operation"
+    "puissanceNominale"
   ]
 }

@@ -1,0 +1,45 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/precarite/type",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Scénario",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "8.1",
+      "title": "Ménage en situation de précarité énergétique"
+    },
+    {
+      "const": "8.2",
+      "title": "Opération concernant au moins un logement locatif social"
+    },
+    {
+      "const": "8.3",
+      "title": "Copropriété objet d'une subvention de l'Agence nationale de l'habitat"
+    },
+    {
+      "const": "8.4",
+      "title": "Quartier prioritaire de la politique de la ville"
+    },
+    {
+      "const": "8.5",
+      "title": "Autres cas"
+    }
+  ],
+  "$defs": {
+    "menage": {
+      "const": "8.1"
+    },
+    "bailleurSocial": {
+      "const": "8.2"
+    },
+    "coproprieteAnah": {
+      "const": "8.3"
+    },
+    "quartierPrioritaire": {
+      "const": "8.4"
+    },
+    "autres": {
+      "const": "8.5"
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/fiche/bar/BAR-TH-104",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-104",
+  "type": "object",
+  "properties": {
+    "_template": {
+      "type": "string",
+      "default": "montant",
+      "oneOf": [
+        {
+          "const": "montant",
+          "title": "Montant"
+        },
+        {
+          "const": "full",
+          "title": "Full"
+        }
+      ]
+    }
+  },
+  "required": [
+    "_template"
+  ],
+  "dependentSchemas": {
+    "_template": {
+      "oneOf": [
+        {
+          "properties": {
+            "_template": {
+              "const": "montant"
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/montant"
+            }
+          ]
+        },
+        {
+          "properties": {
+            "_template": {
+              "const": "full"
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/full"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/mixins/operation/bar/batiment/type-maison-appartement.json"
+        },
+        "anciennete": {
+          "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/mixins/operation/bar/batiment/anciennete-existant.json"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "surfacehauffee": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/surface-chauffee.json"
+    },
+    "etas": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json"
+    },
+    "temperatureFonctionnement": {
+      "title": "Température de fonctionnement",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "BASSE_TEMPERATURE",
+          "title": "Basse température"
+        },
+        {
+          "const": "MOYENNE_TEMPERATURE",
+          "title": "Moyenne température"
+        },
+        {
+          "const": "HAUTE_TEMPERATURE",
+          "title": "Haute température"
+        }
+      ]
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/installateur.json"
+    },
+    "montant": {
+      "properties": {
+        "batiment": {
+          "$ref": "#/$defs/batiment"
+        },
+        "operation": {
+          "title": "Opération",
+          "type": "object",
+          "properties": {
+            "codeDepartement": {
+              "$ref": "#/$defs/codeDepartement"
+            },
+            "etas": {
+              "$ref": "#/$defs/etas",
+              "minimum": 102
+            },
+            "surfacehauffee": {
+              "$ref": "#/$defs/surfacehauffee"
+            }
+          },
+          "required": [
+            "codeDepartement",
+            "etas",
+            "surfacehauffee"
+          ]
+        }
+      },
+      "required": [
+        "batiment",
+        "operation"
+      ]
+    },
+    "full": {
+      "properties": {
+        "batiment": {
+          "$ref": "#/$defs/batiment"
+        },
+        "operation": {
+          "title": "Opération",
+          "type": "object",
+          "properties": {
+            "temperatureFonctionnement": {
+              "$ref": "#/$defs/temperatureFonctionnement"
+            }
+          },
+          "allOf": [
+            {
+              "$ref": "#/$defs/montant/properties/operation"
+            }
+          ],
+          "required": [
+            "temperatureFonctionnement"
+          ]
+        }
+      }
+    }
+  }
+}
