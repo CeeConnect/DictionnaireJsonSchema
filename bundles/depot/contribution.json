@@ -1,0 +1,25 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/depot/contribution",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Rôle actif et incitatif",
+  "type": "object",
+  "properties": {
+    "nature": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/contribution/nature.json"
+    },
+    "montant": {
+      "title": "Montant",
+      "type": "number",
+      "minimum": 0
+    },
+    "commentaire": {
+      "title": "Commentaire",
+      "type": "string",
+      "maxLength": 240
+    }
+  },
+  "required": [
+    "nature",
+    "montant"
+  ]
+}

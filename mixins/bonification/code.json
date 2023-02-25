@@ -1,0 +1,32 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/mixins/bonification/code",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Code",
+  "type": "string",
+  "oneOf": [
+    {
+      "const": "ZNI",
+      "title": "Zones non interconnectées au réseau métropolitain continental de transport d'électricité"
+    },
+    {
+      "const": "CPE",
+      "title": "Contrat de performance énergétique"
+    },
+    {
+      "const": "CFT",
+      "title": "Coup de pouce Chauffage des bâtiments résidentiels collectifs et tertiaires"
+    },
+    {
+      "const": "CRC",
+      "title": "Coup de pouce Rénovation performante de bâtiment résidentiel collectif"
+    },
+    {
+      "const": "CRM",
+      "title": "Coup de pouce Rénovation performante d'une maison individuelle"
+    },
+    {
+      "const": "CDP",
+      "title": "Coup de pouce Chauffage"
+    }
+  ]
+}

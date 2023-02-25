@@ -1,0 +1,161 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur/partie-a/bar/BAR-EN-110v35-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-110",
+  "description": "Fenêtre ou porte-fenêtre complète avec vitrage pariétodynamique",
+  "type": "object",
+  "properties": {
+    "dateEngagement": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "datePreuveRealisation": {
+      "$ref": "#/$defs/operation/$defs/datePreuveRealisation"
+    },
+    "referenceFacture": {
+      "$ref": "#/$defs/operation/$defs/referenceFacture"
+    },
+    "site": {
+      "$ref": "#/$defs/operation/$defs/site"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "batiment": {
+      "$ref": "#/$defs/procedure/properties/batiment"
+    },
+    "typeVentilation": {
+      "title": "Type de système ventilation mécanique présent",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "AUTOREGLABLE",
+          "title": "Simple flux autoréglable"
+        },
+        {
+          "const": "HYGROREGLABLE",
+          "title": "Simple flux hygroréglable de type A"
+        },
+        {
+          "const": "NATURELLE",
+          "title": "Ventilation naturelle assitée"
+        }
+      ]
+    },
+    "quantite": {
+      "$ref": "#/$defs/procedure/properties/quantite"
+    },
+    "equipements": {
+      "title": "Liste des équipements installés",
+      "description": "Renseigner une ligne par équipement différent",
+      "type": "array",
+      "minContains": 1,
+      "items": {
+        "$ref": "#/$defs/equipement"
+      }
+    }
+  },
+  "required": [
+    "dateEngagement",
+    "adresse",
+    "batiment",
+    "typeVentilation",
+    "quantite",
+    "equipements"
+  ],
+  "$defs": {
+    "procedure": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/procedure/bar/BAR-EN-110v35-1.json"
+    },
+    "operation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_operation.json"
+    },
+    "isolation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_isolation.json"
+    },
+    "equipement": {
+      "title": "Equipement installé",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type de fenêtre",
+          "description": "type de fenêtre",
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "FENETRE_TOITURE",
+              "title": "Fenêtre de toiture"
+            },
+            {
+              "const": "AUTRES",
+              "title": "Autre(s) fenêtre(s) ou porte(s)-fenêtre(s)"
+            },
+            {
+              "const": "PORTE_FENETRE",
+              "title": "Porte-fenêtre"
+            }
+          ]
+        },
+        "nombre": {
+          "title": "Nombre d'équipement",
+          "type": "integer",
+          "minimum": 1
+        },
+        "coefficientSurfacique": {
+          "title": "Coefficient de transmission surfacique Uw",
+          "type": "number",
+          "maximum": 1.4,
+          "unit": "W/m².K"
+        },
+        "facteurSolaire": {
+          "title": "Facteur solaire",
+          "type": "number",
+          "minimum": 0.5,
+          "unit": "Sw"
+        },
+        "marque": {
+          "$ref": "#/$defs/operation/$defs/marque"
+        },
+        "reference": {
+          "$ref": "#/$defs/operation/$defs/reference"
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "coefficientSurfacique": {
+              "maximum": 1.1
+            },
+            "facteurSolaire": {
+              "minimum": 0.5
+            }
+          },
+          "required": [
+            "coefficientSurfacique",
+            "facteurSolaire"
+          ]
+        },
+        {
+          "properties": {
+            "coefficientSurfacique": {
+              "maximum": 1.4
+            },
+            "facteurSolaire": {
+              "minimum": 0.55
+            }
+          },
+          "required": [
+            "coefficientSurfacique",
+            "facteurSolaire"
+          ]
+        }
+      ],
+      "required": [
+        "nombre",
+        "coefficientSurfacique",
+        "facteurSolaire",
+        "marque",
+        "reference"
+      ]
+    }
+  }
+}

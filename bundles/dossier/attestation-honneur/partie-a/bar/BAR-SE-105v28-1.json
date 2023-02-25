@@ -1,0 +1,209 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundles/dossier/bar/BAR-SE-105v28-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-SE-106",
+  "description": "Contrat de Performance Energétique Services",
+  "type": "object",
+  "properties": {
+    "dateEngagement": {
+      "$ref": "#/$defs/_operation/$defs/dateEngagement",
+      "description": "Date de signature du contrat CPE Services"
+    },
+    "logementExistant": {
+      "$ref": "#/$defs/_operation/$defs/logementExistant",
+      "title": "Appartements existants depuis plus de 2 ans à la date d’engagement de l’opération"
+    },
+    "logements": {
+      "$ref": "#/$defs/_operation/$defs/logements",
+      "title": "Nombre d'appartements"
+    },
+    "eligibilite": {
+      "$ref": "#/$defs/_operation/$defs/condition",
+      "title": "Le contrat est un CPE Services avec engagement d’économies d’énergie exprimé en %, sans recourir à des opérations éligibles au dispositif des certificats d’économies d’énergie (CEE)"
+    },
+    "bilanAnnuel": {
+      "$ref": "#/$defs/_operation/$defs/condition",
+      "title": "Le CPE comporte un plan de mesure et de vérification de la performance énergétique, faisant l'objet d'un bilan annuel écrit transmis au bénéficiaire par l’opérateur titulaire du contrat"
+    },
+    "penalites": {
+      "$ref": "#/$defs/_operation/$defs/condition",
+      "title": "En cas de non atteinte de la performance garantie par le CPE Services, ce dernier prévoit que l’opérateur supporte une pénalité, représentant 100 % du surcoût dû à l'écart de consommation constaté par rapport à l’engagement contractualisé"
+    },
+    "engagement": {
+      "title": "Engagement d’économies d’énergie contractuel",
+      "type": "number",
+      "minimum": 0
+    },
+    "dureeEligible": {
+      "title": "Durée éligible à l’opération",
+      "description": "Durée garantie au contrat (en années pleines) pendant laquelle, si les économies d’énergie ne sont pas atteintes, la pénalité s’applique",
+      "type": "integer",
+      "minimum": 2
+    },
+    "situationReference": {
+      "title": "Situation de référence et paramètres d’ajustement",
+      "type": "object",
+      "properties": {
+        "conditionsGenerales": {
+          "$ref": "#/$defs/_operation/$defs/condition",
+          "title": "La situation de référence prend en compte les consommations historiques corrigées des données climatiques, ainsi que les opérations d’amélioration énergétique qui auraient été mises en œuvre pendant la période de détermination de la situation de référence et qui auraient donné lieu ou donneront lieu à demande de CEE"
+        },
+        "caracteristiquesBatiment": {
+          "title": "Caractéristiques du bâtiment",
+          "type": "object",
+          "properties": {
+            "puissanceTotaleChaufferie": {
+              "title": "Puissance totale chaufferie hors secours",
+              "description": "circuit de chauffage et de production d’ECS",
+              "type": "number",
+              "minimum": 0,
+              "unit": "MW"
+            },
+            "energiesEntrantes": {
+              "title": "Energies entrantes",
+              "description": "Gaz, électricité, fioul, chauffage urbain, etc..",
+              "type": "array",
+              "minContains": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "Gaz",
+                  "Electricité",
+                  "Fioul",
+                  "Charbon",
+                  "Bois",
+                  "Chauffage urbain",
+                  "Solaire"
+                ]
+              }
+            },
+            "fiches": {
+              "title": "Opérations éligibles aux CEE engagées ou réalisées pendant la période de référence",
+              "type": "array",
+              "minContains": 1,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/fiche/code.json"
+              }
+            }
+          },
+          "required": [
+            "puissanceTotaleChaufferie",
+            "energiesEntrantes",
+            "fiches"
+          ]
+        },
+        "consommation": {
+          "title": "Consommation de référence",
+          "type": "object",
+          "properties": {
+            "periodeReference": {
+              "title": "Période de référence",
+              "description": "Période de référence  (années de référence concernées (a minima trois années calendaires consécutives et récentes), représentatives d'un taux d'occupation normal du site)",
+              "type": "object",
+              "properties": {
+                "debut": {
+                  "title": "Début",
+                  "type": "string",
+                  "format": "date"
+                },
+                "fin": {
+                  "title": "Début",
+                  "type": "string",
+                  "format": "date"
+                }
+              },
+              "required": [
+                "debut",
+                "fin"
+              ]
+            },
+            "modalitesCalcul": {
+              "title": "Modalités de calcul",
+              "description": "Comptage / facture / mesures...",
+              "type": "string",
+              "maxLength": 240
+            },
+            "consommationReference": {
+              "title": "Consommation de référence",
+              "description": "Consommation énergétique moyenne durant la période de référence",
+              "type": "number",
+              "minimum": 0
+            },
+            "consommationCorrigee": {
+              "title": "Consommation de référence retenue",
+              "description": "Consommation énergétique corrigée des paramètres d’ajustements",
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "periodeReference",
+            "modalitesCalcul",
+            "consommationReference",
+            "consommationCorrigee"
+          ]
+        },
+        "parametresAjustement": {
+          "title": "Paramètres d'ajustement",
+          "description": "Ils ramènent la consommation réelle à la situation de la consommation de référence, en tenant compte des effets sur lesquels l'opérateur n'a pas d'influence",
+          "type": "object",
+          "properties": {
+            "temperatureExterieure": {
+              "title": "Température extérieure",
+              "type": "number",
+              "minimum": 0,
+              "unit": "degrés-jours de référence"
+            },
+            "ecs": {
+              "title": "ECS (le cas échéant)",
+              "type": "number",
+              "minimum": 0,
+              "unit": "m3"
+            },
+            "facteursPeriodiques": {
+              "title": "Affectation des locaux, taux d’occupation, durée de fonctionnement",
+              "type": "string",
+              "maxLength": 240
+            }
+          },
+          "required": [
+            "temperatureExterieure",
+            "ecs",
+            "facteursPeriodiques"
+          ]
+        }
+      },
+      "required": [
+        "conditionsGenerales",
+        "caracteristiquesBatiment",
+        "consommation",
+        "parametresAjustement"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/$defs/_adresse"
+    }
+  ],
+  "required": [
+    "dateEngagement",
+    "logementExistant",
+    "logements",
+    "eligibilite",
+    "bilanAnnuel",
+    "penalites",
+    "engagement",
+    "dureeEligible",
+    "situationReference"
+  ],
+  "$defs": {
+    "_adresse": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/bar/_adresse.json"
+    },
+    "_operation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/bar/_operation.json"
+    }
+  }
+}

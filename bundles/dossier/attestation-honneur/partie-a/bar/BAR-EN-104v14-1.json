@@ -1,0 +1,199 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur/partie-a/bar/BAR-EN-104v14-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-104",
+  "description": "Fenêtre ou porte-fenêtre complète avec vitrage isolant",
+  "type": "object",
+  "properties": {
+    "dateEngagement": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "datePreuveRealisation": {
+      "$ref": "#/$defs/operation/$defs/datePreuveRealisation"
+    },
+    "referenceFacture": {
+      "$ref": "#/$defs/operation/$defs/referenceFacture"
+    },
+    "site": {
+      "$ref": "#/$defs/operation/$defs/site"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "batiment": {
+      "$ref": "#/$defs/procedure/properties/batiment"
+    },
+    "quantite": {
+      "$ref": "#/$defs/procedure/properties/quantite"
+    },
+    "equipements": {
+      "title": "Liste des équipements installés",
+      "description": "Renseigner autant d'équipement que de fenêtres, fenêtres de toiture ou portes-fenêtres complètes identiques",
+      "type": "array",
+      "minContains": 1,
+      "items": {
+        "$ref": "#/$defs/equipement"
+      }
+    }
+  },
+  "required": [
+    "dateEngagement",
+    "dateRealisation",
+    "adresse",
+    "batiment",
+    "quantite",
+    "equipements"
+  ],
+  "$defs": {
+    "procedure": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/procedure/bar/BAR-EN-104v14-1.json"
+    },
+    "operation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_operation.json"
+    },
+    "isolation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_isolation.json"
+    },
+    "equipement": {
+      "title": "Equipement installé",
+      "type": "object",
+      "properties": {
+        "type": {
+          "title": "Type de fenêtre",
+          "description": "type de fenêtre",
+          "type": "string",
+          "oneOf": [
+            {
+              "const": "FENETRE_TOITURE",
+              "title": "Fenêtre de toiture"
+            },
+            {
+              "const": "AUTRES",
+              "title": "Autre(s) fenêtre(s) ou porte(s)-fenêtre(s)"
+            },
+            {
+              "const": "PORTE_FENETRE",
+              "title": "Porte-fenêtre"
+            }
+          ]
+        },
+        "nombre": {
+          "title": "Nombre d'équipement",
+          "type": "integer",
+          "minimum": 1
+        },
+        "marque": {
+          "$ref": "#/$defs/operation/$defs/marque"
+        },
+        "reference": {
+          "$ref": "#/$defs/operation/$defs/reference"
+        }
+      },
+      "required": [
+        "type",
+        "nombre",
+        "marque",
+        "reference"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "FENETRE_TOITURE"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "coefficientSurfacique": {
+                "$ref": "#/$defs/coefficientSurfacique",
+                "maximum": 1.5
+              },
+              "facteurSolaire": {
+                "$ref": "#/$defs/facteurSolaire",
+                "maximum": 0.36
+              }
+            },
+            "required": [
+              "coefficientSurfacique",
+              "facteurSolaire"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "AUTRES"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "coefficientSurfacique": {
+                "$ref": "#/$defs/coefficientSurfacique",
+                "maximum": 1.3
+              },
+              "facteurSolaire": {
+                "$ref": "#/$defs/facteurSolaire",
+                "maximum": 0.3
+              }
+            },
+            "required": [
+              "coefficientSurfacique",
+              "facteurSolaire"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "FENETRE_TOITURE"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "properties": {
+              "coefficientSurfacique": {
+                "$ref": "#/$defs/coefficientSurfacique",
+                "maximum": 1.7
+              },
+              "facteurSolaire": {
+                "$ref": "#/$defs/facteurSolaire",
+                "maximum": 0.36
+              }
+            },
+            "required": [
+              "coefficientSurfacique",
+              "facteurSolaire"
+            ]
+          }
+        }
+      ]
+    },
+    "coefficientSurfacique": {
+      "title": "Coefficient de transmission surfacique Uw",
+      "type": "number",
+      "maximum": 0,
+      "unit": "W/m².K"
+    },
+    "facteurSolaire": {
+      "title": "Facteur solaire",
+      "description": "Facteur solaire de l'équipement",
+      "type": "number",
+      "maximum": 0,
+      "unit": "Sw"
+    }
+  }
+}

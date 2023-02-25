@@ -1,0 +1,292 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/partie-a/bar/BAR-TH-113v41-3",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-113",
+  "description": "Chaudière biomasse individuelle",
+  "type": "object",
+  "properties": {
+    "dateEngagement": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "dateRealisation": {
+      "$ref": "#/$defs/operation/$defs/dateRealisation"
+    },
+    "referencePreuveEngagement": {
+      "$ref": "#/$defs/operation/$defs/referencePreuveEngagement"
+    },
+    "logementExistant": {
+      "$ref": "#/$defs/operation/$defs/logementExistant",
+      "title": "Maison existante depuis plus de deux ans à la date d'engagement de l'opération"
+    },
+    "typeBiomasse": {
+      "title": "Biomasse ligneuse à base de bûches de bois, de copeaux de bois, de bois comprimé sous forme de granulés, de bois comprimé sous forme de briquettes ou de sciure de bois",
+      "type": "boolean",
+      "const": true
+    },
+    "etas": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json",
+      "title": "Efficacité énergétique saisonnière (ηs) de la chaudière biomasse"
+    },
+    "puissanceNominale": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/puissance-nominale.json"
+    },
+    "classeRegulateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/classe-regulateur.json"
+    },
+    "chargement": {
+      "title": "Le chargement de la chaudière est opéré de manière :",
+      "type": "string",
+      "oneOf": [
+        {
+          "title": "Chargement automatique",
+          "const": "CHARGEMENT_AUTOMATIQUE"
+        },
+        {
+          "title": "Chargement manuel",
+          "const": "CHARGEMENT_MANUEL"
+        }
+      ]
+    },
+    "flammeVerte": {
+      "title": "La chaudière installée possède le label Flamme Verte 7*",
+      "type": "boolean",
+      "oneOf": [
+        {
+          "title": "Oui",
+          "const": true
+        },
+        {
+          "title": "Non",
+          "const": false
+        }
+      ]
+    },
+    "marque": {
+      "title": "Marque de la chaudière biomasse installée",
+      "description": "Renseigner si la marque de l'équipement n'est pas mentionnée sur la preuve de réalisation de l'opération",
+      "$ref": "#/$defs/operation/$defs/marque"
+    },
+    "reference": {
+      "title": "Marque de la chaudière biomasse installée",
+      "description": "Renseigner si la référence de l'équipement n'est pas mentionnée sur la preuve de réalisation de l'opération",
+      "$ref": "#/$defs/operation/$defs/reference"
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "#/$defs/adresse"
+    },
+    {
+      "if": {
+        "properties": {
+          "puissanceNominale": {
+            "maximum": 20
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "etas": {
+            "minimum": 77
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "puissanceNominale": {
+            "exclusiveMinimum": 20
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "etas": {
+            "minimum": 79
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "flammeVerte": {
+            "const": false
+          },
+          "chargement": {
+            "const": "CHARGEMENT_AUTOMATIQUE"
+          }
+        },
+        "required": [
+          "flammeVerte",
+          "chargement"
+        ]
+      },
+      "then": {
+        "$ref": "#/$defs/scenarioChargementAutomatique"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "flammeVerte": {
+            "const": false
+          },
+          "chargement": {
+            "const": "CHARGEMENT_MANUEL"
+          }
+        },
+        "required": [
+          "flammeVerte",
+          "chargement"
+        ]
+      },
+      "then": {
+        "$ref": "#/$defs/scenarioChargementManuel"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "chargement": {
+            "const": "CHARGEMENT_AUTOMATIQUE"
+          }
+        },
+        "required": [
+          "chargement"
+        ]
+      },
+      "then": {
+        "properties": {
+          "presenceSilo": {
+            "title": "Présence d’un silo d’au moins 225 litres",
+            "type": "boolean",
+            "const": true
+          }
+        },
+        "required": [
+          "presenceSilo"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "chargement": {
+            "const": "CHARGEMENT_MANUEL"
+          }
+        },
+        "required": [
+          "chargement"
+        ]
+      },
+      "then": {
+        "properties": {
+          "presenceBallon": {
+            "title": "Présence d’un ballon tampon",
+            "type": "boolean",
+            "const": true
+          }
+        },
+        "required": [
+          "presenceBallon"
+        ]
+      }
+    }
+  ],
+  "required": [
+    "dateEngagement",
+    "adresse",
+    "logementExistant",
+    "typeBiomasse",
+    "etas",
+    "puissanceNominale",
+    "classeRegulateur",
+    "flammeVerte"
+  ],
+  "$defs": {
+    "operation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/partie-a/bar/_operation.json"
+    },
+    "adresse": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/partie-a/bar/_adresse.json"
+    },
+    "emissionsParticules": {
+      "title": "Émissions saisonnières de particules en mg/Nm3",
+      "type": "number",
+      "minimum": 0,
+      "unite": "mg/Nm3"
+    },
+    "emissionsMonoxyde": {
+      "title": "Émissions saisonnières de monoxyde de carbone (CO) en mg/Nm3",
+      "type": "number",
+      "minimum": 0,
+      "unite": "mg/Nm3"
+    },
+    "emissionsAzote": {
+      "title": "Émissions saisonnières d'oxydes d'azote (NOx) en mg/Nm3",
+      "type": "number",
+      "minimum": 0,
+      "unite": "mg/Nm3"
+    },
+    "emissionsOrganiques": {
+      "title": "Émissions saisonnières de composés organiques gazeux en mg/Nm3",
+      "type": "number",
+      "minimum": 0,
+      "unite": "mg/Nm3"
+    },
+    "scenarioChargementAutomatique": {
+      "properties": {
+        "emissionsParticules": {
+          "$ref": "#/$defs/emissionsParticules",
+          "maximum": 30
+        },
+        "emissionsMonoxyde": {
+          "$ref": "#/$defs/emissionsMonoxyde",
+          "maximun": 400
+        },
+        "emissionsAzote": {
+          "$ref": "#/$defs/emissionsAzote",
+          "maximum": 200
+        },
+        "emissionsOrganiques": {
+          "$ref": "#/$defs/emissionsOrganiques",
+          "maximum": 16
+        }
+      },
+      "required": [
+        "emissionsParticules",
+        "emissionsMonoxyde",
+        "emissionsAzote",
+        "emissionsOrganiques"
+      ]
+    },
+    "scenarioChargementManuel": {
+      "properties": {
+        "emissionsParticules": {
+          "$ref": "#/$defs/emissionsParticules",
+          "maximum": 40
+        },
+        "emissionsMonoxyde": {
+          "$ref": "#/$defs/emissionsMonoxyde",
+          "maximun": 600
+        },
+        "emissionsAzote": {
+          "$ref": "#/$defs/emissionsAzote",
+          "maximum": 200
+        },
+        "emissionsOrganiques": {
+          "$ref": "#/$defs/emissionsOrganiques",
+          "maximum": 20
+        }
+      },
+      "required": [
+        "emissionsParticules",
+        "emissionsMonoxyde",
+        "emissionsAzote",
+        "emissionsOrganiques"
+      ]
+    }
+  }
+}

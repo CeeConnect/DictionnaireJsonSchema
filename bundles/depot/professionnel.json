@@ -1,0 +1,21 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/depot/professionnel",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Professionnel",
+  "description": "Professionnel ayant assuré la maîtrise d'oeuvre ou la mise en oeuvre de l'opération",
+  "type": "object",
+  "properties": {
+    "raisonSociale": {
+      "title": "Raison sociale",
+      "type": "string",
+      "maxLength": 240
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+    }
+  },
+  "required": [
+    "raisonSociale",
+    "siren"
+  ]
+}

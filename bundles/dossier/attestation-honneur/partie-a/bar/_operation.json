@@ -1,0 +1,77 @@
+{
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "type": "object",
+  "$defs": {
+    "dateEngagement": {
+      "title": "Date d'engagement",
+      "description": "Date de signature du devis ou du contrat",
+      "type": "string",
+      "format": "date"
+    },
+    "datePreuveRealisation": {
+      "title": "Date de réalisation",
+      "description": "Date de preuve de réalisation de l’opération (ex : date de la facture)",
+      "type": "string",
+      "format": "date",
+      "formatMinimum": {
+        "$data": "1/dateEngagement"
+      }
+    },
+    "dateVisitePrealable": {
+      "title": "Date de visite préalable",
+      "description": "Date de la visite préalable du bâtiment où ont eu lieu les travaux",
+      "type": "string",
+      "format": "date",
+      "formatMinimum": {
+        "$data": "1/dateEngagement"
+      }
+    },
+    "dateDebut": {
+      "title": "Date de début des travaux",
+      "type": "string",
+      "format": "date",
+      "formatMinimum": {
+        "$data": "1/dateEngagement"
+      }
+    },
+    "referenceFacture": {
+      "title": "Référence de la facture",
+      "type": "string",
+      "maxLength": 240
+    },
+    "site": {
+      "title": "Nom du site des travaux",
+      "description": "Pour les personnes morales : nom du site des travaux ou nom de la copropriété",
+      "type": "string",
+      "maxLength": 240
+    },
+    "logementExistant": {
+      "title": "Logement existant depuis plus de deux ans à la date d'engagement de l'opération",
+      "type": "boolean",
+      "const": true
+    },
+    "logements": {
+      "title": "Nombre de logements",
+      "type": "integer",
+      "minimum": 1
+    },
+    "condition": {
+      "type": "boolean",
+      "const": true
+    },
+    "marque": {
+      "title": "Marque de l'équipement",
+      "type": "string",
+      "maxLength": 240
+    },
+    "reference": {
+      "title": "Référence de l'équipement",
+      "type": "string",
+      "maxLength": 240
+    }
+  },
+  "required": [
+    "dateEngagement",
+    "adresse"
+  ]
+}

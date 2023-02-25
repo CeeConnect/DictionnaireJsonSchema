@@ -1,0 +1,80 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur/partie-qpv",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Partie QPV - Quartier prioritaire de la politique de la ville",
+  "description": "A renseigner par le demandeur des certificats d'économies d'énergie",
+  "type": "object",
+  "properties": {
+    "nom": {
+      "title": "Nom du signataure",
+      "type": "string",
+      "maxLength": 240
+    },
+    "prenom": {
+      "title": "Prénom du signataure",
+      "type": "string",
+      "maxLength": 240
+    },
+    "fonction": {
+      "title": "Fonction du signataire",
+      "type": "string",
+      "maxLength": 240
+    },
+    "raisonSociale": {
+      "title": "Raison sociale du demandeur",
+      "type": "string",
+      "maxLength": 240
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json",
+      "title": "Numéro de SIREN du demandeur"
+    },
+    "email": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json",
+      "title": "Email de contact du demandeur"
+    },
+    "telephone": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json",
+      "title": "Numéro de téléphone de contact du demandeur"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json",
+      "title": "Adresse du siège sociale du demandeur"
+    },
+    "operation": {
+      "title": "Opération",
+      "type": "object",
+      "properties": {
+        "codeQuartierPrioritaire": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-quartier-prioritaire.json",
+          "title": "Code quartier du quartier prioritaire de la politique de la ville"
+        },
+        "nomQuartierPrioritaire": {
+          "title": "Nom du quartier prioritaire de la politique de la ville",
+          "type": "string",
+          "maxLength": 240
+        },
+        "adresse": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json",
+          "title": "Adresse de la copropriété ou de l'infrastructure de transport"
+        }
+      },
+      "required": [
+        "codeQuartierPrioritaire",
+        "nomQuartierPrioritaire",
+        "adresse"
+      ]
+    }
+  },
+  "required": [
+    "nom",
+    "prenom",
+    "fonction",
+    "raisonSociale",
+    "siren",
+    "email",
+    "telephone",
+    "adresse",
+    "operation"
+  ]
+}

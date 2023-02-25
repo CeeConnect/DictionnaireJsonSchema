@@ -1,0 +1,15 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/depot/operation",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Opération",
+  "description": "Opération valorisable au titre du dispositif des certificats d'économies d'énergie",
+  "type": "object",
+  "oneOf": [
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/depot/operation-personne-morale.json"
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/depot/operation-personne-physique.json"
+    }
+  ]
+}

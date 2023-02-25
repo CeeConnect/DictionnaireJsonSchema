@@ -1,15 +1,15 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-101v39-4",
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-143v51-5",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "BAR-EN-101",
+  "title": "BAR-TH-143",
   "type": "object",
   "properties": {
     "batiment": {
-      "title": "Bâtiment",
+      "title": "Logement",
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
@@ -22,14 +22,10 @@
     },
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
-    },
-    "quantite": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json#/$defs/surfaceIsolant"
     }
   },
   "required": [
     "batiment",
-    "codeDepartement",
-    "quantite"
+    "codeDepartement"
   ]
 }

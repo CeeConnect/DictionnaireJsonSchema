@@ -1,0 +1,223 @@
+{
+  "$id": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/bundles/dossier/bar/BAR-TH-167v38-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-167",
+  "description": "Chauffe-bain individuel à haut rendement ou à condensation",
+  "type": "object",
+  "properties": {
+    "type": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+    },
+    "combustibleGazeux": {
+      "$ref": "#/$defs/combustibleGazeux"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "remplacement": {
+          "$ref": "#/$defs/remplacement"
+        },
+        "typeChauffeBain": {
+          "$ref": "#/$defs/typeChauffeBain"
+        },
+        "rendementPci": {
+          "$ref": "#/$defs/rendementPci"
+        },
+        "classeEnergetique": {
+          "$ref": "#/$defs/classeEnergetique"
+        },
+        "mentionMarqueReference": {
+          "$ref": "#/$defs/mentionMarqueReference"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "typeEquipement": {
+              "const": "HAUT_RENDEMENT"
+            }
+          },
+          "then": {
+            "rendementPci": {
+              "minimum": 85
+            }
+          }
+        },
+        {
+          "if": {
+            "typeChauffeBain": {
+              "const": "CONDENSATION"
+            }
+          },
+          "then": {
+            "rendementPci": {
+              "minimum": 100
+            }
+          }
+        }
+      ],
+      "required": [
+        "remplacement",
+        "combustibleGazeux",
+        "typeChauffeBain",
+        "rendementPci",
+        "classeEnergetique",
+        "mentionMarqueReference"
+      ]
+    },
+    {
+      "if": {
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/appartement"
+            },
+            {
+              "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/immeuble"
+            }
+          ]
+        },
+        "required": [
+          "type"
+        ]
+      },
+      "then": {
+        "typeChauffeBain": {
+          "$ref": "#/$defs/typeChauffeBain",
+          "oneOf": [
+            {
+              "const": "HAUT_RENDEMENT_FORCE",
+              "title": "Chauffe bain à flux forcé à haut rendement"
+            },
+            {
+              "const": "HAUT_RENDEMENT_COMBUSTION",
+              "title": "Chauffe bain à combustion atmosphérique haut rendement"
+            },
+            {
+              "const": "CONDENSATION",
+              "title": "Chauffe bain à condensation atmosphérique"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "required": [
+    "type"
+  ],
+  "$defs": {
+    "type": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
+    },
+    "anciennete": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+    },
+    "codeDepartementMetropole": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/code-departement-metropole.json"
+    },
+    "rendementPci": {
+      "title": "Rendement PCI nominal",
+      "type": "number",
+      "minimum": 0,
+      "unit": "%"
+    },
+    "surfaceHabitable": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/type/common/batiment/surface-habitable.json"
+    },
+    "typeChauffeBain": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-chauffe-bain.json"
+    },
+    "remplacement": {
+      "title": "L’appareil installé vient en remplacement d’un chauffe-bain au gaz mural à combustion atmosphérique",
+      "type": "boolean",
+      "const": true
+    },
+    "combustibleGazeux": {
+      "title": "Le chauffe-bain est individuel et utilise un combustible gazeux",
+      "type": "boolean",
+      "const": true
+    },
+    "classeEnergetique": {
+      "title": "Classe énergétique de l’appareil installé pour un profil de soutirage de type M",
+      "description": "Le chauffe-bain installé est de classe énergétique « A » ou supérieure pour un profil de soutirage de type M",
+      "type": "string",
+      "oneOf": [
+        {
+          "title": "A+",
+          "const": "A+"
+        },
+        {
+          "title": "A",
+          "const": "A"
+        }
+      ]
+    },
+    "equipement": {
+      "type": "object",
+      "title": "liste des chauffes-bains installés",
+      "properties": {
+        "remplacement": {
+          "$ref": "#/$defs/remplacement"
+        },
+        "combustibleGazeux": {
+          "$ref": "#/$defs/combustibleGazeux"
+        },
+        "typeChauffeBain": {
+          "$ref": "#/$defs/typeChauffeBain"
+        },
+        "rendementPci": {
+          "$ref": "#/$defs/rendementPci"
+        },
+        "classeEnergetique": {
+          "$ref": "#/$defs/classeEnergetique"
+        }
+      },
+      "required": [
+        "remplacement",
+        "combustibleGazeux",
+        "typeChauffeBain",
+        "rendementPci",
+        "classeEnergetique"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "typeChauffeBain": {
+              "const": "HAUT_RENDEMENT"
+            }
+          },
+          "then": {
+            "rendementPci": {
+              "minimum": 85
+            }
+          }
+        },
+        {
+          "if": {
+            "typeChauffeBain": {
+              "const": "CONDENSATION"
+            }
+          },
+          "then": {
+            "rendementPci": {
+              "minimum": 100
+            }
+          }
+        }
+      ]
+    },
+    "mentionMarqueReference": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+      "title": "Marque et référence  du chauffe-bain installé"
+    }
+  }
+}

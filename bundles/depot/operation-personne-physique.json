@@ -1,0 +1,97 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/depot/operation-personne-physique",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Opération",
+  "description": "Opération valorisable au titre du dispositif des certificats d'économies d'énergie",
+  "type": "object",
+  "properties": {
+    "referenceEmmy": {
+      "title": "Référence EMMY de la demande",
+      "type": "string",
+      "maxLength": 240
+    },
+    "referenceInterne": {
+      "title": "Référence interne de l'opération",
+      "type": "string",
+      "maxLength": 240
+    },
+    "referenceFiche": {
+      "title": "Référence de la fiche",
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/fiche/code.json"
+    },
+    "natureBonification": {
+      "title": "Nature de la bonification",
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/bonification/code.json"
+    },
+    "dateEngagement": {
+      "title": "Date d'engagement de l'opération",
+      "type": "string",
+      "format": "date"
+    },
+    "volumeCeeClassique": {
+      "title": "Volume de CEE hors précarité",
+      "type": "number",
+      "minimum": 0
+    },
+    "volumeCeePrecarite": {
+      "title": "Volume de CEE précarité",
+      "type": "number",
+      "minimum": 0
+    },
+    "adresse": {
+      "title": "Adresse",
+      "description": "Adresse de l'opération",
+      "type": "object",
+      "properties": {
+        "adresse": {
+          "title": "Adresse",
+          "type": "string",
+          "maxLength": 240
+        },
+        "codePostal": {
+          "title": "Code postal",
+          "description": "Code postal sans cedex",
+          "type": "string",
+          "maxLength": 240
+        },
+        "commune": {
+          "title": "Code postal",
+          "type": "string",
+          "maxLength": 240
+        }
+      },
+      "required": [
+        "adresse",
+        "codePostal",
+        "commune"
+      ]
+    },
+    "demandeur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/depot/demandeur.json"
+    },
+    "beneficiaire": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/depot/beneficiaire.json#/$defs/personnePhysique"
+    },
+    "controleur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/depot/controleur.json"
+    },
+    "installateur": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/depot/installateur.json"
+    },
+    "contribution": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/depot/contribution.json"
+    }
+  },
+  "required": [
+    "referenceEmmy",
+    "referenceInterne",
+    "referenceFiche",
+    "dateEngagement",
+    "volumeCeeClassique",
+    "volumeCeePrecarite",
+    "adresse",
+    "demandeur",
+    "beneficiaire",
+    "contribution"
+  ]
+}

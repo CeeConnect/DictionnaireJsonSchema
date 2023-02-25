@@ -5,12 +5,50 @@
   "type": "string",
   "oneOf": [
     {
-      "const": "HAUT_RENDEMENT",
-      "title": "Chauffe bain à haut rendement"
+      "const": "FLUX_FORCE_HAUT_RENDEMENT",
+      "title": "Chauffe bain à flux forcé à haut rendement"
+    },
+    {
+      "const": "COMBUSTION_HAUT_RENDEMENT",
+      "title": "Chauffe bain à combustion atmosphérique à haut rendement"
     },
     {
       "const": "CONDENSATION",
       "title": "Chauffe bain à condensation"
     }
-  ]
+  ],
+  "$defs": {
+    "maison": {
+      "title": "Type de chauffe bain",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "FLUX_FORCE_HAUT_RENDEMENT",
+          "title": "Chauffe bain à flux forcé à haut rendement"
+        },
+        {
+          "const": "CONDENSATION",
+          "title": "Chauffe bain à condensation"
+        }
+      ]
+    },
+    "appartement": {
+      "title": "Type de chauffe bain",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "FLUX_FORCE_HAUT_RENDEMENT",
+          "title": "Chauffe bain à flux forcé à haut rendement"
+        },
+        {
+          "const": "COMBUSTION_HAUT_RENDEMENT",
+          "title": "Chauffe bain à combustion atmosphérique à haut rendement"
+        },
+        {
+          "const": "CONDENSATION",
+          "title": "Chauffe bain à condensation"
+        }
+      ]
+    }
+  }
 }

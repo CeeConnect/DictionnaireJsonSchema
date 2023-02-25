@@ -1,0 +1,21 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/depot/controleur",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Organisme de contrôle",
+  "description": "Organisme de contrôle ayant assuré le contrôle de l'opération lorsque l'opération fait l'objet d'un contrôle obligatoire effectif sur site",
+  "type": "object",
+  "properties": {
+    "raisonSociale": {
+      "title": "Raison sociale",
+      "type": "string",
+      "maxLength": 240
+    },
+    "siren": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+    }
+  },
+  "required": [
+    "raisonSociale",
+    "siren"
+  ]
+}

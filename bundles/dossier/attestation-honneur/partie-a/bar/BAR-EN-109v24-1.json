@@ -1,0 +1,128 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur/partie-a/bar/BAR-EN-109v24-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-109",
+  "description": "Réduction des apports solaires par la toiture (France d’outre-mer)",
+  "type": "object",
+  "properties": {
+    "dateEngagement": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "datePreuveRealisation": {
+      "$ref": "#/$defs/operation/$defs/datePreuveRealisation"
+    },
+    "referenceFacture": {
+      "$ref": "#/$defs/operation/$defs/referenceFacture"
+    },
+    "site": {
+      "$ref": "#/$defs/operation/$defs/site"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "codeDepartement": {
+      "$ref": "#/$defs/procedure/properties/codeDepartement"
+    },
+    "batiment": {
+      "$ref": "#/$defs/procedure/properties/batiment"
+    },
+    "constitution": {
+      "title": "Constitution de la toiture",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "SYSTEME",
+          "title": "Toiture contituée d'un système de toiture assurant à lui seul le facteur solaire requis"
+        },
+        {
+          "const": "ENSEMBLE_ELEMENTS",
+          "title": "Toiture constituée d'un ensemble d’éléments dont la composition permet d’obtenir le facteur solaire requis"
+        }
+      ]
+    },
+    "quantite": {
+      "$ref": "#/$defs/procedure/properties/quantite"
+    },
+    "facteurSolaire": {
+      "title": "Facteur solaire",
+      "type": "number",
+      "unit": "Sw",
+      "maximum": 0.03
+    },
+    "marque": {
+      "$ref": "#/$defs/isolation/$defs/marque",
+      "title": "Marque du système mis en place"
+    },
+    "reference": {
+      "$ref": "#/$defs/isolation/$defs/reference",
+      "title": "Référence du système mis en place"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "propeties": {
+          "codeDepartement": {
+            "enum": [
+              "971",
+              "972",
+              "973",
+              "974"
+            ]
+          }
+        },
+        "required": [
+          "codeDepartement"
+        ]
+      },
+      "then": {
+        "properties": {
+          "facteurSolaire": {
+            "maximum": 0.3
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "propeties": {
+          "codeDepartement": {
+            "const": "976"
+          }
+        },
+        "required": [
+          "codeDepartement"
+        ]
+      },
+      "then": {
+        "properties": {
+          "facteurSolaire": {
+            "maximum": 0.2
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "dateEngagement",
+    "adresse",
+    "codeDepartement",
+    "batiment",
+    "constitution",
+    "quantite",
+    "facteurSolaire",
+    "marque",
+    "reference"
+  ],
+  "$defs": {
+    "procedure": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/procedure/bar/BAR-EN-109v24-1.json"
+    },
+    "operation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_operation.json"
+    },
+    "isolation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_isolation.json"
+    }
+  }
+}

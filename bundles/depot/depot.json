@@ -1,0 +1,20 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/depot/depot",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Dépôt",
+  "description": "Dépôt d'opérations valorisables au titre du dispositif des certificats d'économies d'énergie",
+  "type": "object",
+  "properties": {
+    "operations": {
+      "title": "Liste des opérations",
+      "type": "array",
+      "minContains": 1,
+      "items": {
+        "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/depot/operation.json"
+      }
+    }
+  },
+  "required": [
+    "operations"
+  ]
+}

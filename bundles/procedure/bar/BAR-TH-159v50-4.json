@@ -1,0 +1,40 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-159v50-4",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-159",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
+        }
+      },
+      "required": [
+        "anciennete",
+        "type"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "etas": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json",
+      "minimum": 111
+    },
+    "surfacehauffee": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/surface-chauffee.json"
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "etas",
+    "surfacehauffee"
+  ]
+}

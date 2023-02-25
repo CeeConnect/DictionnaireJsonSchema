@@ -1,0 +1,133 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur/partie-a/bar/BAR-EN-101v39-4",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-101",
+  "description": "Isolation de combles ou de toiture",
+  "type": "object",
+  "properties": {
+    "dateEngagement": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "datePreuveRealisation": {
+      "$ref": "#/$defs/operation/$defs/datePreuveRealisation"
+    },
+    "dateVisitePrealable": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "dateDebut": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "referenceFacture": {
+      "$ref": "#/$defs/operation/$defs/referenceFacture"
+    },
+    "site": {
+      "$ref": "#/$defs/operation/$defs/site"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "codeDepartement": {
+      "$ref": "#/$defs/procedure/properties/codeDepartement"
+    },
+    "batiment": {
+      "$ref": "#/$defs/procedure/properties/batiment"
+    },
+    "typePoseIsolant": {
+      "$ref": "#/$defs/typePoseIsolant"
+    },
+    "resistanceIsolant": {
+      "$ref": "#/$defs/isolation/$defs/resistanceIsolant"
+    },
+    "epaisseurIsolant": {
+      "$ref": "#/$defs/isolation/$defs/epaisseurIsolant"
+    },
+    "posePareVapeur": {
+      "$ref": "#/$defs/isolation/$defs/posePareVapeur"
+    },
+    "marque": {
+      "$ref": "#/$defs/isolation/$defs/marque"
+    },
+    "reference": {
+      "$ref": "#/$defs/isolation/$defs/reference"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "typePoseIsolant": {
+            "$ref": "#/$defs/typePoseIsolant/oneOf/0"
+          }
+        },
+        "required": [
+          "typePoseIsolant"
+        ]
+      },
+      "then": {
+        "properties": {
+          "resistanceIsolant": {
+            "minimum": 7
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "typePoseIsolant": {
+            "$ref": "#/$defs/typePoseIsolant/oneOf/1"
+          }
+        },
+        "required": [
+          "typePoseIsolant"
+        ]
+      },
+      "then": {
+        "properties": {
+          "resistanceIsolant": {
+            "minimum": 6
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "dateEngagement",
+    "dateVisitePrealable",
+    "dateDebut",
+    "adresse",
+    "codeDepartement",
+    "batiment",
+    "typePoseIsolant",
+    "posePareVapeur",
+    "resistanceIsolant",
+    "epaisseurIsolant",
+    "marque",
+    "reference"
+  ],
+  "$defs": {
+    "procedure": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/procedure/bar/BAR-EN-101v39-4.json"
+    },
+    "operation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_operation.json"
+    },
+    "isolation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_isolation.json"
+    },
+    "typePoseIsolant": {
+      "title": "Type de pose",
+      "type": "string",
+      "oneOf": [
+        {
+          "const": "COMBLES_PERDUS",
+          "title": "Pose en combles perdus"
+        },
+        {
+          "const": "RAMPANT_TOITURES",
+          "title": "Pose en rampant de toitures"
+        }
+      ]
+    }
+  }
+}

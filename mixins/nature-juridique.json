@@ -1,8 +1,7 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/mixins/personnalite-juridique",
+  "$id": "https://schemas.ceeconnect.fr/mixins/nature-juridique",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "Personnalité juridique",
-  "deprecated": true,
+  "title": "Nature juridique",
   "type": "string",
   "oneOf": [
     {

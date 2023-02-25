@@ -1,0 +1,21 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/depot/installateur",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "Installateur",
+  "description": "Professionnel ayant assuré la mise en oeuvre de l'opération",
+  "type": "object",
+  "properties": {
+    "raisonSociale": {
+      "title": "Raison sociale",
+      "type": "string",
+      "maxLength": 240
+    },
+    "siret": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siret.json"
+    }
+  },
+  "required": [
+    "raisonSociale",
+    "siret"
+  ]
+}

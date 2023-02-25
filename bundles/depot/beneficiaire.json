@@ -1,0 +1,136 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/depot/beneficiaire",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "$comment": "Deux scénarios : Personne morale / Personne physique",
+  "title": "Bénéficiaire",
+  "description": "Bénéficiaire de l'opération d'économies d'énergie",
+  "type": "object",
+  "properties": {
+    "nature": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json"
+    }
+  },
+  "required": [
+    "nature"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "nature": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json#/$defs/personneMorale"
+          }
+        },
+        "required": [
+          "nature"
+        ]
+      },
+      "then": {
+        "$ref": "#/$defs/personneMorale"
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "nature": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/personnalite-juridique.json#/$defs/personnePhysique"
+          }
+        },
+        "required": [
+          "nature"
+        ]
+      },
+      "then": {
+        "$ref": "#/$defs/personnePhysique"
+      }
+    }
+  ],
+  "$defs": {
+    "personneMorale": {
+      "title": "Bénéficiaire",
+      "description": "Bénéficiaire de l'opération d'économies d'énergie",
+      "type": "object",
+      "properties": {
+        "raisonSociale": {
+          "title": "Raison sociale",
+          "type": "string",
+          "maxLength": 240
+        },
+        "siren": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/siren.json"
+        },
+        "email": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
+        },
+        "telephone": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
+        },
+        "adresse": {
+          "title": "Adresse",
+          "description": "Adresse du siège sociale de l'entreprise",
+          "type": "object",
+          "properties": {
+            "adresse": {
+              "title": "Adresse",
+              "type": "string",
+              "maxLength": 240
+            },
+            "codePostal": {
+              "title": "Code postal",
+              "description": "Code postal sans cedex",
+              "type": "string",
+              "maxLength": 240
+            },
+            "commune": {
+              "title": "Code postal",
+              "type": "string",
+              "maxLength": 240
+            }
+          },
+          "required": [
+            "adresse",
+            "codePostal",
+            "commune"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "raisonSociale",
+        "siren",
+        "email",
+        "telephone",
+        "adresse"
+      ]
+    },
+    "personnePhysique": {
+      "title": "Bénéficiaire",
+      "description": "Bénéficiaire de l'opération d'économies d'énergie",
+      "type": "object",
+      "properties": {
+        "nom": {
+          "title": "Nom",
+          "type": "string",
+          "maxLength": 240
+        },
+        "prenom": {
+          "title": "Prénom",
+          "type": "string",
+          "maxLength": 240
+        },
+        "email": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/email.json"
+        },
+        "telephone": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/telephone.json"
+        }
+      },
+      "required": [
+        "nom",
+        "prenom",
+        "email",
+        "telephone"
+      ]
+    }
+  }
+}

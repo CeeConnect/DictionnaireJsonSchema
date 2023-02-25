@@ -9,7 +9,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
@@ -55,12 +55,48 @@
               "surfaceHabitable"
             ]
           },
-          "typeChauffeBain": {
-            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-chauffe-bain.json"
+          "typeEquipement": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-chauffe-bain.json#/$defs/maison"
           }
         },
         "required": [
-          "typeChauffeBain"
+          "typeEquipement"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "batiment": {
+            "properties": {
+              "type": {
+                "oneOf": [
+                  {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/appartement"
+                  },
+                  {
+                    "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/immeuble"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "required": [
+            "batiment"
+          ]
+        }
+      },
+      "then": {
+        "properties": {
+          "typeEquipement": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-chauffe-bain.json#/$defs/appartement"
+          }
+        },
+        "required": [
+          "typeEquipement"
         ]
       }
     }

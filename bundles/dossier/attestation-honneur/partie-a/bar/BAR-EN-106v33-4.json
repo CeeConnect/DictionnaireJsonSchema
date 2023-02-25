@@ -1,0 +1,76 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/dossier/attestation-honneur/partie-a/bar/BAR-EN-106v33-4",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-106",
+  "description": "Isolation de combles ou de toitures (France d’outre-mer)",
+  "type": "object",
+  "properties": {
+    "dateEngagement": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "dateVisitePrealable": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "dateDebut": {
+      "$ref": "#/$defs/operation/$defs/dateEngagement"
+    },
+    "datePreuveRealisation": {
+      "$ref": "#/$defs/operation/$defs/datePreuveRealisation"
+    },
+    "referenceFacture": {
+      "$ref": "#/$defs/operation/$defs/referenceFacture"
+    },
+    "site": {
+      "$ref": "#/$defs/operation/$defs/site"
+    },
+    "adresse": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/adresse.json"
+    },
+    "codeDepartement": {
+      "$ref": "#/$defs/procedure/properties/codeDepartement"
+    },
+    "batiment": {
+      "$ref": "#/$defs/procedure/properties/batiment"
+    },
+    "quantite": {
+      "$ref": "#/$defs/procedure/properties/quantite"
+    },
+    "resistanceIsolant": {
+      "$ref": "#/$defs/isolation/$defs/resistanceIsolant",
+      "minimum": 1.5
+    },
+    "epaisseurIsolant": {
+      "$ref": "#/$defs/isolation/$defs/epaisseurIsolant"
+    },
+    "marque": {
+      "$ref": "#/$defs/isolation/$defs/marque"
+    },
+    "reference": {
+      "$ref": "#/$defs/isolation/$defs/reference"
+    }
+  },
+  "required": [
+    "dateEngagement",
+    "dateVisitePrealable",
+    "dateDebut",
+    "adresse",
+    "codeDepartement",
+    "batiment",
+    "quantite",
+    "resistanceIsolant",
+    "epaisseurIsolant",
+    "marque",
+    "reference"
+  ],
+  "$defs": {
+    "procedure": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/procedure/bar/BAR-EN-106v33-4.json"
+    },
+    "operation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_operation.json"
+    },
+    "isolation": {
+      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_isolation.json"
+    }
+  }
+}
