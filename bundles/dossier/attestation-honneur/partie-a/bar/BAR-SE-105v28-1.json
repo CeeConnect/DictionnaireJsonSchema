@@ -200,10 +200,10 @@
   ],
   "$defs": {
     "_adresse": {
-      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/bar/_adresse.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/dossier/bar/_adresse.json"
     },
     "_operation": {
-      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/bar/_operation.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/dossier/bar/_operation.json"
     }
   }
 }

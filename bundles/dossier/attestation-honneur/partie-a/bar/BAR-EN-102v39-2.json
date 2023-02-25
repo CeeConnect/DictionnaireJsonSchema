@@ -64,13 +64,13 @@
   ],
   "$defs": {
     "procedure": {
-      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/procedure/bar/BAR-EN-102v39-2.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/procedure/bar/BAR-EN-102v39-2.json"
     },
     "operation": {
-      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_operation.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/dossier/attestation-honneur/partie-a/bar/_operation.json"
     },
     "isolation": {
-      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/attestation-honneur/partie-a/bar/_isolation.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/dossier/attestation-honneur/partie-a/bar/_isolation.json"
     }
   }
 }

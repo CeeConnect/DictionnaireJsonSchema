@@ -207,10 +207,10 @@
   ],
   "$defs": {
     "operation": {
-      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/partie-a/bar/_operation.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/dossier/partie-a/bar/_operation.json"
     },
     "adresse": {
-      "$ref": "C:/wamp64/www/project/ceeconnect/dictionnaire/dist/bundles/dossier/partie-a/bar/_adresse.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/bundles/dossier/partie-a/bar/_adresse.json"
     },
     "emissionsParticules": {
       "title": "Émissions saisonnières de particules en mg/Nm3",
