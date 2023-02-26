@@ -1,15 +1,16 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/mixins/fichier",
+  "$id": "https://schemas.ceeconnect.fr/mixins/document",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "Fichier",
   "type": "object",
   "properties": {
-    "uuid": {
-      "$ref": "https://schemas.ceeconnect.fr/mixins/uuid"
-    },
     "nom": {
       "title": "Nom",
-      "description": "Nom du fichier",
+      "type": "string",
+      "maxLength": 240
+    },
+    "description": {
+      "title": "Nom",
       "type": "string",
       "maxLength": 240
     },
@@ -20,8 +21,8 @@
     }
   },
   "required": [
-    "uuid",
     "nom",
+    "description",
     "url"
   ]
 }

@@ -33,7 +33,7 @@
     "seer": {
       "title": "Coefficient d'éfficacité énergétique saisonnier",
       "type": "number",
-      "minimun": 0
+      "minimun": 5.1
     }
   },
   "required": [
