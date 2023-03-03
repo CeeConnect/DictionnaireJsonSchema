@@ -1,0 +1,57 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-105v39-3",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-105",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+        }
+      },
+      "required": [
+        "anciennete",
+        "type"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json#/$defs/surfaceIsolant"
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "quantite"
+  ],
+  "exemples": [
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "06",
+      "quantite": 100
+    },
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "84",
+      "quantite": 600
+    },
+    {
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "93",
+      "quantite": 70
+    }
+
+  ]
+  
+}

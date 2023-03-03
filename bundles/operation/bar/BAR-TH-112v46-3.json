@@ -1,0 +1,59 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-112v46-3",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-112",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
+        }
+      },
+      "required": [
+        "anciennete",
+        "type"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "etas": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json",
+      "minimum": 66
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "etas"
+  ],
+  "exemples": [
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "etas": 70,
+      "codeDepartement": "84"
+     
+    },
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "etas": 75,
+      "codeDepartement": "06"
+     
+    },
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "etas": 85,
+      "codeDepartement": "59"
+     
+    }
+]
+}

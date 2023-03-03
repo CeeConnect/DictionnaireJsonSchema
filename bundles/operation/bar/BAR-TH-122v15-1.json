@@ -1,7 +1,7 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-SE-105v28-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-122v15-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "BAR-SE-105",
+  "title": "BAR-TH-122",
   "type": "object",
   "properties": {
     "batiment": {
@@ -26,17 +26,33 @@
     },
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
-    },
-    "dureeGarantieCpe": {
-      "title": "Durée de garantie",
-      "description": "Durée de garantie du contrat de performance énergétique",
-      "type": "integer",
-      "minimum": 2
     }
   },
   "required": [
     "batiment",
-    "codeDepartement",
-    "dureeGarantieCpe"
+    "codeDepartement"
+  ],
+  "exemples": [
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "66",
+      "logements": 5
+      
+    },
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "77",
+      "logements": 10
+      
+    },
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "47",
+      "logements": 15
+      
+    }
   ]
 }

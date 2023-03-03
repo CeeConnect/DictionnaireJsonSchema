@@ -1,0 +1,55 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-SE-106v32-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-SE-106",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
+        }
+      },
+      "required": [
+        "anciennete",
+        "type"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "consommationSuivie": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/consommation-suivie.json"
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "consommationSuivie"
+  ],
+  "exemples": [
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "84",
+      "consommationSuivie": "CHAUFFAGE_ELECTRIQUE"
+    },
+    {
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "83",
+      "consommationSuivie": "CHAUFFAGE_GAZ"
+    },
+    {
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "59",
+      "consommationSuivie": "ELECTRICITE_SPECIFIQUE"
+    }
+  ]
+}

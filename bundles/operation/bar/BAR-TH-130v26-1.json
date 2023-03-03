@@ -1,0 +1,95 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-130v26-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-130",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Bâtiment",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/neuf"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
+        }
+      },
+      "required": [
+        "anciennete",
+        "type"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+    },
+    "energieChauffage": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/energie.json",
+      "title": "Energie de chauffage"
+    },
+    "energieEcs": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/energie.json",
+      "title": "Énergie de production d'eau chaude sanitaire"
+    },
+    "surfaceThermique": {
+      "title": "Surface thermique",
+      "description": "Surface thermique du bâtiment au sens de la règlementation thermique",
+      "type": "number",
+      "unit": "m²",
+      "minimum": 0
+    },
+    "cefBat": {
+      "title": "Consommation finale du bâtiment",
+      "description": "Consommation conventionnelle du bâtiment exprimée en énergie finale",
+      "type": "number",
+      "unite": "kWh/m².an"
+    },
+    "cepMax": {
+      "title": "Consommation primaire maximale",
+      "description": "Consommation conventionnelle exprimée en énergie finale maximale",
+      "type": "number",
+      "unite": "kWh/m².an"
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "energieChauffage",
+    "energieEcs",
+    "surfaceThermique",
+    "cefBat",
+    "cepMax"
+  ],
+  "exemples": [
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "06",
+      "energieChauffage": "ELECTRICITE",
+      "energieEcs": "ELECTRICITE",
+      "surfaceThermique": 120,
+      "cefBat": 20,
+      "cepMax": 50
+    },
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "84",
+      "energieChauffage": "ELECTRICITE",
+      "energieEcs": "GAZ_NATUREL",
+      "surfaceThermique": 120,
+      "cefBat": 20,
+      "cepMax": 50
+    },
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "77",
+      "energieChauffage": "GAZ_NATUREL",
+      "energieEcs": "PAC",
+      "surfaceThermique": 120,
+      "cefBat": 20,
+      "cepMax": 50
+    }
+  ]
+}

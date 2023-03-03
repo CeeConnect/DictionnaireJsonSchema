@@ -1,23 +1,23 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-101v39-4",
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-102v39-2",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "BAR-EN-101",
+  "title": "BAR-EN-102",
   "type": "object",
   "properties": {
     "batiment": {
       "title": "Bâtiment",
       "type": "object",
       "properties": {
-        "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
-        },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
         }
       },
       "required": [
-        "type",
-        "anciennete"
+        "anciennete",
+        "type"
       ]
     },
     "codeDepartement": {
@@ -32,38 +32,25 @@
     "codeDepartement",
     "quantite"
   ],
-  "examples": [
+  "exemples": [
     {
-      "batiment": {
-        "type": "MAISON",
-        "anciennete": "EXISTANT"
-      },
-      "codeDepartement": "75",
-      "quantite": 100
-    },
-    {
-      "batiment": {
-        "type": "MAISON",
-        "anciennete": "EXISTANT"
-      },
-      "codeDepartement": "84",
-      "quantite": 100
-    },
-    {
-      "batiment": {
-        "type": "MAISON",
-        "anciennete": "EXISTANT"
-      },
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
       "codeDepartement": "06",
-      "quantite": 100
+      "quantite": 50
     },
     {
-      "batiment": {
-        "type": "IMMEUBLE",
-        "anciennete": "EXISTANT"
-      },
-      "codeDepartement": "01",
-      "quantite": 1500
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "84",
+      "quantite": 80
+    },
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "93",
+      "quantite": 1000
     }
+
   ]
 }

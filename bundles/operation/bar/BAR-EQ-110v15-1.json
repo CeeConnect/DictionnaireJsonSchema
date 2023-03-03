@@ -61,5 +61,43 @@
     "luminaireDetecteurPresence",
     "quantite",
     "indiceProtectionChocs"
+  ],
+  "exemples": [
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "06",
+      "luminaireDetecteurLumiere": true,
+      "luminaireDetecteurPresence": false,
+      "quantite": 100,
+      "indiceProtectionChocs": 8 
+    },
+    {
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "93",
+      "luminaireDetecteurLumiere": false,
+      "luminaireDetecteurPresence": true,
+      "quantite": 10,
+      "indiceProtectionChocs": 10
+    },
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "30",
+      "luminaireDetecteurLumiere": true,
+      "luminaireDetecteurPresence": true,
+      "quantite": 20,
+      "indiceProtectionChocs": 8
+    },
+    {
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "84",
+      "luminaireDetecteurLumiere": true,
+      "luminaireDetecteurPresence": true,
+      "quantite": 20,
+      "indiceProtectionChocs": 10
+    }
   ]
 }

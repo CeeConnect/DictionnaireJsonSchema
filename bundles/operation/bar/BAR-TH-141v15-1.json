@@ -1,0 +1,69 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-141v15-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-141",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/outreMer"
+    },
+    "puissanceFrigorifique": {
+      "title": "Puissance frigorifique",
+      "type": "number",
+      "minimun": 2.05,
+      "maximum": 2.64,
+      "unit": "BTU/h"
+    },
+    "seer": {
+      "title": "Coefficient d'éfficacité énergétique saisonnier",
+      "type": "number",
+      "minimun": 5.1
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "puissanceFrigorifique",
+    "seer"
+  ],
+  "exemples": [
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "66",
+      "puissanceFrigorifique": 2.64,
+      "seer": 8
+    },
+    {
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "84",
+      "puissanceFrigorifique": 2.05,
+      "seer": 5.5
+    },
+    {
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "78",
+      "puissanceFrigorifique": 2.64,
+      "seer": 6.5
+    }
+
+  ]
+}

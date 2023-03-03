@@ -32,38 +32,25 @@
     "codeDepartement",
     "quantite"
   ],
-  "examples": [
+  "exemples": [
     {
-      "batiment": {
-        "type": "MAISON",
-        "anciennete": "EXISTANT"
-      },
-      "codeDepartement": "75",
-      "quantite": 100
-    },
-    {
-      "batiment": {
-        "type": "MAISON",
-        "anciennete": "EXISTANT"
-      },
-      "codeDepartement": "84",
-      "quantite": 100
-    },
-    {
-      "batiment": {
-        "type": "MAISON",
-        "anciennete": "EXISTANT"
-      },
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
       "codeDepartement": "06",
       "quantite": 100
     },
     {
-      "batiment": {
-        "type": "IMMEUBLE",
-        "anciennete": "EXISTANT"
-      },
-      "codeDepartement": "01",
-      "quantite": 1500
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "84",
+      "quantite": 70
+    },
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "codeDepartement": "93",
+      "quantite": 1200
     }
+
   ]
 }

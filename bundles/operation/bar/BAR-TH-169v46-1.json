@@ -1,42 +1,41 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-SE-105v28-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-169v46-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "BAR-SE-105",
+  "title": "BAR-TH-169",
   "type": "object",
   "properties": {
     "batiment": {
       "title": "Logement",
       "type": "object",
       "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/immeuble"
+        },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
-        },
-        "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementCollectif"
         },
         "logements": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
         }
       },
       "required": [
-        "anciennete",
         "type",
+        "anciennete",
         "logements"
       ]
     },
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
     },
-    "dureeGarantieCpe": {
-      "title": "Durée de garantie",
-      "description": "Durée de garantie du contrat de performance énergétique",
-      "type": "integer",
-      "minimum": 2
+    "cop": {
+      "title": "Coefficient de performance énergétique",
+      "type": "number",
+      "minimum": 2.8
     }
   },
   "required": [
     "batiment",
     "codeDepartement",
-    "dureeGarantieCpe"
+    "cop"
   ]
 }

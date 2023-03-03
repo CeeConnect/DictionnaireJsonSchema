@@ -38,5 +38,28 @@
     "batiment",
     "codeDepartement",
     "dureeGarantieCpe"
+  ],
+  "exemples": [
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "logements": 10,
+      "codeDepartement": "06",
+      "dureeGarantieCpe": 2
+    },
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "logements": 15,
+      "codeDepartement": "84",
+      "dureeGarantieCpe": 4
+    },
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "logements": 20,
+      "codeDepartement": "75",
+      "dureeGarantieCpe": 10
+    }
   ]
 }

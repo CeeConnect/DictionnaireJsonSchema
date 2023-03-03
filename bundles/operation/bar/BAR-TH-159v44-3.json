@@ -1,7 +1,7 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-SE-105v28-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-159v44-3",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
-  "title": "BAR-SE-105",
+  "title": "BAR-TH-159",
   "type": "object",
   "properties": {
     "batiment": {
@@ -12,31 +12,29 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
         },
         "type": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementCollectif"
-        },
-        "logements": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementIndividuel"
         }
       },
       "required": [
         "anciennete",
-        "type",
-        "logements"
+        "type"
       ]
     },
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
     },
-    "dureeGarantieCpe": {
-      "title": "Durée de garantie",
-      "description": "Durée de garantie du contrat de performance énergétique",
-      "type": "integer",
-      "minimum": 2
+    "etas": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json",
+      "minimum": 111
+    },
+    "surfacehauffee": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/surface-chauffee.json"
     }
   },
   "required": [
     "batiment",
     "codeDepartement",
-    "dureeGarantieCpe"
+    "etas",
+    "surfacehauffee"
   ]
 }

@@ -1,0 +1,49 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-164v36-2",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-164",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
+        },
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "surfaceHabitable": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/surface-habitable.json"
+        }
+      },
+      "required": [
+        "type",
+        "anciennete",
+        "surfaceHabitable"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
+    },
+    "cefInitial": {
+      "title": "Consommation conventionnelle avant travaux",
+      "type": "number",
+      "minimum": 0,
+      "unite": "kWh/m².an"
+    },
+    "cefProjet": {
+      "title": "Consommation conventionnelle après travaux",
+      "type": "number",
+      "minimum": 0,
+      "unite": "kWh/m².an"
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "cefInitial",
+    "cefProjet"
+  ]
+}

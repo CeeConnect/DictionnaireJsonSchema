@@ -1,0 +1,65 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-104v14-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-EN-104",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json"
+        },
+        "energieChauffage": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"
+        }
+      },
+      "required": [
+        "anciennete",
+        "type",
+        "energieChauffage"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "quantite": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json",
+      "title": "Nombre d'équipements",
+      "description": "Nombre de fenêtres ou portes-fenêtres complètes avec vitrage isolant posées"
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement",
+    "quantite"
+  ],
+  "exemples": [
+    {
+      "type": "APPARTEMENT",
+      "anciennete": "EXISTANT",
+      "energieChauffage": "GAZ_NATUREL",
+      "codeDepartement": "06",
+      "quantite": 5
+    },
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "energieChauffage": "PAC",
+      "codeDepartement": "84",
+      "quantite": 10
+    },
+    {
+      "type": "IMMEUBLE",
+      "anciennete": "EXISTANT",
+      "energieChauffage": "ELECTRICITE",
+      "codeDepartement": "93",
+      "quantite": 100
+    }
+
+  ]
+}

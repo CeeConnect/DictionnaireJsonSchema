@@ -1,0 +1,65 @@
+{
+  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-111v17-1",
+  "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "title": "BAR-TH-111",
+  "type": "object",
+  "properties": {
+    "batiment": {
+      "title": "Logement",
+      "type": "object",
+      "properties": {
+        "anciennete": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
+        },
+        "type": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
+        },
+        "energieChauffage": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/energie-chauffage.json"
+        },
+        "surfaceHabitable": {
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/surface-habitable.json"
+        }
+      },
+      "required": [
+        "anciennete",
+        "type",
+        "energieChauffage",
+        "surfaceHabitable"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    }
+  },
+  "required": [
+    "batiment",
+    "codeDepartement"
+  ],
+  "exemples": [
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "energieChauffage": "ELECTRICITE",
+      "surfaceHabitable": 100,
+      "codeDepartement": "84"
+     
+    },
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "energieChauffage": "GAZ_NATUREL",
+      "surfaceHabitable": 120,
+      "codeDepartement": "06"
+     
+    },
+    {
+      "type": "MAISON",
+      "anciennete": "EXISTANT",
+      "energieChauffage": "ENR",
+      "surfaceHabitable": 150,
+      "codeDepartement": "59"
+     
+    }
+]
+}
