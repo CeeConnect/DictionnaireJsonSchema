@@ -34,8 +34,10 @@
   ],
   "exemples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "06",
       "quantite": 100
     },

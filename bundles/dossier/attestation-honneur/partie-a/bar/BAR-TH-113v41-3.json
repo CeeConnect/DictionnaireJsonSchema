@@ -216,25 +216,25 @@
       "title": "Émissions saisonnières de particules en mg/Nm3",
       "type": "number",
       "minimum": 0,
-      "unite": "mg/Nm3"
+      "unit": "mg/Nm3"
     },
     "emissionsMonoxyde": {
       "title": "Émissions saisonnières de monoxyde de carbone (CO) en mg/Nm3",
       "type": "number",
       "minimum": 0,
-      "unite": "mg/Nm3"
+      "unit": "mg/Nm3"
     },
     "emissionsAzote": {
       "title": "Émissions saisonnières d'oxydes d'azote (NOx) en mg/Nm3",
       "type": "number",
       "minimum": 0,
-      "unite": "mg/Nm3"
+      "unit": "mg/Nm3"
     },
     "emissionsOrganiques": {
       "title": "Émissions saisonnières de composés organiques gazeux en mg/Nm3",
       "type": "number",
       "minimum": 0,
-      "unite": "mg/Nm3"
+      "unit": "mg/Nm3"
     },
     "scenarioChargementAutomatique": {
       "properties": {

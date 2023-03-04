@@ -4,5 +4,5 @@
   "title": "Efficacité énergétique saisonnière",
   "type": "number",
   "minimum": 0,
-  "unite": "%"
+  "unit": "%"
 }

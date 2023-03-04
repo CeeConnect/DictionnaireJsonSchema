@@ -1,6 +1,7 @@
 {
   "$id": "https://schemas.ceeconnect.fr/mixins/operation/bar/indice-protection-chocs",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
+  "$comment": "https://www.seton.fr/media/cms/files/stfr/DMEU_TDS_2584_std.lang.all.pdf",
   "title": "Indice de de protection aux chocs",
   "type": "string",
   "unit": "IK",
