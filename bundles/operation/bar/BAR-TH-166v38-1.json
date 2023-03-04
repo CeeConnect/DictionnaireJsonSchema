@@ -32,6 +32,10 @@
     },
     "typeUsage": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-usage.json#/$defs/chauffages"
+    },
+    "puissanceTotaleChaufferie": {
+      "title": "Puissance totale de la chaufferie",
+      "description": "Indiquer la puissance totale de la chaufferie après travaux"
     }
   },
   "required": [

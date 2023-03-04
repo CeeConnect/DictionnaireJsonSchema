@@ -59,7 +59,7 @@
       "batiment": {
         "type": "MAISON",
         "anciennete": "EXISTANT",
-        "energieChauffage": "ENR",
+        "energieChauffage": "FIOUL",
         "surfaceHabitable": 150
       },
       "codeDepartement": "59"

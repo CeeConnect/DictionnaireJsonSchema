@@ -23,6 +23,9 @@
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
     },
+    "logements": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+    },
     "typeVmcHygroreglable": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-vmc-hygroreglable.json"
     },
@@ -33,16 +36,28 @@
   "required": [
     "batiment",
     "codeDepartement",
+    "logements",
     "typeVmcHygroreglable",
     "typeExtracteur"
   ],
   "examples": [
     {
       "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "01",
+      "logements": 20,
+      "typeVmcHygroreglable": "TYPE_B",
+      "typeExtracteur": "STANDARD"
+    },
+    {
+      "batiment": {
         "type": "MAISON",
         "anciennete": "EXISTANT"
       },
       "codeDepartement": "62",
+      "logements": 20,
       "typeVmcHygroreglable": "TYPE_A",
       "typeExtracteur": "BASSE_CONSOMMATION"
     },
@@ -52,6 +67,7 @@
         "anciennete": "EXISTANT"
       },
       "codeDepartement": "83",
+      "logements": 20,
       "typeVmcHygroreglable": "TYPE_B",
       "typeExtracteur": "STANDARD"
     }

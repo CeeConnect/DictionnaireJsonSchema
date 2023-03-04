@@ -30,13 +30,22 @@
       "title": "Coefficient de performance énergétique",
       "type": "number",
       "minimum": 2.8
+    },
+    "tauxCouvertureEcs": {
+      "title": "Taux de couverture",
+      "description": "Indiquer le taux de couverture des besoins d'eau chaude sanitaire par l'équipement installé, issu de la note de dimensionnement rédigé par le professionnel",
+      "type": "number",
+      "unit": "%",
+      "minimum": 0,
+      "maximum": 100
     }
   },
   "required": [
     "batiment",
     "codeDepartement",
     "logements",
-    "cop"
+    "cop",
+    "tauxCouvertureEcs"
   ],
   "examples": [
     {
@@ -46,7 +55,8 @@
       },
       "codeDepartement": "32",
       "logements": 10,
-      "cop": 3
+      "cop": 3,
+      "tauxCouvertureEcs": 80
     },
     {
       "batiment": {
@@ -55,7 +65,8 @@
       },
       "codeDepartement": "13",
       "logements": 15,
-      "cop": 3.3
+      "cop": 3.3,
+      "tauxCouvertureEcs": 80
     },
     {
       "batiment": {
@@ -64,7 +75,8 @@
       },
       "codeDepartement": "62",
       "logements": 5,
-      "cop": 2.9
+      "cop": 2.9,
+      "tauxCouvertureEcs": 80
     }
   ]
 }
