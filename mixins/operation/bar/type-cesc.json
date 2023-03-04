@@ -5,11 +5,11 @@
   "type": "string",
   "oneOf": [
     {
-      "value": "CESC",
+      "const": "CESC",
       "title": "Chauffe-eau solaire à appoint centralisé"
     },
     {
-      "value": "CESCI",
+      "const": "CESCI",
       "title": "Chauffe-eau solaire à appoint individualisé"
     }
   ]
