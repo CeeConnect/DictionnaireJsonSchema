@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-118v14-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-118v14-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-118",
   "type": "object",
@@ -31,13 +31,9 @@
             "properties": {
               "installationChauffage": {
                 "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/installation-chauffage.json#/$defs/collectif"
-              },
-              "logements": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
               }
             },
             "required": [
-              "logements",
               "installationChauffage"
             ]
           }
@@ -101,6 +97,37 @@
       "if": {
         "properties": {
           "batiment": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/immeuble"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          }
+        },
+        "required": [
+          "batiment"
+        ]
+      },
+      "then": {
+        "properties": {
+          "logements": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+          }
+        },
+        "required": [
+          "logements"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "batiment": {
+            "type": "object",
             "properties": {
               "type": {
                 "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
@@ -131,30 +158,33 @@
     "batiment",
     "codeDepartement"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT",
+        "energieChauffage": "GAZ_NATUREL"
+      },
       "codeDepartement": "06",
-      "energieChauffage": "GAZ_NATUREL",
       "surfaceChauffee": 100
-     
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "75",
-      "installationChauffage": "INDIVIDUEL",
-      "energieChauffage": "ELECTRICITE"
-      
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT",
+        "installationChauffage": "INDIVIDUEL",
+        "energieChauffage": "ELECTRICITE"
+      },
+      "codeDepartement": "75"
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT",
+        "installationChauffage": "COLLECTIF"
+      },
       "codeDepartement": "84",
-      "installationChauffage": "COLLECTIF",
       "logements": 20
     }
   ]
-  
 }

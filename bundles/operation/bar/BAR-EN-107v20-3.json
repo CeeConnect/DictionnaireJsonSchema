@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-107v20-3",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-107v20-3",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-EN-107",
   "type": "object",
@@ -39,25 +39,78 @@
     "quantite",
     "resistanceIsolant"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "974",
-      "quantite": 120
+      "quantite": 120,
+      "resistanceIsolant": 0.5
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "972",
-      "quantite": 1200
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "quantite": 120,
+      "resistanceIsolant": 1.2
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "973",
-      "quantite": 60
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "NEUF"
+      },
+      "codeDepartement": "974",
+      "quantite": 120,
+      "resistanceIsolant": 0.5
+    },
+    {
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "NEUF"
+      },
+      "codeDepartement": "974",
+      "quantite": 120,
+      "resistanceIsolant": 1.2
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "quantite": 1500,
+      "resistanceIsolant": 0.5
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "quantite": 1500,
+      "resistanceIsolant": 1.2
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "NEUF"
+      },
+      "codeDepartement": "974",
+      "quantite": 1500,
+      "resistanceIsolant": 0.5
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "NEUF"
+      },
+      "codeDepartement": "974",
+      "quantite": 1500,
+      "resistanceIsolant": 1.2
     }
-
   ]
 }

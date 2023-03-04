@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-163v38-2",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-163v38-2",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-163",
   "type": "object",
@@ -24,12 +24,39 @@
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
     },
     "quantite": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json",
+      "title": "Nombre de chaudières à raccorder au conduit"
     }
   },
   "required": [
     "batiment",
     "codeDepartement",
     "quantite"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "84",
+      "quantite": 10
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "06",
+      "quantite": 15
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "59",
+      "quantite": 20
+    }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-169v46-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-169v46-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-169",
   "type": "object",
@@ -13,19 +13,18 @@
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
-        },
-        "logements": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
         }
       },
       "required": [
         "type",
-        "anciennete",
-        "logements"
+        "anciennete"
       ]
     },
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "logements": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
     },
     "cop": {
       "title": "Coefficient de performance énergétique",
@@ -36,6 +35,36 @@
   "required": [
     "batiment",
     "codeDepartement",
+    "logements",
     "cop"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "32",
+      "logements": 10,
+      "cop": 3
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "13",
+      "logements": 15,
+      "cop": 3.3
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "62",
+      "logements": 5,
+      "cop": 2.9
+    }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-124v35-3",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-124v35-3",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-124",
   "type": "object",
@@ -13,15 +13,11 @@
         },
         "type": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
-        },
-        "logements": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
         }
       },
       "required": [
         "anciennete",
-        "type",
-        "logements"
+        "type"
       ]
     },
     "codeDepartement": {
@@ -40,28 +36,30 @@
     "codeDepartement",
     "superficieCapteursSolaires"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "84",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "971",
       "superficieCapteursSolaires": 30
-     
     },
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "06",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "972",
       "superficieCapteursSolaires": 15
-     
     },
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "59",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
       "superficieCapteursSolaires": 40
-     
     }
-]
-  
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-167v38-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-167v38-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-167",
   "type": "object",
@@ -29,6 +29,7 @@
       "if": {
         "properties": {
           "batiment": {
+            "type": "object",
             "properties": {
               "type": {
                 "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/maison"
@@ -37,15 +38,16 @@
             "required": [
               "type"
             ]
-          },
-          "required": [
-            "batiment"
-          ]
-        }
+          }
+        },
+        "required": [
+          "batiment"
+        ]
       },
       "then": {
         "properties": {
           "batiment": {
+            "type": "object",
             "properties": {
               "surfaceHabitable": {
                 "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/surface-habitable.json"
@@ -68,6 +70,7 @@
       "if": {
         "properties": {
           "batiment": {
+            "type": "object",
             "properties": {
               "type": {
                 "oneOf": [
@@ -83,11 +86,11 @@
             "required": [
               "type"
             ]
-          },
-          "required": [
-            "batiment"
-          ]
-        }
+          }
+        },
+        "required": [
+          "batiment"
+        ]
       },
       "then": {
         "properties": {
@@ -104,5 +107,32 @@
   "required": [
     "batiment",
     "codeDepartement"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT",
+        "surfaceHabitable": 100
+      },
+      "typeEquipement": "FLUX_FORCE_HAUT_RENDEMENT",
+      "codeDepartement": "06"
+    },
+    {
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "84",
+      "typeEquipement": "CONDENSATION"
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "93",
+      "typeEquipement": "COMBUSTION_HAUT_RENDEMENT"
+    }
   ]
 }

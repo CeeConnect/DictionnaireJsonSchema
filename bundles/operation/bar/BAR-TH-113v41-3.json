@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-113v41-3",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-113v41-3",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-113",
   "type": "object",
@@ -28,20 +28,26 @@
     "batiment",
     "codeDepartement"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment":{
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "21"
     },
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment":{
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "11"
     },
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment":{
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "04"
     }
   ]

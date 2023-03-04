@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-165v34-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-165v34-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-165",
   "type": "object",
@@ -39,5 +39,34 @@
     "codeDepartement",
     "puissanceNominale",
     "quantiteChaleurNette"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "84",
+      "quantiteChaleurNette": 140000,
+      "puissanceNominale": 450
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "06",
+      "quantiteChaleurNette": 150000,
+      "puissanceNominale": 600
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "59",
+      "quantiteChaleurNette": 130000,
+      "puissanceNominale": 400
+    }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-161v28-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-161v28-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-161",
   "type": "object",
@@ -23,23 +23,26 @@
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
     },
-    "pointsSinculiers": {
-      "title": "Liste des points singuliers isolés",
+    "housses": {
+      "title": "Liste des housses isolantes installées",
       "type": "array",
+      "contains": {
+        "type": "object"
+      },
       "minContains": 1,
       "items": {
-        "$ref": "#/$defs/pointSingulier"
+        "$ref": "#/$defs/housse"
       }
     }
   },
   "required": [
     "batiment",
     "codeDepartement",
-    "pointsSinculiers"
+    "housses"
   ],
   "$defs": {
-    "pointSingulier": {
-      "title": "Point singulier",
+    "housse": {
+      "title": "Housses isolantes",
       "type": "object",
       "properties": {
         "typePointSingulier": {
@@ -49,10 +52,11 @@
           "title": "Température du fluide caloporteur",
           "type": "number",
           "unit": "°C",
-          "minimun": 50
+          "minimum": 50
         },
         "quantite": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json"
+          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json",
+          "title": "Nombre de housses isolantes installées"
         }
       },
       "required": [
@@ -80,7 +84,7 @@
               "diametreNominal": {
                 "title": "Diamètre nominal",
                 "type": "number",
-                "minimun": 20,
+                "minimum": 20,
                 "unit": "mm"
               }
             },
@@ -111,5 +115,172 @@
         }
       ]
     }
-  }
+  },
+  "examples": [
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "42",
+      "housses": [
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 20,
+          "temperatureFluide": 50
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 65,
+          "temperatureFluide": 50
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 110,
+          "temperatureFluide": 50
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 20,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 65,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 110,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "ECHANGEUR",
+          "quantite": 5,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "ECHANGEUR",
+          "quantite": 5,
+          "temperatureFluide": 150
+        }
+      ]
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "84",
+      "housses": [
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 20,
+          "temperatureFluide": 50
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 65,
+          "temperatureFluide": 50
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 110,
+          "temperatureFluide": 50
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 20,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 65,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 110,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "ECHANGEUR",
+          "quantite": 5,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "ECHANGEUR",
+          "quantite": 5,
+          "temperatureFluide": 150
+        }
+      ]
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "30",
+      "housses": [
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 20,
+          "temperatureFluide": 50
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 65,
+          "temperatureFluide": 50
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 110,
+          "temperatureFluide": 50
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 20,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 65,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "HORS_ECHANGEUR",
+          "quantite": 5,
+          "diametreNominal": 110,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "ECHANGEUR",
+          "quantite": 5,
+          "temperatureFluide": 150
+        },
+        {
+          "typePointSingulier": "ECHANGEUR",
+          "quantite": 5,
+          "temperatureFluide": 150
+        }
+      ]
+    }
+  ]
 }

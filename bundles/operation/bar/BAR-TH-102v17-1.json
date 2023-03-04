@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-102v17-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-102v17-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-102",
   "type": "object",
@@ -28,7 +28,7 @@
       "description": "Besoin annuel d'eau chaude sanitaire à produire par l'énergie solaire",
       "type": "number",
       "minimum": 0,
-      "unite": "kWh"
+      "unit": "kWh"
     },
     "productionSolaireUtile": {
       "title": "Production solaire utile",
@@ -43,24 +43,30 @@
     "besoinAnnuelEcs",
     "productionSolaireUtile"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "21",
       "besoinAnnuelEcs": 10000,
       "productionSolaireUtile": 5000
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "04",
       "besoinAnnuelEcs": 20000,
       "productionSolaireUtile": 10000
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "11",
       "besoinAnnuelEcs": 10000,
       "productionSolaireUtile": 5000

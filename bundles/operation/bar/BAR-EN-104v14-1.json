@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EN-104v14-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EN-104v14-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-EN-104",
   "type": "object",
@@ -38,28 +38,33 @@
     "codeDepartement",
     "quantite"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
-      "energieChauffage": "GAZ_NATUREL",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT",
+        "energieChauffage": "GAZ_NATUREL"
+      },
       "codeDepartement": "06",
       "quantite": 5
     },
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
-      "energieChauffage": "PAC",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT",
+        "energieChauffage": "PAC"
+      },
       "codeDepartement": "84",
       "quantite": 10
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
-      "energieChauffage": "ELECTRICITE",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT",
+        "energieChauffage": "ELECTRICITE"
+      },
       "codeDepartement": "93",
       "quantite": 100
     }
-
   ]
 }

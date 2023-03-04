@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-110v16-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-110v16-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-110",
   "type": "object",
@@ -57,25 +57,30 @@
     "codeDepartement",
     "quantite"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "91",
       "quantite": 10
-     
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
-      "installationChauffage": "COLLECTIF",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT",
+        "installationChauffage": "COLLECTIF"
+      },
       "codeDepartement": "35",
       "quantite": 5
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
-      "installationChauffage": "INDIVIDUEL",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT",
+        "installationChauffage": "INDIVIDUEL"
+      },
       "codeDepartement": "66",
       "quantite": 5
     }

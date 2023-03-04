@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-107v14-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-107v14-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-107",
   "type": "object",
@@ -13,19 +13,18 @@
         },
         "type": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementCollectif"
-        },
-        "logements": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
         }
       },
       "required": [
         "anciennete",
-        "type",
-        "logements"
+        "type"
       ]
     },
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "logements": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
     },
     "puissanceNominale": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/puissance-nominale.json"
@@ -34,33 +33,39 @@
   "required": [
     "batiment",
     "codeDepartement",
+    "logements",
     "puissanceNominale"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "06",
       "logements": 5,
       "puissanceNominale": 200,
       "dureeContrat": 5
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "84",
       "logements": 10,
       "puissanceNominale": 300,
       "dureeContrat": 2
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "78",
       "logements": 15,
       "puissanceNominale": 500,
       "dureeContrat": 10
     }
   ]
-  
 }

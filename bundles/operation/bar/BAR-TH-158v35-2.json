@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-158v35-2",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-158v35-2",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-158",
   "type": "object",
@@ -32,5 +32,31 @@
     "batiment",
     "codeDepartement",
     "quantite"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "06",
+      "quantite": 10
+    },
+    {
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "84",
+      "quantite": 15
+    },
+    {
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "quantite": 10,
+      "codeDepartement": "92"
+    }
   ]
 }

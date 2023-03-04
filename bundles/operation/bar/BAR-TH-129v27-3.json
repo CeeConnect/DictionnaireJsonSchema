@@ -1,8 +1,7 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-129v27-3",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-129v27-3",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-129",
-  "version": "27.3",
   "type": "object",
   "properties": {
     "batiment": {
@@ -42,24 +41,30 @@
     "scop",
     "surfaceChauffee"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "06",
       "scop": 4.7,
       "surfaceChauffee": 100
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "84",
       "scop": 4,
       "surfaceChauffee": 70
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "77",
       "scop": 4.2,
       "surfaceChauffee": 80

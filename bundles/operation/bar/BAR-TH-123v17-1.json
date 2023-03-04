@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-123v17-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-123v17-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-123",
   "type": "object",
@@ -13,46 +13,49 @@
         },
         "type": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/logementCollectif"
-        },
-        "logements": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
         }
       },
       "required": [
         "anciennete",
-        "type",
-        "logements"
+        "type"
       ]
     },
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "logements": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
     }
   },
   "required": [
     "batiment",
-    "codeDepartement"
+    "codeDepartement",
+    "logements"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "66",
       "logements": 5
-      
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "77",
       "logements": 10
-      
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "47",
       "logements": 15
-      
     }
   ]
 }

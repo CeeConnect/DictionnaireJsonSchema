@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-141v15-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-141v15-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-141",
   "type": "object",
@@ -23,47 +23,197 @@
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/outreMer"
     },
-    "puissanceFrigorifique": {
-      "title": "Puissance frigorifique",
-      "type": "number",
-      "minimun": 2.05,
-      "maximum": 2.64,
-      "unit": "BTU/h"
-    },
-    "seer": {
-      "title": "Coefficient d'éfficacité énergétique saisonnier",
-      "type": "number",
-      "minimun": 5.1
+    "equipements": {
+      "title": "Liste des équipements installés",
+      "type": "array",
+      "contains": {
+        "type": "object"
+      },
+      "minContains": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "quantite": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json"
+          },
+          "puissanceFrigorifique": {
+            "title": "Puissance frigorifique",
+            "type": "number",
+            "minimum": 2.05,
+            "maximum": 2.64,
+            "unit": "BTU/h"
+          },
+          "seer": {
+            "title": "Coefficient d'éfficacité énergétique saisonnier",
+            "type": "number",
+            "minimum": 5.1
+          }
+        },
+        "required": [
+          "quantite",
+          "puissanceFrigorifique",
+          "seer"
+        ]
+      }
     }
   },
   "required": [
     "batiment",
     "codeDepartement",
-    "puissanceFrigorifique",
-    "seer"
+    "equipements"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "66",
-      "puissanceFrigorifique": 2.64,
-      "seer": 8
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "equipements": [
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.05,
+          "seer": 5.1
+        },
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.64,
+          "seer": 5.1
+        }
+      ]
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "84",
-      "puissanceFrigorifique": 2.05,
-      "seer": 5.5
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "equipements": [
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.05,
+          "seer": 5.6
+        },
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.64,
+          "seer": 5.6
+        }
+      ]
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "78",
-      "puissanceFrigorifique": 2.64,
-      "seer": 6.5
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "equipements": [
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.05,
+          "seer": 6.1
+        },
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.64,
+          "seer": 6.1
+        }
+      ]
+    },
+    {
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "equipements": [
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.05,
+          "seer": 8
+        },
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.64,
+          "seer": 8
+        }
+      ]
+    },
+    {
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "equipements": [
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.05,
+          "seer": 5.1
+        },
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.64,
+          "seer": 5.1
+        }
+      ]
+    },
+    {
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "equipements": [
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.05,
+          "seer": 5.6
+        },
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.64,
+          "seer": 5.6
+        }
+      ]
+    },
+    {
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "equipements": [
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.05,
+          "seer": 6.1
+        },
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.64,
+          "seer": 6.1
+        }
+      ]
+    },
+    {
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "974",
+      "equipements": [
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.05,
+          "seer": 8
+        },
+        {
+          "quantite": 2,
+          "puissanceFrigorifique": 2.64,
+          "seer": 8
+        }
+      ]
     }
-
   ]
 }

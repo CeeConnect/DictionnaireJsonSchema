@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-155v40-4",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-155v40-4",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-155",
   "type": "object",
@@ -35,5 +35,25 @@
     "codeDepartement",
     "typeVmcHygroreglable",
     "typeExtracteur"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "62",
+      "typeVmcHygroreglable": "TYPE_A",
+      "typeExtracteur": "BASSE_CONSOMMATION"
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "83",
+      "typeVmcHygroreglable": "TYPE_B",
+      "typeExtracteur": "STANDARD"
+    }
   ]
 }

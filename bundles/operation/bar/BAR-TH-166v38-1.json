@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-166v38-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-166v38-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-166",
   "type": "object",
@@ -13,19 +13,18 @@
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
-        },
-        "logements": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
         }
       },
       "required": [
         "type",
-        "anciennete",
-        "logements"
+        "anciennete"
       ]
     },
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "logements": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
     },
     "etas": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json",
@@ -39,6 +38,39 @@
     "batiment",
     "codeDepartement",
     "etas",
-    "typeUsage"
+    "typeUsage",
+    "logements"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "32",
+      "typeUsage": "CHAUFFAGE",
+      "logements": 10,
+      "etas": 111
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "13",
+      "typeUsage": "CHAUFFAGE_ECS",
+      "logements": 15,
+      "etas": 115
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "62",
+      "typeUsage": "CHAUFFAGE_ECS",
+      "logements": 20,
+      "etas": 120
+    }
   ]
 }

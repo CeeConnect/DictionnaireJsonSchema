@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-EQ-110v15-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-EQ-110v15-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-EQ-110",
   "type": "object",
@@ -23,81 +23,115 @@
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json#/$defs/metropole"
     },
-    "indiceProtectionChocs": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/indice-protection-chocs.json"
-    },
-    "luminaireDetecteurLumiere": {
-      "title": "Présence d'un détecteur de lumière",
-      "type": "boolean"
-    },
-    "luminaireDetecteurPresence": {
-      "title": "Présence d'un détecteur de présence",
-      "type": "boolean"
-    },
-    "quantite": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json"
+    "luminaires": {
+      "title": "Liste des luminaires installés",
+      "type": "array",
+      "contains": {
+        "type": "object"
+      },
+      "minContains": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "quantite": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/quantite.json"
+          },
+          "indiceProtectionChocs": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/indice-protection-chocs.json"
+          },
+          "detecteurLumiere": {
+            "title": "Présence d'un détecteur de lumière",
+            "type": "boolean"
+          },
+          "detecteurPresence": {
+            "title": "Présence d'un détecteur de présence",
+            "type": "boolean"
+          }
+        },
+        "anyOf": [
+          {
+            "properties": {
+              "detecteurLumiere": {
+                "const": true
+              }
+            }
+          },
+          {
+            "properties": {
+              "detecteurPresence": {
+                "const": true
+              }
+            }
+          }
+        ],
+        "required": [
+          "quantite",
+          "indiceProtectionChocs",
+          "detecteurLumiere",
+          "detecteurPresence"
+        ]
+      }
     }
   },
-  "anyOf": [
-    {
-      "properties": {
-        "luminaireDetecteurLumiere": {
-          "const": true
-        }
-      }
-    },
-    {
-      "properties": {
-        "luminaireDetecteurPresence": {
-          "const": true
-        }
-      }
-    }
-  ],
   "required": [
     "batiment",
     "codeDepartement",
-    "luminaireDetecteurLumiere",
-    "luminaireDetecteurPresence",
-    "quantite",
-    "indiceProtectionChocs"
+    "equipements"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "06",
-      "luminaireDetecteurLumiere": true,
-      "luminaireDetecteurPresence": false,
-      "quantite": 100,
-      "indiceProtectionChocs": 8 
+      "equipements": [
+        {
+          "detecteurLumiere": true,
+          "detecteurPresence": false,
+          "quantite": 50,
+          "indiceProtectionChocs": "08"
+        },
+        {
+          "detecteurLumiere": false,
+          "detecteurPresence": true,
+          "quantite": 50,
+          "indiceProtectionChocs": "10"
+        },
+        {
+          "detecteurLumiere": true,
+          "detecteurPresence": true,
+          "quantite": 50,
+          "indiceProtectionChocs": "10"
+        }
+      ]
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "93",
-      "luminaireDetecteurLumiere": false,
-      "luminaireDetecteurPresence": true,
-      "quantite": 10,
-      "indiceProtectionChocs": 10
-    },
-    {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "30",
-      "luminaireDetecteurLumiere": true,
-      "luminaireDetecteurPresence": true,
-      "quantite": 20,
-      "indiceProtectionChocs": 8
-    },
-    {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "84",
-      "luminaireDetecteurLumiere": true,
-      "luminaireDetecteurPresence": true,
-      "quantite": 20,
-      "indiceProtectionChocs": 10
+      "equipements": [
+        {
+          "detecteurLumiere": true,
+          "detecteurPresence": false,
+          "quantite": 50,
+          "indiceProtectionChocs": "10"
+        },
+        {
+          "detecteurLumiere": false,
+          "detecteurPresence": true,
+          "quantite": 50,
+          "indiceProtectionChocs": "08"
+        },
+        {
+          "detecteurLumiere": true,
+          "detecteurPresence": true,
+          "quantite": 50,
+          "indiceProtectionChocs": "08"
+        }
+      ]
     }
   ]
 }

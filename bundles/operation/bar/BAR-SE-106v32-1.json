@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-SE-106v32-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-SE-106v32-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-SE-106",
   "type": "object",
@@ -32,22 +32,28 @@
     "codeDepartement",
     "consommationSuivie"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "84",
       "consommationSuivie": "CHAUFFAGE_ELECTRIQUE"
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "83",
       "consommationSuivie": "CHAUFFAGE_GAZ"
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "59",
       "consommationSuivie": "ELECTRICITE_SPECIFIQUE"
     }

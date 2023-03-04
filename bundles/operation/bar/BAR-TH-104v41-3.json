@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-104v41-3",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-104v41-3",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-104",
   "type": "object",
@@ -27,7 +27,7 @@
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json",
       "minimum": 102
     },
-    "surfacehauffee": {
+    "surfaceChauffee": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/surface-chauffee.json"
     }
   },
@@ -35,30 +35,35 @@
     "batiment",
     "codeDepartement",
     "etas",
-    "surfacehauffee"
+    "surfaceChauffee"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "91",
       "etas": 105,
-      "surfacehauffee": 100
-     
+      "surfaceChauffee": 100
     },
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "35",
       "etas": 115,
-      "surfacehauffee": 80
+      "surfaceChauffee": 80
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "66",
       "etas": 125,
-      "surfacehauffee": 50
+      "surfaceChauffee": 50
     }
   ]
 }

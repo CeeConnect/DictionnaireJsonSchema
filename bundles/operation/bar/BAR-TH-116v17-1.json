@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-116v17-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-116v17-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-116",
   "type": "object",
@@ -56,27 +56,32 @@
     "codeDepartement",
     "surfaceChauffee"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "64",
-      "surfacehauffee": 100
-     
+      "surfaceChauffee": 100
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT",
+        "installationChauffage": "COLLECTIF"
+      },
       "codeDepartement": "83",
-      "installationChauffage": "COLLECTIF",
-      "surfacehauffee": 80
+      "surfaceChauffee": 80
     },
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT",
+        "installationChauffage": "INDIVIDUEL"
+      },
       "codeDepartement": "73",
-      "installationChauffage": "INDIVIDUEL",
-      "surfacehauffee": 50
+      "surfaceChauffee": 50
     }
   ]
 }

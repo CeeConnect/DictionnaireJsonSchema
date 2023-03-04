@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-145v36-3",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-145v36-3",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-145",
   "type": "object",
@@ -31,13 +31,13 @@
       "title": "Consommation conventionnelle avant travaux",
       "type": "number",
       "minimum": 0,
-      "unite": "kWh/m².an"
+      "unit": "kWh/m².an"
     },
     "cefProjet": {
       "title": "Consommation conventionnelle après travaux",
       "type": "number",
       "minimum": 0,
-      "unite": "kWh/m².an"
+      "unit": "kWh/m².an"
     }
   },
   "required": [
@@ -45,5 +45,37 @@
     "codeDepartement",
     "cefInitial",
     "cefProjet"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT",
+        "surfaceHabitable": 2000
+      },
+      "codeDepartement": "06",
+      "cefInitial": 400,
+      "cefProjet": 200
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT",
+        "surfaceHabitable": 1500
+      },
+      "codeDepartement": "84",
+      "cefInitial": 350,
+      "cefProjet": 150
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT",
+        "surfaceHabitable": 1000
+      },
+      "codeDepartement": "77",
+      "cefInitial": 300,
+      "cefProjet": 100
+    }
   ]
 }

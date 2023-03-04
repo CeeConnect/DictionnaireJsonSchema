@@ -30,7 +30,7 @@
       "unit": "m²"
     },
     "typeUsage": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-usage.json#/$defs/chauffages"
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-usage.json#/$defs/ecs"
     }
   },
   "required": [
@@ -38,5 +38,34 @@
     "codeDepartement",
     "superficieCapteursSolaires",
     "typeUsage"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "32",
+      "typeUsage": "ECS",
+      "superficieCapteursSolaires": 15
+    },
+    {
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "13",
+      "typeUsage": "CHAUFFAGE_ECS",
+      "superficieCapteursSolaires": 25
+    },
+    {
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "62",
+      "typeUsage": "CHAUFFAGE_ECS",
+      "superficieCapteursSolaires": 40
+    }
   ]
 }

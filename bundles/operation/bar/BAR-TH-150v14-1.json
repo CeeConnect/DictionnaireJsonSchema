@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-150v14-1",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-150v14-1",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-150",
   "type": "object",
@@ -13,19 +13,18 @@
         },
         "anciennete": {
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
-        },
-        "logements": {
-          "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
         }
       },
       "required": [
         "type",
-        "anciennete",
-        "logements"
+        "anciennete"
       ]
     },
     "codeDepartement": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    },
+    "logements": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
     },
     "typeUsage": {
       "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/type-usage.json#/$defs/chauffages"
@@ -39,7 +38,8 @@
       "if": {
         "properties": {
           "puissanceNominale": {
-            "maximun": 400
+            "type": "number",
+            "maximum": 400
           }
         },
         "required": [
@@ -50,7 +50,7 @@
         "properties": {
           "etas": {
             "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/etas.json",
-            "minimun": 102
+            "minimum": 102
           }
         },
         "required": [
@@ -62,7 +62,8 @@
       "if": {
         "properties": {
           "puissanceNominale": {
-            "minimumExclusive": 400
+            "type": "number",
+            "exclusiveMinimum": 400
           }
         },
         "required": [
@@ -74,7 +75,7 @@
           "cop": {
             "title": "Coefficient de performance énergétique",
             "type": "number",
-            "minimun": 1.3
+            "minimum": 1.3
           }
         },
         "required": [
@@ -86,7 +87,43 @@
   "required": [
     "batiment",
     "codeDepartement",
+    "logements",
     "typeUsage",
     "puissanceNominale"
+  ],
+  "examples": [
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "32",
+      "logements": 20,
+      "typeUsage": "CHAUFFAGE",
+      "puissanceNominale": 300,
+      "etas": 105
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "13",
+      "logements": 20,
+      "typeUsage": "CHAUFFAGE_ECS",
+      "puissanceNominale": 450,
+      "cop": 1.8
+    },
+    {
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "codeDepartement": "62",
+      "logements": 20,
+      "typeUsage": "CHAUFFAGE_ECS",
+      "puissanceNominale": 420,
+      "cop": 1.5
+    }
   ]
 }

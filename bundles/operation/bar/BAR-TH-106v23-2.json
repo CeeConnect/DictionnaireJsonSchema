@@ -1,5 +1,5 @@
 {
-  "$id": "https://schemas.ceeconnect.fr/bundles/procedure/bar/BAR-TH-106v23-2",
+  "$id": "https://schemas.ceeconnect.fr/bundles/operation/bar/BAR-TH-106v23-2",
   "$schema": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/meta-schema.json",
   "title": "BAR-TH-106",
   "type": "object",
@@ -15,10 +15,6 @@
           "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/anciennete.json#/$defs/existant"
         }
       },
-      "required": [
-        "type",
-        "anciennete"
-      ],
       "allOf": [
         {
           "if": {
@@ -41,9 +37,23 @@
               "surfaceHabitable"
             ]
           }
-        },
-        {
-          "if": {
+        }
+      ],
+      "required": [
+        "type",
+        "anciennete"
+      ]
+    },
+    "codeDepartement": {
+      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "batiment": {
+            "type": "object",
             "properties": {
               "type": {
                 "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/batiment/type.json#/$defs/immeuble"
@@ -52,47 +62,51 @@
             "required": [
               "type"
             ]
-          },
-          "then": {
-            "properties": {
-              "logements": {
-                "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
-              }
-            },
-            "required": [
-              "logements"
-            ]
           }
-        }
-      ]
-    },
-    "codeDepartement": {
-      "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/code-departement.json"
+        },
+        "required": [
+          "batiment"
+        ]
+      },
+      "then": {
+        "properties": {
+          "logements": {
+            "$ref": "https://raw.githubusercontent.com/CeeConnect/DictionnaireJsonSchema/main/mixins/operation/bar/logements.json"
+          }
+        },
+        "required": [
+          "logements"
+        ]
+      }
     }
-  },
+  ],
   "required": [
     "batiment",
     "codeDepartement"
   ],
-  "exemples": [
+  "examples": [
     {
-      "type": "APPARTEMENT",
-      "anciennete": "EXISTANT",
+      "batiment": {
+        "type": "APPARTEMENT",
+        "anciennete": "EXISTANT"
+      },
       "codeDepartement": "06"
-      
     },
     {
-      "type": "MAISON",
-      "anciennete": "EXISTANT",
-      "codeDepartement": "84",
-      "surfaceHabitable": 100
+      "batiment": {
+        "type": "MAISON",
+        "anciennete": "EXISTANT",
+        "surfaceHabitable": 100
+      },
+      "codeDepartement": "84"
     },
     {
-      "type": "IMMEUBLE",
-      "anciennete": "EXISTANT",
-      "Logement": 10,
+      "batiment": {
+        "type": "IMMEUBLE",
+        "anciennete": "EXISTANT"
+      },
+      "logements": 10,
       "codeDepartement": "92"
     }
-
   ]
 }
